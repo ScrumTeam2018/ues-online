@@ -1536,7 +1536,7 @@ ul.msg_list li a .message {
     border-top-right-radius: 0
 }
 .dropdown-menu>li>a {
-    color: rgb(0, 102, 211)
+    color: #821a1a;
 }
 .navbar-nav .open .dropdown-menu {
     position: absolute;
