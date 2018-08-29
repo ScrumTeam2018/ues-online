@@ -11,6 +11,7 @@
         <![endif]-->
     <title>Ues-Online | Cojutepeque</title>
     <!-- BOOTSTRAP CORE STYLE  -->
+    
     <link href="../public/css/bootstrap.css" rel="stylesheet" />
     <!-- FONT AWESOME ICONS  -->
     <link href="../public/css/font-awesome.css" rel="stylesheet" />

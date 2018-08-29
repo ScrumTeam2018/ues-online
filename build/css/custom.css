@@ -1,4 +1,4 @@
-
+/* #02022b */
 html , body{
 	
  height:100%;
@@ -80,7 +80,7 @@ html , body{
 }
 .daterangepicker .calendar.single .calendar-table thead th {
     border-radius: 0
-}
+}#34495E
 .daterangepicker.picker_1 {
     color: #fff;
     background: #34495E
@@ -144,7 +144,7 @@ html , body{
     padding: 0 0 4px 0
 }
 .left_col {
-    background: #383838
+    background: #02022b
 }
 .nav-sm .container.body .col-md-3.left_col {
     min-height: 100%;
@@ -360,7 +360,7 @@ body .container.body .right_col {
 .nav_title {
     width: 230px;
     float: left;
-    background: #383838;
+    background: #02022b;
     border-radius: 0;
     height: 57px
 }
@@ -492,7 +492,7 @@ body .container.body .right_col {
 }
 body {
     color: #73879C;
-    background: #383838;
+    background: #02022b;
     font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
     font-size: 13px;
     font-weight: 400;
@@ -802,7 +802,7 @@ a:focus {
 }
 .nav.side-menu>li.active>a {
     text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0;
-    background: linear-gradient(#334556, #2C4257), #383838;
+    background: linear-gradient(#334556, #2C4257), #02022b;
     box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0
 }
 .navbar-brand,
@@ -1682,7 +1682,7 @@ span.right {
     padding: 5px 0 0 0;
     position: fixed;
     width: 230px;
-    background: #383838;
+    background: #02022b;
 	z-index:999;
 }
 .sidebar-footer a {
