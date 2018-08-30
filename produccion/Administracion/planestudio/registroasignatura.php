@@ -89,6 +89,39 @@ body {font-family: "Lato", sans-serif;}
         <div class="right_col" role="main">
         <!--Monty: Aqui dentro iria todo lo necesario para el panel de trabajo -->
 
+        <!--Magda titulo de plan -->
+        <div class="page-title">
+              <div class="title_left">
+                <h3>Registro de Asignatura</h3>
+                
+              </div> 
+        </div>
+        <div class="clearfix"></div>
+
+        <div>
+
+        <div class="form-group">
+          <label class="control-label col-md-2 col-sm-2 col-xs-4">Carrera: </label>
+          <div class="col-md-4 col-sm-4 col-xs-8">
+            <select class="form-control">
+              <option>Ingenieria en Sistemas Codigo: 175</option>
+              <option>Administracion Codigo: 185</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-4">Plan de Estudio: </label>
+          <div class="col-md-3 col-sm-3 col-xs-6">
+            <select class="form-control">
+              <option>Plan 2007</option>
+              <option>Plan 2011</option>
+            </select>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+
+
         <div class="tab">
   <button class="tablinks" onmouseover="openCiclo(event, '1')">ciclo 1</button>
   <button class="tablinks" onmouseover="openCiclo(event, '2')">ciclo 2</button>
