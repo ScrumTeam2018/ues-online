@@ -230,7 +230,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><small>Registro de Personal</small></h2>
+                    <h2><small>Modificar Datos del Personal</small></h2>
                    
                     <div class="clearfix"></div>
                   </div>
@@ -252,7 +252,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="code-name">Codigo <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="code-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Codigo Tutor">
+                          <input type="text" id="code-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Codigo Tutor" Disabled>
                         </div>
                       </div>
 
@@ -260,14 +260,14 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="dui-name">Dui <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="dui-name" name="dui-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="123456-7">
+                          <input type="text" id="dui-name" name="dui-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="123456-7" Disabled>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nit-name">Nit <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="nit-name" name="nit-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="1234-67891-12-3">
+                          <input type="text" id="nit-name" name="nit-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="1234-67891-12-3" Disabled>
                         </div>
                       </div>
 
@@ -275,14 +275,14 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombre <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Nombre del Tutor">
+                          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Nombre de la Persona" Disabled>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Apellido <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Apellido del Tutor">
+                          <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Apellido de la Persona" Disabled>
                         </div>
                       </div>
 
@@ -330,13 +330,13 @@
                      <div class="col-md-6 col-sm-6 col-xs-12">
                       <div class="radio">
                             <label>
-                              <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> Masculino
+                              <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios" Disabled> Masculino
                             </label>
                           </div>
 
                           <div class="radio">
                             <label>
-                              <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Femenino
+                              <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios" Disabled> Femenino
                             </label>
                             </label>
                           </div>
