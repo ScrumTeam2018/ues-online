@@ -1,4 +1,4 @@
-/* #02022b */
+/* #040E2C */
 html , body{
 	
  height:100%;
@@ -144,7 +144,7 @@ html , body{
     padding: 0 0 4px 0
 }
 .left_col {
-    background: #02022b
+    background: #040E2C
 }
 .nav-sm .container.body .col-md-3.left_col {
     min-height: 100%;
@@ -326,7 +326,7 @@ html , body{
 }
 .nav_menu {
     float: left;
-    background: #821a1a;
+    background: #AC1C1C;
     border-bottom: 1px solid rgb(21, 60, 107);
     margin-bottom: 10px;
     width: 100%;
@@ -360,7 +360,7 @@ body .container.body .right_col {
 .nav_title {
     width: 230px;
     float: left;
-    background: #02022b;
+    background: #040E2C;
     border-radius: 0;
     height: 57px
 }
@@ -447,7 +447,7 @@ body .container.body .right_col {
 .bg-green {
     background: #ffffff!important;
     border: 1px solid #ffffff!important;
-    color: #821a1a
+    color: #AC1C1C
 }
 .bg-red {
     background: #E74C3C !important;
@@ -492,7 +492,7 @@ body .container.body .right_col {
 }
 body {
     color: #73879C;
-    background: #02022b;
+    background: #040E2C;
     font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
     font-size: 13px;
     font-weight: 400;
@@ -746,7 +746,7 @@ a:focus {
     padding-left: 36px
 }
 .nav-md ul.nav.child_menu li:before {
-    background: #425668;
+    background: #ffffff;
     bottom: auto;
     content: "";
     height: 8px;
@@ -759,7 +759,7 @@ a:focus {
     border-radius: 50%
 }
 .nav-md ul.nav.child_menu li:after {
-    border-left: 1px solid #425668;
+    border-left: 1px solid #ffffff;
     bottom: 0;
     content: "";
     left: 27px;
@@ -792,7 +792,7 @@ a:focus {
     border-right: 5px solid #1ABB9C
 }
 .nav li.current-page {
-    background: rgba(255, 255, 255, 0.05)
+    background: rgba(236, 41, 41, 0.05)
 }
 .nav li li li.current-page {
     background: none
@@ -802,7 +802,7 @@ a:focus {
 }
 .nav.side-menu>li.active>a {
     text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0;
-    background: linear-gradient(#334556, #2C4257), #02022b;
+    background: linear-gradient(#334556, #2C4257), #040E2C;
     box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0
 }
 .navbar-brand,
@@ -1536,7 +1536,7 @@ ul.msg_list li a .message {
     border-top-right-radius: 0
 }
 .dropdown-menu>li>a {
-    color: #821a1a;
+    color: #AC1C1C;
 }
 .navbar-nav .open .dropdown-menu {
     position: absolute;
@@ -1682,7 +1682,7 @@ span.right {
     padding: 5px 0 0 0;
     position: fixed;
     width: 230px;
-    background: #02022b;
+    background: #040E2C;
 	z-index:999;
 }
 .sidebar-footer a {
@@ -2684,7 +2684,7 @@ ul.social li {
     float: right
 }
 .social-sidebar {
-    background: #821a1a;
+    background: #AC1C1C;
     width: 22%
 }
 .social-body {
