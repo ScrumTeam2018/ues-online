@@ -101,8 +101,8 @@ body {font-family: "Lato", sans-serif;}
         <div>
 
         <div class="form-group">
-          <label class="control-label col-md-2 col-sm-2 col-xs-4">Carrera: </label>
-          <div class="col-md-4 col-sm-4 col-xs-8">
+          <label class="control-label col-md-1 col-sm-1 col-xs-2">Carrera: </label>
+          <div class="col-md-5 col-sm-5 col-xs-10">
             <select class="form-control">
               <option>Ingenieria en Sistemas Codigo: 175</option>
               <option>Administracion Codigo: 185</option>
@@ -110,16 +110,9 @@ body {font-family: "Lato", sans-serif;}
           </div>
         </div>
 
-        <div class="form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-4">Plan de Estudio: </label>
-          <div class="col-md-3 col-sm-3 col-xs-6">
-            <select class="form-control">
-              <option>Plan 2007</option>
-              <option>Plan 2011</option>
-            </select>
-          </div>
-        </div>
+        
         <div class="clearfix"></div>
+        </br>
 
 
         <div class="tab">
