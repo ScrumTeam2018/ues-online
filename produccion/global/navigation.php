@@ -1,5 +1,5 @@
-<!-- top navigation -->
-<div class="top_nav">
+        <!-- top navigation -->
+        <div class="top_nav">
           <div class="nav_menu">
             <nav>
               <div class="nav toggle">
@@ -27,7 +27,7 @@
                   <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                     <li>
                       <a>
-                        <span class="image"><img src="../../public/images/img.jpg" alt="Profile Image" /></span>
+                        <span class="image"><img src="../../../public/images/img.jpg" alt="Profile Image" /></span>
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -39,7 +39,7 @@
                     </li>
                     <li>
                       <a>
-                        <span class="image"><img src="../../public/images/img.jpg" alt="Profile Image" /></span>
+                        <span class="image"><img src="../../../public/images/img.jpg" alt="Profile Image" /></span>
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -51,7 +51,7 @@
                     </li>
                     <li>
                       <a>
-                        <span class="image"><img src="../../public/images/img.jpg" alt="Profile Image" /></span>
+                        <span class="image"><img src="../../../public/images/img.jpg" alt="Profile Image" /></span>
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -63,7 +63,7 @@
                     </li>
                     <li>
                       <a>
-                        <span class="image"><img src="../../public/images/img.jpg" alt="Profile Image" /></span>
+                        <span class="image"><img src="../../../public/images/img.jpg" alt="Profile Image" /></span>
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
