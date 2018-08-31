@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+  <script src="../../../public/js/personales/data-mask.js"></script>
 <?php include '../../global/head.php' ?>
 
   <body class="nav-md">
@@ -115,18 +116,9 @@
                         </div>
                         <button class="btn btn-round btn-success" type="button"><i class=" fa fa-plus">Agregar</i></button>
                       </div>
-                     
-                     
+                    
                      
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Contacto</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <button class="btn btn-round btn-default" type="button"><i class=" fa fa-phone"> Telefono</i></button>
-						  <button class="btn btn-round btn-default" type="reset"><i class=" fa fa-envelope-o"> E-Mail</i></button>
-                          
-                         
-                        </div>
-                      </div>
                      
                      <div class="form-group">
                       <label class="control-label col-md-3 col-sm-4 col-xs-12">Genero</label>
@@ -145,7 +137,33 @@
                           </div>
                         </div>
                       </div>
-                    
+                     <!-- Monty: identificador de bloque para agregar el imput text, 
+                    revisar el tutor.js, se encuentra en la direccion dentro del 
+                    proyecto siguiente public/js/personal/ -->
+                    <div id="idTelefonos">
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Teléfono </label>
+                        <div class="col-lg-1">
+                            <button class="btn btn-round btn-default" type="button" id="AddTelefono" name="AddTelefono"><i class=" fa fa-phone"> AddTelefono </i></button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+                      <div id="idCorreos">
+                        <div class="row">
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Correo Electronico</label>
+                    <div class="col-lg-1">
+                    <button class="btn btn-round btn-default" type="button" id="AddCorreo"  name="AddCorreo"><i class=" fa fa-envelope-o"> AddCorreo </i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <br>
+            <!-- fin bloque -->
                       
                     <div class="ln_solid"></div>
                       <div class="form-group" align="right">
@@ -169,6 +187,28 @@
    <?php include '../../global/footer.php'?>
 
    <?php include '../../global/script.php'?>
-	
+  
+   <script>
+  function getInput(type, placeholder){
+  var nodo = document.createElement("input");
+  nodo.type = type;
+  nodo.id = 'telefono[]';
+  nodo.class = 'form-control col-md-7 col-xs-12';
+  nodo.placeholder = placeholder;
+  return nodo;
+}
+
+function append(className, nodoToAppend){
+  var nodo = document.getElementsByClassName(className)[0];
+  nodo.appendChild(nodoToAppend);
+}
+     /*ESTE ES EL CODIGO Q SE SUPONE DEBERIA  AGREGAR LAS CAJAS DE TEXTO */
+function AgregaTelefono(){
+
+  var telefono = getInput("text", "telefono...");
+  append("telefono", telefono);
+
+}
+   </script>
   </body>
 </html>
