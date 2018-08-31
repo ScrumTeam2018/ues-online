@@ -15,13 +15,14 @@
 
             <div class="clearfix"></div>
             <br />
+            <!-- Monty:llamado al menu a la direccion carpeta global -->
            <?php include '../../global/menu.php' ?>
           </div>
         </div>
-
+         <!-- Monty:llamado al navegacion a la direccion carpeta global -->
        <?php include '../../global/navigation.php'?>
 
-        <!-- page content Panel de Trabajo -->
+        <!-- Monty:page content Panel de Trabajo -->
         <div class="right_col" role="main">
         
           <div class="">
@@ -137,7 +138,7 @@
                           </div>
                         </div>
                       </div>
-                     <!-- Monty: identificador de bloque para agregar el imput text, 
+                     <!-- Monty:Monty: identificador de bloque para agregar el imput text, 
                     revisar el tutor.js, se encuentra en la direccion dentro del 
                     proyecto siguiente public/js/personal/ -->
                     <div id="idTelefonos">
@@ -163,7 +164,7 @@
             </div>
             </div>
             <br>
-            <!-- fin bloque -->
+            <!-- Monty:fin bloque -->
                       
                     <div class="ln_solid"></div>
                       <div class="form-group" align="right">
@@ -179,13 +180,14 @@
               </div>
             </div>
         </div>
-        <!-- /page content -->
+        <!-- Monty:/page content -->
 
         
       </div>
     </div>
+     <!-- Monty:llamado al pie de pagina a la direccion carpeta global -->
    <?php include '../../global/footer.php'?>
-
+ <!-- Monty:llamado a todos los script a la direccion carpeta global-->
    <?php include '../../global/script.php'?>
   
    <script>
