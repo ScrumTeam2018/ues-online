@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-  <?php include '../global/head.php' ?>
+  <?php include '../global/global-admin/head.php' ?>
 
   <body class="nav-md">
     <div class="container body">
@@ -13,14 +13,15 @@
             </div>
             <div class="clearfix"></div>
             <br />
-            <?php include '../global/menu.php' ?>
+            <?php include '../global/global-admin/menu.php' ?>
           </div>
         </div>
-        <?php include '../global/navigation.php' ?>
+        <?php include '../global/global-admin/navigation.php' ?>
 
         <!-- page content Panel de Trabajo -->
         <div class="right_col" role="main">
         <!-- here -->
+
 
         </div>
         <!-- /page content -->
@@ -28,7 +29,7 @@
         
       </div>
     </div>
-    <?php include '../global/footer.php' ?>
-    <?php include '../global/script.php' ?>
+    <?php include '../global/global-admin/footer.php' ?>
+    <?php include '../global/global-admin/script.php' ?>
   </body>
 </html>
