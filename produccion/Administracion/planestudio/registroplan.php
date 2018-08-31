@@ -99,12 +99,11 @@ body {font-family: "Lato", sans-serif;}
         <div class="clearfix"></div>
 
         <div class="row" >
-              <div class="col-md-8 col-sm-8 col-xs-8">
+              <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
                 <div class="x_panel" >
                   <div class="x_title">
                     <h4>Registro</h4>
                     <ul class="nav navbar-right panel_toolbox">
-                     
                     <li><a href="registroasignatura.php">Registrar Asignaturas</a>
                     </li>
                     </ul>
@@ -129,25 +128,22 @@ body {font-family: "Lato", sans-serif;}
                         </div>
                       </div>
 
+
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Carrera: <span class="required">*</span>
-                        </label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Carrera: </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select name="transporte">
-                            <option>Ingenieria en Sistemas</option>
-                            <option>Administracion</option>
-                            </select>
+                          <select class="form-control">
+                            <option>Ingenieria en Sistemas </option>
+                            <option>Administracion </option>
+                          </select>
                         </div>
                       </div>
-
-                     
-                      
                       
                       <div class="ln_solid"></div>
                       <div class="form-group" align="right">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                           <button class="btn btn-round btn-primary" type="button"><i class="fa fa-save">  Guardar</i></button>
-						  <button class="btn btn-round btn-default" type="reset"><i class="fa fa-ban">  Cancelar</i></button>
+						              <button class="btn btn-round btn-default" type="reset"><i class="fa fa-ban">  Cancelar</i></button>
                         </div>
                       </div>
 
