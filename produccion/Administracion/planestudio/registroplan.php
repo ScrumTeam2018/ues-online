@@ -114,14 +114,14 @@ body {font-family: "Lato", sans-serif;}
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombre: <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombre: <span class="required"></span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Año: <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Año: <span class="required"></span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">

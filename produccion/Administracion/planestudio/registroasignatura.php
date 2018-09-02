@@ -92,7 +92,7 @@ body {font-family: "Lato", sans-serif;}
         <!--Magda titulo de plan -->
         <div class="page-title">
               <div class="title_left">
-                <h3>Registro de Asignatura</h3>
+                <h3>Plan de Estudio</h3>
                 
               </div> 
         </div>
@@ -122,11 +122,79 @@ body {font-family: "Lato", sans-serif;}
 </div>
 
 <div id="1" class="tabcontent">
-  <h3>Ciclo 1</h3>
-  <p>formulario 1</p>
+ 
+  <!-- Magda inicio del formulario 1 -->
+  
   <input type="button" value="add" onclick="Agregaitems()">
   <div id="add" class="add"></div>
+
+  <div class="row" >
+              <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
+                <div class="x_panel" >
+                  <div class="x_title">
+                    <h4>Registro Asignatura Ciclo 1</h4>                
+                  </div>
+                  <div class="x_content">
+                    <br />
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Codigo: <span class="required"></span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Nombre: <span class="required"></span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                    
+                      <div class="form-group">
+                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">Tipo:</label>
+                        <div class="radio">
+                            <label>
+                              <input type="radio" class="flat" name="iCheck"> Obligatoria
+                            </label>
+                         
+                            <label>
+                              <input type="radio" class="flat" name="iCheck"> Electiva
+                            </label>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Unidades Valorativas: </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="form-control">
+                            <option>2 </option>
+                            <option>4 </option>
+                          </select>
+                        </div>
+                      </div>
+                      
+                      <div class="ln_solid"></div>
+                      <div class="form-group" align="right">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button class="btn btn-round btn-success" type="button"  value="add" onclick="Agregaitems()"><i class="fa fa-plus">  Agregar</i></button>
+						              <button class="btn btn-round btn-default" type="reset"><i class="fa fa-ban">  Cancelar</i></button>
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+        <!-- Magda fin del formulario 1-->
+
 </div>
+
 
 <div id="2" class="tabcontent">
   <h3>ciclo 2</h3>
