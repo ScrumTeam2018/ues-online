@@ -2,6 +2,7 @@
 <html lang="es">
   <head>
 <?php include '../../global/head.php' ?>
+</head>
 
   <body class="nav-md">
     <div class="container body">
@@ -162,11 +163,11 @@
             </div>
         </div>
         <!-- /page content -->
-
+        <?php include '../../global/footer.php'?>
         
       </div>
     </div>
-   <?php include '../../global/footer.php'?>
+   
 
    <?php include '../../global/script.php'?>
 	
