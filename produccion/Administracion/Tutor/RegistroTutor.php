@@ -41,65 +41,72 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
+                    <form action = "../../../sql/guardar.php" method ="POST" name="form" data-parsley-validate class="form-horizontal form-label-left">
+                    <!--<form action = "../sql/guardar.php" method ="POST" name="form">-->
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Cargo</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control">
-                            <option>Tutor</option>
-                            <option>Técnico</option>
+                          <select class="form-control" id="cargo" name="cargo">
+                            <option value="tutor">Tutor</option>
+                            <option value="Técnico">Técnico</option>
                           </select>
                         </div>
                         </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="code-name">Codigo <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="code">Codigo <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="code-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Codigo Tutor">
+                          <input type="text" id="code" name="code" required="required" class="form-control col-md-7 col-xs-12" placeholder="Codigo de la Persona">
                         </div>
                       </div>
 
                         <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="dui-name">Dui <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="dui">Dui <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="dui-name" name="dui-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="123456-7">
+                          <input type="text" id="dui" name="dui" required="required" class="form-control col-md-7 col-xs-12" placeholder="123456-7">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nit-name">Nit <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nit">Nit <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="nit-name" name="nit-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="1234-67891-12-3">
+                          <input type="text" id="nit" name="nit" required="required" class="form-control col-md-7 col-xs-12" placeholder="1234-67891-12-3">
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombre <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first">Nombre <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Nombre del Tutor">
+                          <input type="text" id="first" name="first"  required="required" class="form-control col-md-7 col-xs-12" placeholder="Nombre de la Persona">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Apellido <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last">Apellido <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Apellido del Tutor">
+                          <input type="text" id="last" name="last" required="required" class="form-control col-md-7 col-xs-12"  placeholder="Apellido de la Persona">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="di">Direccion <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="di-name" name="di" required="required" class="form-control col-md-7 col-xs-12" placeholder="Direccion de la Persona">
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Estado Civil</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control">
-                            <option>Soltero</option>
-                            <option>Casado</option>
-                            <option>Viudo/a</option>
-                            <option>Divorciado/a</option>
-                            <option>Estudiante</option>
+                          <select class="form-control" id="estado">
+                            <option value="Soltero">Soltero</option>
+                            <option value="Casado">Casado</option>
+                            <option value="Viudo/a">Viudo/a</option>
+                            <option value="Estudiante">Estudiante</option>
                           </select>
                         </div>
                         </div>
@@ -107,12 +114,9 @@
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Especialidad</label>
                         <div class="col-md-5 col-sm-5 col-xs-12">
-                          <select class="form-control">
-                            <option>Licenciado en Matematica</option>
-                            <option>Licenciado en Lenguaje</option>
-                            <option>Licenciado en Sociales</option>
-                            <option>Licenciado en Ciencia</option>
-                            <option>Licenciado en Agricultura</option>
+                          <select class="form-control" id="especialidad">
+                            <option value="Licenciado en Matematica">Licenciado en Matematica</option>
+                            <option value="Licenciado en Lenguaje">Licenciado en Lenguaje</option>
                           </select>
                         </div>
                         <button class="btn btn-round btn-success" type="button"><i class=" fa fa-plus">Agregar</i></button>
@@ -126,13 +130,13 @@
                      <div class="col-md-6 col-sm-6 col-xs-12">
                       <div class="radio">
                             <label>
-                              <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> Masculino
+                              <input type="radio" checked="" value="option1" id="optionsRadios1" name="genero"> Masculino
                             </label>
                           </div>
 
                           <div class="radio">
                             <label>
-                              <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Femenino
+                              <input type="radio" value="option2" id="optionsRadios2" name="genero"> Femenino
                             </label>
                             </label>
                           </div>
@@ -169,11 +173,11 @@
                     <div class="ln_solid"></div>
                       <div class="form-group" align="right">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-round btn-primary" type="button"><i class=" fa fa-save"> Guardar</i></button>
+                          <button class="btn btn-round btn-primary" type="submit"><i class=" fa fa-save"> Guardar</i></button>
 						  <button class="btn btn-round btn-default" type="reset"><i class=" fa fa-ban"> Cancelar</i></button>
                         </div>
                       </div>
-                 
+                      </form>
                     </form>
                   </div>
                 </div>

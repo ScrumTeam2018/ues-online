@@ -5,7 +5,7 @@ function conectarMysql(){
     $pass= "";
     //$port ="3210";
     $server="localhost";
-    $db = "";
+    $db = "ues";
     $con = mysqli_connect($server, $user, $pass) or die("Error a Conectar en la base: ".mysqli_connect_error());
     mysqli_select_db($con, $db)or die("Error a Conectar en la base: ".mysqli_connect_error());
 
