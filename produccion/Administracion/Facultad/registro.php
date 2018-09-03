@@ -46,7 +46,7 @@
 
                     <div class="form-group">
                         
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="codigo">Código <span class="required" >*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="codigo">Código <span class="required" style="color: #FF0000;">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="text" id="codigo" required="required"  class="form-control col-md-7 col-xs-12" placeholder="Digite código">
@@ -54,7 +54,7 @@
                       </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" class="required" for="nombre_f">Nombre<span >*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" class="required" for="nombre_f">Nombre<span style="color: #FF0000;">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="text" id="nombre_f" required="required" class="form-control col-md-7 col-xs-12" placeholder="Digite Nombre">
@@ -62,7 +62,7 @@
                       </div>
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telefon_f">Teléfono<span class="required" >*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telefon_f">Teléfono<span class="required" style="color: #FF0000;">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="text" class="form-control has-feedback-left" id="telefono_f" required="required" placeholder="Digite número de Teléfono">
@@ -72,7 +72,7 @@
                       </div>
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="correo_f">Correo Electrónico<span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="correo_f">Correo Electrónico<span class="required" style="color: #FF0000;">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="email" class="form-control has-feedback-left" id="correo_f_f"required="required"placeholder="Digite Correo Electrónico">
@@ -97,7 +97,7 @@
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left"> </div>                            
 
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre_r">Nombre<span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre_r">Nombre<span class="required" style="color: #FF0000;">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="text" class="form-control has-feedback-left" id="nombre_r"required="required" placeholder="Digite Nombres">
@@ -106,7 +106,7 @@
                       </div>
 
                        <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="apellidos_r">Apellidos<span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="apellidos_r">Apellidos<span class="required" style="color: #FF0000;">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="text" class="form-control has-feedback-left" id="apellidos_r" required="required" placeholder="Digite Apellidos">
@@ -115,7 +115,7 @@
                       </div>
                       
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telefon_f">Teléfono<span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telefon_f">Teléfono<span class="required" style="color: #FF0000;">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="text" class="form-control has-feedback-left" id="telefono_f"  required="required" placeholder="Digite número de Teléfono">
@@ -124,7 +124,7 @@
                       </div>
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="correo_f">Correo Electrónico<span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="correo_f">Correo Electrónico<span class="required" style="color: #FF0000;">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="email" class="form-control has-feedback-left" id="correo_f_f" required="required" placeholder="Digite Correo Electrónico Personal o Isnstitucional">
