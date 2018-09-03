@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- abrir head el cierre esta dentro del archivo que se incluye -->
+<!-- abrir head  -->
 <head>
 <!-- estilo vertical para las ventanas -->
 <style>
@@ -93,51 +93,26 @@ body {font-family: "Lato", sans-serif;}
         <!--Magda titulo de plan -->
         <div class="page-title">
               <div class="title_left">
-                <h3>Plan de Estudio</h3>
+                <h3>Plan de Estudio <small>Carrera</small></h3>
                 
               </div> 
         </div>
         <div class="clearfix"></div>
 
-        <div>
-
-        <div class="form-group">
-          <label class="control-label col-md-1 col-sm-1 col-xs-2">Carrera: </label>
-          <div class="col-md-5 col-sm-5 col-xs-10">
-            <select class="form-control">
-              <option>Ingenieria en Sistemas Codigo: 175</option>
-              <option>Administracion Codigo: 185</option>
-            </select>
-          </div>
-        </div>
-
-        
-        <div class="clearfix"></div>
-        </br>
-
-
-        <div class="tab">
-  <button class="tablinks" onmouseover="openCiclo(event, '1')">ciclo 1</button>
-  <button class="tablinks" onmouseover="openCiclo(event, '2')">ciclo 2</button>
-  <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 3</button>
-</div>
-
-<div id="1" class="tabcontent">
- 
-  <!-- Magda inicio del formulario 1 -->
-  
-  <input type="button" value="add" onclick="Agregaitems()">
-  <div id="add" class="add"></div>
-
-  <div class="row" >
+        <div class="row" >
               <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
                 <div class="x_panel" >
                   <div class="x_title">
-                    <h4>Registro Asignatura Ciclo 1</h4>                
+                    <h4>Registro</h4>
+                    <ul class="nav navbar-right panel_toolbox">
+                    <li><a href="registroasignatura.php">Modificar Carreras</a>
+                    </li>
+                    </ul>
+                    <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="formcarrera" data-parsley-validate class="form-horizontal form-label-left">
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Codigo: <span class="required"></span>
@@ -146,33 +121,33 @@ body {font-family: "Lato", sans-serif;}
                           <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Nombre: <span class="required"></span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                    
-                      <div class="form-group">
-                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">Tipo:</label>
-                        <div class="radio">
-                            <label>
-                              <input type="radio" class="flat" name="iCheck"> Obligatoria
-                            </label>
-                         
-                            <label>
-                              <input type="radio" class="flat" name="iCheck"> Electiva
-                            </label>
-                          </div>
-                      </div>
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Unidades Valorativas: </label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombre: <span class="required"></span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Duracion: </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control">
-                            <option>2 </option>
-                            <option>4 </option>
+                            <option>2 Años</option>
+                            <option>3 Años</option>
+                            <option>5 Años</option>
+                            <option>8 Años</option>
+                          </select>
+                        </div>
+                      </div>
+
+                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Facultad: </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="form-control">
+                            <option>Sede Cojutepeque</option>
                           </select>
                         </div>
                       </div>
@@ -180,7 +155,7 @@ body {font-family: "Lato", sans-serif;}
                       <div class="ln_solid"></div>
                       <div class="form-group" align="right">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-round btn-success" type="button"  value="add" onclick="Agregaitems()"><i class="fa fa-plus">  Agregar</i></button>
+                          <button class="btn btn-round btn-primary" type="button"><i class="fa fa-save">  Guardar</i></button>
 						              <button class="btn btn-round btn-default" type="reset"><i class="fa fa-ban">  Cancelar</i></button>
                         </div>
                       </div>
@@ -190,64 +165,12 @@ body {font-family: "Lato", sans-serif;}
                 </div>
               </div>
             </div>
-
-        </div>
-        <!-- Magda fin del formulario 1-->
-
-</div>
-
-
-<div id="2" class="tabcontent">
-  <h3>ciclo 2</h3>
-  <p>formulario 2</p> 
-</div>
-
-<div id="3" class="tabcontent">
-  <h3>ciclo 3</h3>
-  <p>formulario 3</p>
-</div>
-
+        
         </div>
         <!-- /page content -->    
         <?php include '../../global/footer.php' ?>
       </div>
     </div>
-    
     <?php include '../../global/script.php' ?>
-    <script>
-function openCiclo(evt, id) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(id).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-
-function getInput(type, placeholder){
-  var nodo = document.createElement("input");
-  nodo.type = type;
-  nodo.placeholder = placeholder;
-  return nodo;
-}
-
-function append(className, nodoToAppend){
-  var nodo = document.getElementsByClassName(className)[0];
-  nodo.appendChild(nodoToAppend);
-}
-
-/*ESTE ES EL CODIGO Q SE SUPONE DEBERIA  AGREGAR LAS CAJAS DE TEXTO */
-function Agregaitems(){
-
-	var nodo1 = getInput("text", "Nombre del producto NUEVO");
-    append("add", nodo1);
-
-	}
-</script>
   </body>
 </html>

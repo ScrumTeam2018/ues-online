@@ -59,6 +59,7 @@ body {font-family: "Lato", sans-serif;}
 }
 </style>
 <?php include '../../global/head.php' ?>
+</head>
 
   <body class="nav-md">
     <div class="container body">
@@ -158,10 +159,10 @@ body {font-family: "Lato", sans-serif;}
 
 
         </div>
-        <!-- /page content -->    
+        <!-- /page content -->
+        <?php include '../../global/footer.php' ?>    
       </div>
     </div>
-    <?php include '../../global/footer.php' ?>
     <?php include '../../global/script.php' ?>
     
   </body>

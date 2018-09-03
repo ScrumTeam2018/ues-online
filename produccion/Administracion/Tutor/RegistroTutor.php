@@ -3,6 +3,7 @@
   <head>
   <script src="../../../public/js/personales/data-mask.js"></script>
 <?php include '../../global/head.php' ?>
+</head>
 
   <body class="nav-md">
     <div class="container body">
@@ -181,13 +182,14 @@
             </div>
         </div>
         <!-- Monty:/page content -->
+        <!-- Monty:llamado al pie de pagina a la direccion carpeta global -->
+        <?php include '../../global/footer.php'?>
 
         
       </div>
     </div>
-     <!-- Monty:llamado al pie de pagina a la direccion carpeta global -->
-   <?php include '../../global/footer.php'?>
- <!-- Monty:llamado a todos los script a la direccion carpeta global-->
+     
+  <!-- Monty:llamado a todos los script a la direccion carpeta global-->
    <?php include '../../global/script.php'?>
   
    <script>

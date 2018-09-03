@@ -1,5 +1,5 @@
-<!-- jQuery -->
-<script src="../../../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- jQuery -->
+    <script src="../../../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="../../../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
@@ -38,6 +38,7 @@
 
     <!-- Custom Theme Scripts -->
     <script src="../../../build/js/custom.min.js"></script>
-<!-- script agregador por Monty para funcionalidad de tutor registro -->
+
+    <!-- script agregador por Monty para funcionalidad de tutor registro -->
     <script src="../../../public/js/personales/tutor.js"></script>
     <script src="../../../public/js/personales/data-mask.js"></script>
