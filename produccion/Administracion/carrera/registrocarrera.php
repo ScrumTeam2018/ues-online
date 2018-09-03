@@ -160,10 +160,10 @@ body {font-family: "Lato", sans-serif;}
                         <span class="help-block" id="error"></span>
                       </div>
 
-                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Facultad: </label>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Duracion: </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" id="facultad" name="faculad">
+                          <select class="form-control" id="facultad" name="facultad">
                             <option selected="selected" value="">Seleccione Facultad...</option>
                             <option value="1">Sede Cojutepeque</option>
                           </select>

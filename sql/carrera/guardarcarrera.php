@@ -1,16 +1,24 @@
 <?php
-  if(isset($_POST["bandera"])){
+ // if(isset($_POST["bandera"])){
     $bandera=$_POST["bandera"];
     $codigo=$_POST["codigo"];
     $nombre=$_POST["nombre"];
     $duracion=$_POST["duracion"];
+    //$facul=$_POST["facul"];
     $facultad=$_POST["facultad"];
 
-   
-    require "../../build/config/conexion.php";    
+   echo $bandera;
+   echo $codigo;
+   echo $nombre;
+   echo $duracion;
+   echo $facultad;
+
+    require "../../build/config/conexion.php"; 
+    $con=conectarMysql();
+
     if($bandera=="add"){
 
-      $result = $conexion->query("select max(idcarrera)+1 as 'idcarrera' from carrera");
+      $result = $con->query("select max(idcarrera)+1 as 'idcarrera' from carrera");
       if ($result) {
         while ($fila = $result->fetch_object()) {
           $id=$fila->id;
@@ -19,9 +27,11 @@
       if($id==null){
         $id=$id+1;
       }
+      echo "n ".$id;
+      
         
         $consulta  = "insert into carrera values('$id',trim('$codigo'),trim('$nombre'),'$duracion','1','$facultad');";
-        $result = $conexion->query($consulta);
+        $result = $con->query($consulta);
 
         mysqli_query("BEGIN");
 
@@ -39,7 +49,7 @@
         }//fin else
                 
     }
-  }
+  //}
 
 /*
   function dameFecha($fecha){
