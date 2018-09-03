@@ -113,6 +113,25 @@
                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                       </div>
                       </div>
+
+
+                       <div class="form-group">
+                     
+                     <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-4 col-xs-12">Genero</label>
+                     <div class="col-md-6 col-sm-6 col-xs-12">
+                      <div class="radio">
+                            <label>
+                              <input type="radio" checked="" value="option1" id="optionsRadios1" name="genero"> Masculino         
+                            </label>
+                            <label>
+                              <input type="radio" value="option2" id="optionsRadios2" name="genero"> Femenino
+                            </label>
+                          </div>
+
+                          
+                      </div>
+                      </div>
                       
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telefon_f">Teléfono<span class="required">*</span>
