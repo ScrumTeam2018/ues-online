@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <!-- abrir head el cierre esta dentro del archivo que se incluye -->
 <head>
 <!-- estilo vertical para las ventanas -->

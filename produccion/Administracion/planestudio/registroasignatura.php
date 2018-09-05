@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <!-- abrir head el cierre esta dentro del archivo que se incluye -->
 <head>
 <!-- estilo vertical para las ventanas -->
@@ -15,17 +15,6 @@
               <a href="#" class="site_title"><img src="../../../public/images/logo2.png"/><span> Sede Cojutepeque</span></a>
             </div>
             <div class="clearfix"></div>
-            <!-- menu profile quick info 
-            <div class="profile clearfix">
-              <div class="profile_pic">
-                <img src="../public/images/descarga.png" alt="..." class="img-circle profile_img">
-              </div>
-              <div class="profile_info">
-                <span>Bienvenido,</span>
-                <h2>John Doe</h2>
-              </div>
-            </div>
-          /menu profile quick info -->
             <br />
             <?php include '../../global/menu.php' ?>
           </div>
@@ -65,25 +54,28 @@
   <button class="tablinks" onmouseover="openCiclo(event, '1')">ciclo 1</button>
   <button class="tablinks" onmouseover="openCiclo(event, '2')">ciclo 2</button>
   <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 3</button>
-  <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 3</button>
-  <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 3</button>
-  <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 3</button>
-  <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 3</button>
-  <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 3</button>
-  <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 3</button>
-  <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 3</button>
+  <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 4</button>
+  <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 5</button>
 </div>
 
-<div id="1" class="tabcontent" active>
+<div id="1" class="tabcontent">
               <div class="x_title">
                     <h4>Registro Asignatura Ciclo 1</h4>                
                   </div>
  
   <!-- Magda inicio del formulario 1 -->
   
-  <input type="button" value="add" onclick="Agregaitems()">
-  <div id="add" class="add"></div>
+                      <div class="form-group" align="right">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button class="btn btn-round btn-success" type="button"  value="add" onclick="Agregaitems()"><i class="fa fa-plus">  Agregar Nuevo</i></button>
+						              <button class="btn btn-round btn-default" type="reset"><i class="fa fa-ban"> Guardar Temporal</i></button>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <br><br>
+
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <div id="add" class="add"></div>
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Codigo: <span class="required"></span>
@@ -120,14 +112,6 @@
                             <option>2 </option>
                             <option>4 </option>
                           </select>
-                        </div>
-                      </div>
-                      
-                      <div class="ln_solid"></div>
-                      <div class="form-group" align="right">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-round btn-success" type="button"  value="add" onclick="Agregaitems()"><i class="fa fa-plus">  Agregar</i></button>
-						              <button class="btn btn-round btn-default" type="reset"><i class="fa fa-ban">  Cancelar</i></button>
                         </div>
                       </div>
 
