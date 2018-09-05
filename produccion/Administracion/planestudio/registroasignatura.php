@@ -3,63 +3,8 @@
 <!-- abrir head el cierre esta dentro del archivo que se incluye -->
 <head>
 <!-- estilo vertical para las ventanas -->
-<style>
-* {box-sizing: border-box}
-body {font-family: "Lato", sans-serif;}
-
-/* Style the tab */
-.tab {
-    float: left;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    width: 10%;
-    height: 300px;
-}
-
-/* Style the buttons inside the tab */
-.tab button {
-    display: block;
-    background-color: inherit;
-    color: black;
-    padding: 22px 16px;
-    width: 100%;
-    border: none;
-    outline: none;
-    text-align: left;
-    cursor: pointer;
-    font-size: 17px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-    background-color: #ccc;
-}
-
-/* Create an active/current "tab button" class */
-.tab button.active {
-    background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-    float: left;
-    padding: 0px 12px;
-    border: 1px solid #ccc;
-    width: 90%;
-    border-left: none;
-    height: 300px;
-    display: none;
-}
-
-/* Clear floats after the tab */
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-</style>
+<?php include 'style/estiloTab.php' ?>
 <?php include '../../global/head.php' ?>
-</head>
 
   <body class="nav-md">
     <div class="container body">
@@ -120,23 +65,24 @@ body {font-family: "Lato", sans-serif;}
   <button class="tablinks" onmouseover="openCiclo(event, '1')">ciclo 1</button>
   <button class="tablinks" onmouseover="openCiclo(event, '2')">ciclo 2</button>
   <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 3</button>
+  <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 3</button>
+  <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 3</button>
+  <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 3</button>
+  <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 3</button>
+  <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 3</button>
+  <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 3</button>
+  <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 3</button>
 </div>
 
-<div id="1" class="tabcontent">
+<div id="1" class="tabcontent" active>
+              <div class="x_title">
+                    <h4>Registro Asignatura Ciclo 1</h4>                
+                  </div>
  
   <!-- Magda inicio del formulario 1 -->
   
   <input type="button" value="add" onclick="Agregaitems()">
   <div id="add" class="add"></div>
-
-  <div class="row" >
-              <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
-                <div class="x_panel" >
-                  <div class="x_title">
-                    <h4>Registro Asignatura Ciclo 1</h4>                
-                  </div>
-                  <div class="x_content">
-                    <br />
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                       <div class="form-group">
@@ -187,11 +133,8 @@ body {font-family: "Lato", sans-serif;}
 
                     </form>
                   </div>
-                </div>
-              </div>
-            </div>
+                  
 
-        </div>
         <!-- Magda fin del formulario 1-->
 
 </div>
@@ -214,6 +157,7 @@ body {font-family: "Lato", sans-serif;}
     </div>
     
     <?php include '../../global/script.php' ?>
+
     <script>
 function openCiclo(evt, id) {
     var i, tabcontent, tablinks;
