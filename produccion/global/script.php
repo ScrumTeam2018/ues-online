@@ -36,6 +36,10 @@
     <script src="../../../vendors/moment/min/moment.min.js"></script>
     <script src="../../../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 
+    <!-- script agregador por Magda para funcionalidad de validaciones -->
+    <script src="../../../vendors/validar/jquery.validate.js"></script>
+   
+
     <!-- Custom Theme Scripts -->
     <script src="../../../build/js/custom.min.js"></script>
 

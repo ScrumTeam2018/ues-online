@@ -47,7 +47,7 @@ $(document).ready(function(){
         },
       rules: {
         codigo: {
-          letrasOespacio: true,
+          alfanumOespacio: true,
           required: true,
           minlength: 3,
           maxlength: 50
@@ -125,8 +125,6 @@ $(document).ready(function(){
     if($("#formcarrera").valid()){
      document.getElementById('bandera').value="add";
       $("#formcarrera").submit();
-    }else{
-      alert("Verifique Datos Ingresados");
     }
     
   });
