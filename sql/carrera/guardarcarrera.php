@@ -18,9 +18,9 @@
 
     if($bandera=="add"){
 
-      $result = $con->query("select max(idcarrera)+1 as 'idcarrera' from carrera");
-      if ($result) {
-        while ($fila = $result->fetch_object()) {
+      $result1 = $con->query("select max(idcarrera)+1 from carrera");
+      if ($result1) {
+        while ($fila = $result1->fetch_object()) {
           $id=$fila->id;
         }
       }

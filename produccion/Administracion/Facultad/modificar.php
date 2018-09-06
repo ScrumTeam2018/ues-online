@@ -154,12 +154,9 @@
             </div>
         </div>
         <!-- Monty:/page content -->
-
-        
+        <?php include '../../global/footer.php' ?>
       </div>
     </div>
-     <!-- Monty:llamado al pie de pagina a la direccion carpeta global -->
-   <?php include '../../global/footer.php'?>
  <!-- Monty:llamado a todos los script a la direccion carpeta global-->
    <?php include '../../global/script.php'?>
   

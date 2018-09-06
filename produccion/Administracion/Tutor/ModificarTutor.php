@@ -24,7 +24,7 @@
         <!-- page content Panel de Trabajo -->
         <div class="right_col" role="main">
         
-          <div class="">
+          <div class="right_col" role="main">
             <div class="page-title">
               <div class="title_left">
               <h3><strong>Recursos Humanos</strong></h3>
