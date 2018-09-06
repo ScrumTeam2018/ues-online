@@ -3,6 +3,7 @@
 <html lang="es">
   <head>
   <script src="../../../public/js/personales/data-mask.js"></script>
+  <script src="jquery.min.js"></script>
 <?php include '../../global/head.php' ?>
 
 </head>
@@ -44,27 +45,18 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form action = "../../../sql/guardar.php" method ="POST" name="form" data-parsley-validate class="form-horizontal form-label-left">
+                    <form action = "../../../build/config/sql/empleado/guardar.php" enctype="multipart/form-data" method ="POST" id="uploadForm" name="form" data-parsley-validate class="form-horizontal form-label-left">
                     <!--<form action = "../sql/guardar.php" method ="POST" name="form">-->
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Cargo</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control" id="cargo" name="cargo">
-                          <option selected="selected" value="">Seleccione Cargo...</option>
                             <option value="tutor">Tutor</option>
-                            <option value="Técnico">Técnico</option>
+                            <option value="Técnico">Tecnico</option>
                           </select>
                           <span class="help-block" id="error"></span>
                         </div>
                         </div>
-
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="code">Codigo <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="code" name="code" required="required" class="form-control col-md-7 col-xs-12" placeholder="Codigo de la Persona">
-                        </div>
-                      </div>
 
                         <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="dui">Dui <span class="required">*</span>
@@ -104,7 +96,7 @@
                         </div>
                       </div>
 
-                      <div class="form-group">
+                     /* <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Estado Civil</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control" id="estado" name="estado">
@@ -122,15 +114,24 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Especialidad</label>
                         <div class="col-md-5 col-sm-5 col-xs-12">
                           <select class="form-control" id="especialidad" name="especialidad">
-                          <option selected="selected" value="">Seleccione Especialidad...</option>
                             <option value="Licenciado en Matematica">Licenciado en Matematica</option>
                             <option value="Licenciado en Lenguaje">Licenciado en Lenguaje</option>
                           </select>
                         </div>
                         <span class="help-block" id="error"></span>
-                        <button class="btn btn-round btn-success" type="button"><i class=" fa fa-plus">Agregar</i></button>
+                        <button class="btn btn-round btn-success" type="button" onclick="Modal_Nuevo();"><i class=" fa fa-plus">Agregar</i></button>
                       </div>
-                    
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Foto</label>
+                        <div class="col-md-5 col-sm-5 col-xs-12">
+
+                      <!--<form method="post" action="upload.php" enctype="multipart/form-data" id="uploadForm">-->
+                      <input type="file" name="foto" id="foto" />
+                     
+                      <!--</form>-->
+                      </div>
+                      </div>
                      
                       <div class="form-group">
                      
@@ -177,7 +178,7 @@
                 </div>
             </div>
             </div>
-            <br>
+            <br>*/
             <!-- Monty:fin bloque -->
                       
                     <div class="ln_solid"></div>
@@ -222,13 +223,64 @@ function append(className, nodoToAppend){
 }
      /*ESTE ES EL CODIGO Q SE SUPONE DEBERIA  AGREGAR LAS CAJAS DE TEXTO */
 function AgregaTelefono(){
-
   var telefono = getInput("text", "telefono...");
   append("telefono", telefono);
 
 }
+function Modal_Nuevo(){
+  $("#Modal_Nueva_Especialidad").modal("show");
+}
+
    </script>
   </body>
 </html>
+<div class="modal" tabindex="-1" role="dialog" id="Modal_Nueva_Especialidad">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ingrese Nueva Especialidad</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <label class="col-lg-3 control-label">Especialidad:</label>
+      <input class="col-md-6 col-sm-6 col-xs-12"  type="text"  id="especialidad" name="especialidad">
+        <br></br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
- 
+ <script>
+ function filePreview(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#uploadForm + img').remove();
+            $('#uploadForm').after('<img src="'+e.target.result+'" width="450" height="300"/>');
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+$('#uploadForm + embed').remove();
+$('#uploadForm').after('<embed src="'+e.target.result+'" width="450" height="300">');
+
+$("#file").change(function () {
+    filePreview(this);
+});
+
+$image = imagecreatefromjpeg('imagen.jpeg');
+ob_start();
+imagejpeg($image);
+$jpg = ob_get_contents();
+ob_end_clean();
+
+$jpg = str_replace('##','##',mysql_escape_string($jpg));
+$result = mysql_query("INSERT INTO tbl_Banner SET Imagen='$jpg'");
+
+ </script>

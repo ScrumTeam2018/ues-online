@@ -1,10 +1,13 @@
 var contadorTelefono=0;
 var contadorCorreo=0;
 $('#AddTelefono').click(function(){
-
     var telCliente ='';
     var telefono = $("#idTelefonos");
+    if(contadorTelefono < 2){
     var cadena="<div class='row' id='r"+contadorTelefono+"'><div class='form-group'><label class='control-label col-md-3 col-sm-3 col-xs-12'></label><div class='col-md-5 col-sm-5 col-xs-12' ><input type='text' class='form-control col-md-7 col-xs-12'  placeholder='(999) 9999-9999' name='telefono[]' id='telefono[]' value='"+telCliente+"'/></div><div class='col-lg-1'><button class='btn btn-default  dim' type='button' onclick='deleteTelefono("+contadorTelefono+")' ><i class='fa fa-minus'></i></button></div></div></div>";
+}else{
+    alert('burro no sobrepase de numeros de telefono');
+}
     contadorTelefono=contadorTelefono+1;
     telefono.append(cadena);
 
