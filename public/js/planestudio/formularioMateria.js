@@ -24,10 +24,10 @@ var dir = $('#addFormulario'+x);
  "<label class='col-md-3 col-sm-3 col-xs-12 control-label'>Tipo:</label>"+
  "<div class='radio'>"+
  "<label>"+
- "<input type='radio' class='flat' name='iCheck'> Obligatoria"+
+ "<input type='radio' class='flat' name='iCheck'> Obligatoria "+
  "</label>"+
  "<label>"+
- "<input type='radio' class='flat' name='iCheck'> Electiva"+
+ "<input type='radio' class='flat' name='iCheck'> Electiva "+
  "</label>"+
  "</div>"+
  "</div>"+

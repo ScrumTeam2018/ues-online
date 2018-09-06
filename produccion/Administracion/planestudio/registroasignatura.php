@@ -33,8 +33,8 @@
               </div> 
         </div>
         <div class="clearfix"></div>
-
-        <div>
+<!-- Este Div es clave para que no aparesca la franja azul en la parte inferior -->
+        <div style="min-height: 594px;height: 700px;">
           
         <div class="form-group">
           <label class="control-label col-md-1 col-sm-1 col-xs-2">Carrera: </label>
@@ -45,8 +45,8 @@
             </select>
           </div>
         </div>
-        <input type="text" name="ciclos" id="ciclos">
-        <label for="">ingrese el valor y das clic en cualquier otro lugar</label>
+        <input type="text" name="ciclos" id="ciclos" placeholder="escribe un numero a generar">
+        <label for="">ingrese el valor y das clic en cualquier otro lugar(este valor depende depende de los años) se quitara.</label>
 
         <div class="clearfix"></div>
         </br>
