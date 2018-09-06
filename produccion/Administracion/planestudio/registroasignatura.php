@@ -3,6 +3,7 @@
 <!-- abrir head el cierre esta dentro del archivo que se incluye -->
 <head>
 <!-- estilo vertical para las ventanas -->
+
 <?php include 'style/estiloTab.php' ?>
 <?php include '../../global/head.php' ?>
 
@@ -34,7 +35,7 @@
         <div class="clearfix"></div>
 
         <div>
-
+          
         <div class="form-group">
           <label class="control-label col-md-1 col-sm-1 col-xs-2">Carrera: </label>
           <div class="col-md-5 col-sm-5 col-xs-10">
@@ -44,101 +45,18 @@
             </select>
           </div>
         </div>
+        <input type="text" name="ciclos" id="ciclos">
+        <label for="">ingrese el valor y das clic en cualquier otro lugar</label>
 
-        
         <div class="clearfix"></div>
         </br>
 
+<!-- Monty: dentro de este div agrego los tab o botones de la izquierda usando jquery -->
+        <div id = "addtab" class="tab"></div>
 
-        <div class="tab">
-  <button class="tablinks" onmouseover="openCiclo(event, '1')">ciclo 1</button>
-  <button class="tablinks" onmouseover="openCiclo(event, '2')">ciclo 2</button>
-  <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 3</button>
-  <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 4</button>
-  <button class="tablinks" onmouseover="openCiclo(event, '3')">ciclo 5</button>
-</div>
-
-
-<div id="1" class="tabcontent">
-              <div class="x_title">
-                    <h4>Registro Asignatura Ciclo 1</h4>                
-                  </div>
- 
-  <!-- Magda inicio del formulario 1 -->
-  
-                      <div class="form-group" align="right">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-round btn-success" type="button"  value="add" onclick="Agregaitems()"><i class="fa fa-plus">  Agregar Nuevo</i></button>
-						              <button class="btn btn-round btn-default" type="reset"><i class="fa fa-ban"> Guardar Temporal</i></button>
-                        </div>
-                      </div>
-                      <div class="clearfix"></div>
-                      <br><br>
-                    <!-- Monty: comienzo del form -->
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-                      <!-- Monty: donde se agregaran los nuevos formularios -->
-                      
-                    <div id="addFormulario" class="addFormulario"></div>
-
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Codigo: <span class="required"></span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Nombre: <span class="required"></span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                    
-                      <div class="form-group">
-                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">Tipo:</label>
-                        <div class="radio">
-                            <label>
-                              <input type="radio" class="flat" name="iCheck"> Obligatoria
-                            </label>
-                         
-                            <label>
-                              <input type="radio" class="flat" name="iCheck"> Electiva
-                            </label>
-                          </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Unidades Valorativas: </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control">
-                            <option>2 </option>
-                            <option>4 </option>
-                          </select>
-                        </div>
-                      </div>
-                    <!-- fin de formulario -->
-                    </form>
-                  </div>
-                  
-
-        <!-- Magda fin del formulario 1-->
-
-</div>
-
-<!-- agregar la parte derecha por cada panel -->
-<div id="2" class="tabcontent">
-  <h3>ciclo 2</h3>
-  <p>formulario 2</p> 
-</div>
-
-<div id="3" class="tabcontent">
-  <h3>ciclo 3</h3>
-  <p>formulario 3</p>
-</div>
 <!-- Monty: formulario pa el resguardar la informacion -->
 <form action="">
-<!-- Monty: agregara todos los tabcontent dinamicamente aqui se insertaran para el llamado -->
+<!-- Monty: agregara todos los tabcontent el contenido usando jquery -->
 <div id= "addtabcontent" class="addtabcontent" >
 </div>
 </form>
@@ -167,50 +85,9 @@ function openCiclo(evt, id) {
     evt.currentTarget.className += " active";
 }
 
-
-/*Monty: codigo que genera los nuevo formularios en el plan de estudio usando JQuery */
-function Agregaitems(){
-  /* llamo al div donde deseo inserta el formulario*/
-var dir = $('#addFormulario');
-/* hago el string que deseo insertar en el div que he llamado */
- var formulario= "<div class='form-group'>"+
- "<label class='control-label col-md-3 col-sm-3 col-xs-12' for='first-name'>"+
- "Codigo: <span class='required'></span>"+
- "</label><div class='col-md-6 col-sm-6 col-xs-12'>"+
- "<input type='text' id='first-name' required='required' class='form-control col-md-7 col-xs-12'>"+
- "</div>"+
- "</div>"+
- "<div class='form-group'>"+
- "<label class='control-label col-md-3 col-sm-3 col-xs-12' for='last-name'>Nombre: <span class='required'></span>"+
- "</label>"+
- "<div class='col-md-6 col-sm-6 col-xs-12'>"+
- "<input type='text' id='last-name' name='last-name' required='required' class='form-control col-md-7 col-xs-12'>"+
- "</div>"+
- "</div>"+
- "<div class='form-group'>"+
- "<label class='col-md-3 col-sm-3 col-xs-12 control-label'>Tipo:</label>"+
- "<div class='radio'>"+
- "<label>"+
- "<input type='radio' class='flat' name='iCheck'> Obligatoria"+
- "</label>"+
- "<label>"+
- "<input type='radio' class='flat' name='iCheck'> Electiva"+
- "</label>"+
- "</div>"+
- "</div>"+
- "<div class='form-group'>"+
- "<label class='control-label col-md-3 col-sm-3 col-xs-12'>Unidades Valorativas: </label>"+
- "<div class='col-md-6 col-sm-6 col-xs-12'>"+
- "<select class='form-control'>"+
- "<option>2 </option>"+
- "<option>4 </option>"+
- "</select>"+
- "</div>"+
- "</div>";
- /* llamo al div y le digo con el metodo append que ahi dentro debe agregarlo todo que es
- escribi en la variable formulario*/
- dir.append(formulario);
-	}
 </script>
+<!-- Monty: llamado al archivo asi el metodo jquery funcione -->
+<script src="../../../public/js/planestudio/formularioMateria.js"></script>
+<script src="../../../public/js/planestudio/ciclosgenerar.js"></script>
 </body>
 </html>
