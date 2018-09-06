@@ -125,7 +125,7 @@ body {font-family: "Lato", sans-serif;}
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="formcarrera" action="../../../sql/carrera/guardarcarrera.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="formcarrera" action="../../../build/config/sql/carrera/guardarcarrera.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
                     <input type="hidden" name="bandera" id="bandera" value="add">
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="codigo">Codigo: <span class="required"></span>
