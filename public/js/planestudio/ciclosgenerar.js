@@ -6,7 +6,7 @@ $('#ciclos').focusout(function() {
   tabcontent.empty();
   
   for(var i=1; i<=x ; i++){
-    var agregarTab ="<button class='tablinks' onmouseover='openCiclo(event,"+i+")'>ciclo"+i+"</button>" ;
+    var agregarTab ="<button class='tablinks' onmouseover='openCiclo(event,"+i+")'>ciclo"+"&nbsp"+i+"</button>" ;
     var agregartabcontent =  "<div id="+i+" class='tabcontent'>"+
   "<div class='x_title'>"+
   "<h4>Registro Asignatura Ciclo "+i+"</h4>"+

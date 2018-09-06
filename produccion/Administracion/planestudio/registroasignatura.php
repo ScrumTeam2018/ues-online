@@ -34,7 +34,7 @@
         </div>
         <div class="clearfix"></div>
 <!-- Este Div es clave para que no aparesca la franja azul en la parte inferior -->
-        <div style="min-height: 594px;height: 700px;">
+        <div >
           
         <div class="form-group">
           <label class="control-label col-md-1 col-sm-1 col-xs-2">Carrera: </label>
