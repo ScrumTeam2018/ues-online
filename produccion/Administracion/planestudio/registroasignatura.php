@@ -63,9 +63,10 @@
 
         </div>
         <!-- /page content -->    
-        <?php include '../../global/footer.php' ?>
+        
       </div>
     </div>
+    <?php include '../../global/footer.php' ?>
     <!-- llamado de los script a importar -->
     <?php include '../../global/script.php' ?>
 
