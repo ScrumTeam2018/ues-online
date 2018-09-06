@@ -1,8 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
   <script src="../../../public/js/personales/data-mask.js"></script>
 <?php include '../../global/head.php' ?>
+
 </head>
 
   <body class="nav-md">
@@ -48,9 +50,11 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Cargo</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control" id="cargo" name="cargo">
+                          <option selected="selected" value="">Seleccione Cargo...</option>
                             <option value="tutor">Tutor</option>
                             <option value="Técnico">Técnico</option>
                           </select>
+                          <span class="help-block" id="error"></span>
                         </div>
                         </div>
 
@@ -103,23 +107,27 @@
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Estado Civil</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" id="estado">
+                          <select class="form-control" id="estado" name="estado">
+                          <option selected="selected" value="">Seleccione Estado Civil...</option>
                             <option value="Soltero">Soltero</option>
                             <option value="Casado">Casado</option>
                             <option value="Viudo/a">Viudo/a</option>
                             <option value="Estudiante">Estudiante</option>
                           </select>
+                          <span class="help-block" id="error"></span>
                         </div>
                         </div>
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Especialidad</label>
                         <div class="col-md-5 col-sm-5 col-xs-12">
-                          <select class="form-control" id="especialidad">
+                          <select class="form-control" id="especialidad" name="especialidad">
+                          <option selected="selected" value="">Seleccione Especialidad...</option>
                             <option value="Licenciado en Matematica">Licenciado en Matematica</option>
                             <option value="Licenciado en Lenguaje">Licenciado en Lenguaje</option>
                           </select>
                         </div>
+                        <span class="help-block" id="error"></span>
                         <button class="btn btn-round btn-success" type="button"><i class=" fa fa-plus">Agregar</i></button>
                       </div>
                     
@@ -150,8 +158,9 @@
                 <div class="row">
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Teléfono </label>
+
                         <div class="col-lg-1">
-                            <button class="btn btn-round btn-default" type="button" id="AddTelefono" name="AddTelefono"><i class=" fa fa-phone"> AddTelefono </i></button>
+                            <button class="btn btn-round btn-default" type="button" id="AddTelefono" name="AddTelefono"><i class=" fa fa-phone"> Telefono </i></button>
                         </div>
                     </div>
                     <br>
@@ -163,7 +172,7 @@
                 <div class="form-group">
                     <label class="col-lg-3 control-label">Correo Electronico</label>
                     <div class="col-lg-1">
-                    <button class="btn btn-round btn-default" type="button" id="AddCorreo"  name="AddCorreo"><i class=" fa fa-envelope-o"> AddCorreo </i></button>
+                    <button class="btn btn-round btn-default" type="button" id="AddCorreo"  name="AddCorreo"><i class=" fa fa-envelope-o"> Correo </i></button>
                     </div>
                 </div>
             </div>
@@ -174,7 +183,7 @@
                     <div class="ln_solid"></div>
                       <div class="form-group" align="right">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-round btn-primary" type="submit"><i class=" fa fa-save"> Guardar</i></button>
+                          <button class="btn btn-round btn-primary" type="submit" ><i class=" fa fa-save" > Guardar</i></button>
 						  <button class="btn btn-round btn-default" type="reset"><i class=" fa fa-ban"> Cancelar</i></button>
                         </div>
                       </div>
@@ -184,6 +193,7 @@
                 </div>
               </div>
             </div>
+        </div>
         </div>
         <!-- Monty:/page content -->
         <!-- Monty:llamado al pie de pagina a la direccion carpeta global -->
@@ -220,3 +230,5 @@ function AgregaTelefono(){
    </script>
   </body>
 </html>
+
+ 
