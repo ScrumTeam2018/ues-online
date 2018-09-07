@@ -51,8 +51,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Cargo</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control" id="cargo" name="cargo">
-                            <option value="tutor">Tutor</option>
-                            <option value="Técnico">Tecnico</option>
+                            
                           </select>
                           <span class="help-block" id="error"></span>
                         </div>
@@ -114,7 +113,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Especialidad</label>
                         <div class="col-md-5 col-sm-5 col-xs-12">
                           <select class="form-control" id="especialidad" name="especialidad">
-                            <option value="Licenciado en Matematica">Licenciado en Matematica</option>
+                            <option value="1">Licenciado en Matematica</option>
                             <option value="Licenciado en Lenguaje">Licenciado en Lenguaje</option>
                           </select>
                         </div>
@@ -208,6 +207,7 @@
    <?php include '../../global/script.php'?>
   
    <script>
+
   function getInput(type, placeholder){
   var nodo = document.createElement("input");
   nodo.type = type;
@@ -284,3 +284,6 @@ $jpg = str_replace('##','##',mysql_escape_string($jpg));
 $result = mysql_query("INSERT INTO tbl_Banner SET Imagen='$jpg'");
 
  </script>
+
+<script type="text/javascript" src="../../../build/config/Selec_Dinamico/selec.js"></script>
+
