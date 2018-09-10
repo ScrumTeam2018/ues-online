@@ -5,8 +5,15 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i>Falcutad <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Dashboard</a></li>
-                      <li><a href="#">Dashboard2</a></li>
+                      <li><a href="../../../produccion/Administracion/Facultad/registro.php">Registro</a></li>
+                      <li><a href="../../../produccion/Administracion/Facultad/modificar.php">Modificaci&oacute;n</a></li>
+                      <li><a href="#">Dashboard3</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-edit"></i>Carrera <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="../../../produccion/Administracion/carrera/registrocarrera.php">Registro</a></li>
+                      <li><a href="../../../produccion/Administracion/Facultad/listarcarrera.php">Modificaci&oacute;n</a></li>
                       <li><a href="#">Dashboard3</a></li>
                     </ul>
                   </li>
@@ -27,6 +34,12 @@
                     <ul class="nav child_menu">
                       <li><a href="#">Tables</a></li>
                       <li><a href="#">Table Dynamic</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-clone"></i>Empleados <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="../../../produccion/Administracion/Tutor/RegistroTutor.php">Registro</a></li>
+                      <li><a href="../../../produccion/Administracion/Tutor/VistaTutor.php">Listar</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i>Estadisticas<span class="fa fa-chevron-down"></span></a>
