@@ -15,11 +15,11 @@ $genero = $_POST['genero'];
 $estado = '1';
 $especialidad = $_POST['especialidad'];
 $foto = '12344';
-/*$telefono= $_POST['telefono'];
+$telefono= $_POST['telefono'];
 for($i=0 ; $i <count($telefono); $i++ ){
     echo $telefono[$i];
  }
- 
+/* 
 $correo = $_POST['correo'];
 
 for($j=0 ; $j <count($correo); $j++ ){
@@ -112,6 +112,35 @@ echo "</script>";
         }*/
 //$nombre.val(" ");
 //return $ejecutar;
+
+/*
+
+        $consulta  = "insert into cliente values('$id',trim('$nombre'),trim('$apellido'),trim('$direccion'),'$fecha','$estadofam',trim('$ocupacion'),trim('$dui'),trim('$nit'),'$genero',trim('$correo'),trim('$ruta'),'1');";
+        $result = $mysqli->query($consulta);
+
+        $consulta1  = "insert into telefono_cliente values('null',trim('$telefono1'),'$id');";
+        $result1 = $mysqli->query($consulta1);
+
+        mysqli_query("BEGIN");
+
+        if(!$result || !$result1){
+          mysqli_query("rollback");
+          echo "<script type='text/javascript'>";
+          echo   "swal('Error','Sin Conexión Dase Datos','error');";
+          echo "</script>"; 
+        }else{
+          if((strcmp($telefono2,$tel)!==0) || $telefono2!=""){
+            $consulta2  = "insert into telefono_cliente values('null',trim('$telefono2'),'$id');";
+            $result2 = $mysqli->query($consulta2);
+          }
+          mysqli_query("commit");
+          echo "<script language='javascript'>";
+          echo "alert(exito)";
+          echo "</script>";
+         
+        }//fin else*/
+                
+        
 
 
 ?>
