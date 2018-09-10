@@ -250,7 +250,7 @@
                       <thead>
                       <tbody>
                         <tr>
-                          <th>No.</th>
+                          <th>Codigo</th>
                           <th>Nombre</th>
                           <th>Apellido</th>
                           <th>Especialidad</th>
@@ -269,7 +269,8 @@
                            <td> <?php echo $row['nombre_em']?> </td>
                            <td> <?php echo $row['apellido_em']?> </td>
                            <td> <?php echo $row['nombre_es']?> </td>
-                           <td><button class="btn btn-round btn-danger" onclick="Modificar(<?php echo $row['idempleado']?>)"><i class=" fa fa-edit"> Modificar </i></button></td>
+                           <td><button class="btn btn-app btn-danger" onclick="Modificar(<?php echo $row['idempleado']?>)"><i class=" fa fa-edit">  </i></button></td>
+                           <td><button class="btn btn-app btn-default" ><i class='fa fa-long-arrow-down'>  </i></button></td>
                            </tr>
 
                            <?php
@@ -278,13 +279,24 @@
                        </thead>
                       </tbody>
                     </table>
-                    
+                    </div>
+                    </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <!-- /page content -->
+<!-- footer content -->
+
+
+<footer>
+          <div class="pull-right">
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
       </div>
     </div>
 <!-- jQuery -->
@@ -321,7 +333,7 @@
 </html>
            
 
-<?php  ?>
+
         </div>
         <!-- /page content -->
 
