@@ -177,7 +177,7 @@ body {font-family: "Lato", sans-serif;}
                           echo "<td>" . $fila->apellido_em . "</td>";
                           echo "<td>" . $fila->nombre_es . "</td>";
                           echo "<td> <a class='btn btn-app' onclick='modify(".$fila->idempleado.")' ><i class='fa fa-edit'></i></a>
-                                     <a class='btn btn-app' onclick='confirmar(".$fila->idempleado.")' ><i class='fa fa-trash'></i></a>
+                                     <a class='btn btn-app' onclick='confirmar(".$fila->idempleado.")' ><i class='fa fa-long-arrow-down'></i></a>
                                       </td>";
                           echo "</tr>";
                           $contador++;

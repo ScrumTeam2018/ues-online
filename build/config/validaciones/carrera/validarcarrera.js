@@ -50,13 +50,13 @@ $(document).ready(function(){
           alfanumOespacio: true,
           required: true,
           minlength: 6,
-          maxlength: 6
+          maxlength: 8
         },
         nombre: {
           letrasOespacio: true,
           required: true,
           minlength: 3,
-          maxlength: 50
+          maxlength: 200
         },
         
         duracion: {
@@ -71,12 +71,12 @@ $(document).ready(function(){
       messages: {
         codigo: {
           required: "Por favor, ingrese c&oacute;digo.",
-          maxlength: "Debe ingresar 6 dígitos.",
-          minlength: "Debe ingresar 6 dígitos."
+          maxlength: "Debe ingresar m&aacute;ximo 8 dígitos.",
+          minlength: "Debe ingresar m&iacute;nimo 6 dígitos."
         },
         nombre: {
           required: "Por favor, ingrese nombre.",
-          maxlength: "Debe ingresar m&aacute;ximo 50 dígitos.",
+          maxlength: "Debe ingresar m&aacute;ximo 200 dígitos.",
           minlength: "Debe ingresar m&iacute;nimo 3 dígitos."
         },
         duracion: {

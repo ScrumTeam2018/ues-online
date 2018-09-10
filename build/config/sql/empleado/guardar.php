@@ -17,12 +17,12 @@ $estado = '1';
 $especialidad = '1';
 
 $especialidad = $_POST['especialidad'];
-$foto = '12344';
+
 $telefono= $_POST['telefono'];
 for($i=0 ; $i <count($telefono); $i++ ){
     echo $telefono[$i];
  }
-
+/*
 $correo = $_POST['correo'];
 
 for($j=0 ; $j <count($correo); $j++ ){

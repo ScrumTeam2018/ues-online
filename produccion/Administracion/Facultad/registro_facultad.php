@@ -42,14 +42,7 @@
                   <div class="x_content">
                     <br />
                     <form action = "../../../build/config/sql/facultad/guardar_facultad.php" method ="POST" name="form" data-parsley-validate class="form-horizontal form-label-left">
-                    <div class="form-group">
-                        
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="codigo">Código <span class="required" style="color: #CD5C5C;"> *</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="codigo" name= "codigo_f" required="required"  class="form-control col-md-7 col-xs-12" placeholder="Digite código">
-                        </div>
-                      </div>
+                    
 
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" class="required" for="nombre_f">Nombre<span class="required" style="color: #CD5C5C;"> *</span>

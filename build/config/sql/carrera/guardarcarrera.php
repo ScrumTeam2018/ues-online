@@ -56,7 +56,7 @@
         }else{
      //     mysqli_query("commit");
           echo "<script language='javascript'>";
-          //echo "location.href='../../../../produccion/Administracion/carrera/registrocarrera.php';";
+          echo "location.href='../../../../produccion/Administracion/carrera/registrocarrera.php';";
           echo "alert('Datos Almacenados');";
           echo "</script>";
          
