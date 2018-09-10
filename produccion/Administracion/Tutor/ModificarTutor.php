@@ -17,12 +17,9 @@
 
 $cod=$_GET["parametro"];
 $query = $mysqli -> query ("SELECT * FROM empleado where idempleado=$cod");
-
 ?>
 
-  <script> function ver(cod){
-  window.location="http://localhost/ues-online/produccion/Administracion/Tutor/VistaTutor.php?parametro="+cod;
-}
+
 </script>
     <div class="container body">
       <div class="main_container">
@@ -155,7 +152,7 @@ $query = $mysqli -> query ("SELECT * FROM empleado where idempleado=$cod");
 
                           <?php $query = $mysqli -> query ("SELECT * FROM especialidad_empleado");
                           while ($valores = mysqli_fetch_array($query)) {
-                         echo '<option value="'.$valores[id_es_em].'">'.$valores[nombre_es_em].'</option>';
+                         echo '<option value="'.$valores[id_es_em].'">'.$valores[nombre_es].'</option>';
                         }
                         ?>
                           </select>
