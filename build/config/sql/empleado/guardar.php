@@ -13,21 +13,16 @@ $apellido = $_POST['last'];
 $direccion = $_POST['di'];
 $genero = $_POST['genero'];
 $estado = '1';
-<<<<<<< HEAD
+
 $especialidad = '1';
-=======
+
 $especialidad = $_POST['especialidad'];
 $foto = '12344';
-<<<<<<< HEAD
 $telefono= $_POST['telefono'];
-=======
->>>>>>> 7ad72d35f67e6b2b0dbfec73915647cd80948a93
-/*$telefono= $_POST['telefono'];
->>>>>>> ff69a0c1efd40edd2ef44a9600f69e2fc5196447
 for($i=0 ; $i <count($telefono); $i++ ){
     echo $telefono[$i];
  }
-/* 
+
 $correo = $_POST['correo'];
 
 for($j=0 ; $j <count($correo); $j++ ){
@@ -62,11 +57,6 @@ if($funcion=="modificar"){
 
 }else{*/
 
-<<<<<<< HEAD
-    $sql = "INSERT INTO empleado (nombre_em,apellido_em,DUI_em,NIT_em,direccion_em,cargo_em,especialidad_es_em,genero_em,estado_em) 
-    VALUES ('$nombre','$apellido','$dui','$nit','$direccion','$cargo','$especialidad','$genero','$estado') ";
-}
-=======
     
 //}
 $conexion = conectarMysql();
@@ -84,7 +74,6 @@ $conexion = conectarMysql();
 
       $sql = "INSERT INTO empleado(idempleado,nombre_em,apellido_em,DUI_em,NIT_em,direccion_em,cargo_em,especialidad_em,foto_em,genero_em,estado_em) 
     VALUES('$id','$nombre','$apellido','$dui','$nit','$direccion','$cargo','$especialidad','$foto','$genero','$estado') ";
->>>>>>> 7ad72d35f67e6b2b0dbfec73915647cd80948a93
 
 
 
