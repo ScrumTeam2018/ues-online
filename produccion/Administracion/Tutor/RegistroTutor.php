@@ -1,7 +1,3 @@
-<?php
-  $mysqli = new mysqli('localhost', 'root', '', 'ues');
-?>
-
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -54,14 +50,19 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Cargo</label>
                         <div class="col-md-5 col-sm-5 col-xs-12">
                           <select class="form-control" id="cargo" name="cargo">
-
-                          <?php $query = $mysqli -> query ("SELECT * FROM cargo");
-                          while ($valores = mysqli_fetch_array($query)) {
-                         echo '<option value="'.$valores[id_ca_em].'">'.$valores[nombre_ca].'</option>';
-                        }
-                        ?>
-                           
+                          <?php
+                              require '../../../build/config/conexion.php';
+                              $con=conectarMysql();
+                              $consulta  = "SELECT * FROM cargo ORDER BY nombre_ca";
+                              $result = $con->query($consulta);
+                              if ($result) {
+                                while ($fila = $result->fetch_object()) {
+                                  echo "<option value='".$fila->id_ca_em."'>".strtoupper($fila->nombre_ca)."</option>";
+                                }//fin while
+                              }
+                            ?>  
                           </select>
+                          
                           <span class="help-block" id="error"></span>
                        </div>
                         <button class="btn btn-round btn-success" type="button" onclick="Modal_Nuevo();"><i class=" fa fa-plus">Agregar</i></button>
@@ -125,12 +126,15 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Especialidad</label>
                         <div class="col-md-5 col-sm-5 col-xs-12">
                           <select class="form-control" id="especialidad" name="especialidad">
-
-                          <?php $query = $mysqli -> query ("SELECT * FROM especialidad_empleado");
-                          while ($valores = mysqli_fetch_array($query)) {
-                         echo '<option value="'.$valores[id_es_em].'">'.$valores[nombre_es_em].'</option>';
-                        }
-                        ?>
+                            <?php
+                              $consulta1  = "SELECT * FROM especialidad_empleado ORDER BY nombre_es";
+                              $result1 = $con->query($consulta1);
+                              if ($result1) {
+                                while ($fila1 = $result1->fetch_object()) {
+                                  echo "<option value='".$fila1->id_es_em."'>".strtoupper($fila1->nombre_es)."</option>";
+                                }//fin while
+                              }
+                            ?>  
                           </select>
                         </div>
                         <span class="help-block" id="error"></span>

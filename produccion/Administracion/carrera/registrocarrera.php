@@ -151,7 +151,6 @@ body {font-family: "Lato", sans-serif;}
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control" id="duracion" name="duracion" tabindex="3">
                             <option selected="selected" value="">Seleccione Duraci&oacute;n...</option>
-                            <option value="2">2 AÑOS</option>
                             <option value="3">3 AÑOS</option>
                             <option value="5">5 AÑOS</option>
                             <option value="8">8 AÑOS</option>
@@ -166,16 +165,16 @@ body {font-family: "Lato", sans-serif;}
                           <select class="form-control" id="facultad" name="facultad" tabindex="4">
                             <option selected="selected" value="">Seleccione Facultad...</option>
                             <?php
-                            require '../../../build/config/conexion.php';
-                            $con=conectarMysql();
-                            $consulta  = "SELECT * FROM facultad WHERE estado_fa='1' ORDER BY nombre_fa";
-                            $result = $con->query($consulta);
-                            if ($result) {
-                              while ($fila = $result->fetch_object()) {
-                                echo "<option value='".$fila->idfacultad."'>".strtoupper($fila->nombre_fa)."</option>";
-                              }//fin while
-                            }
-                        ?>  
+                              require '../../../build/config/conexion.php';
+                              $con=conectarMysql();
+                              $consulta  = "SELECT * FROM facultad WHERE estado_fa='1' ORDER BY nombre_fa";
+                              $result = $con->query($consulta);
+                              if ($result) {
+                                while ($fila = $result->fetch_object()) {
+                                  echo "<option value='".$fila->idfacultad."'>".strtoupper($fila->nombre_fa)."</option>";
+                                }//fin while
+                              }
+                            ?>  
                           </select>
                         </div>
                         <span class="help-block" id="error"></span>

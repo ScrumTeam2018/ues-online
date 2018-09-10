@@ -250,7 +250,7 @@
                       <thead>
                       <tbody>
                         <tr>
-                          <th>Codigo</th>
+                          <th>No.</th>
                           <th>Nombre</th>
                           <th>Apellido</th>
                           <th>Especialidad</th>
@@ -260,7 +260,7 @@
                       <thead>
                       <?php
                        
-                        $query="SELECT * FROM empleado as e,especialidad_empleado as esm where e.especialidad_es_em=esm.id_es_em";
+                        $query="SELECT * FROM empleado as e,especialidad_empleado as esm where e.especialidad_em=esm.id_es_em";
                         $resultado=$mysqli->query($query);
                         while($row=$resultado->fetch_assoc()){
                           ?>
@@ -268,7 +268,7 @@
                            <td> <?php echo $row['idempleado']?> </td>
                            <td> <?php echo $row['nombre_em']?> </td>
                            <td> <?php echo $row['apellido_em']?> </td>
-                           <td> <?php echo $row['nombre_es_em']?> </td>
+                           <td> <?php echo $row['nombre_es']?> </td>
                            <td><button class="btn btn-round btn-danger" onclick="Modificar(<?php echo $row['idempleado']?>)"><i class=" fa fa-edit"> Modificar </i></button></td>
                            </tr>
 
@@ -285,16 +285,6 @@
           </div>
         </div>
         <!-- /page content -->
-<!-- footer content -->
-
-
-<footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
       </div>
     </div>
 <!-- jQuery -->
