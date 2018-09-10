@@ -29,7 +29,7 @@
         $datos=$fila->nombre_ca;
       }//fin while
     }
- echo "datos ".$datos;
+ //echo "datos ".$datos;
    if($datos==null){
 
         

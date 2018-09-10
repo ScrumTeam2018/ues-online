@@ -5,6 +5,7 @@ require "../../conexion.php";
     $apellido=$_POST["apellidos_r"];
     $telefono=$_POST["telefono_r"];
     $correo=$_POST["correo_r"];
+    $facultad=$_POST["facultad"];
 
     echo $nombre;
     echo $apellido;  
@@ -15,7 +16,7 @@ require "../../conexion.php";
 
           
     $sql="INSERT INTO representante_facultad (nombre_rf,apellido_rf,telefono_rf,correo_rf,estado_rf,idfacultadrefk)  
-    VALUES('$nombre','$apellido','$telefono','$correo','1','1')";
+    VALUES('$nombre','$apellido','$telefono','$correo','1','$facultad')";
    
    $result =mysqli_query($con,$sql);
     

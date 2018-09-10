@@ -77,6 +77,28 @@
                         <span class="fa fa-envelope-o form-control-feedback left" aria-hidden="true"></span>
                       </div>
                       </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Facultad: </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="form-control" id="facultad" name="facultad" tabindex="4">
+                            <option selected="selected" value="">Seleccione Facultad...</option>
+                            <?php
+                            require '../../../build/config/conexion.php';
+                            $con=conectarMysql();
+                            $consulta  = "SELECT * FROM facultad WHERE estado_fa='1' ORDER BY nombre_fa";
+                            $result = $con->query($consulta);
+                            if ($result) {
+                              while ($fila = $result->fetch_object()) {
+                                echo "<option value='".$fila->idfacultad."'>".strtoupper($fila->nombre_fa)."</option>";
+                              }//fin while
+                            }
+                            ?>  
+                          </select>
+                        </div>
+                        <span class="help-block" id="error"></span>
+                      </div>
+                      
                       <br>
 
             <!-- Monty:fin bloque -->
