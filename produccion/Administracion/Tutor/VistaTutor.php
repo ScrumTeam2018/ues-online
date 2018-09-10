@@ -1,6 +1,16 @@
+<?php
+  $mysqli = new mysqli('localhost', 'root', '', 'ues');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+<script> function Modificar(cod){
+  window.location="http://localhost/ues-online/produccion/Administracion/Tutor/ModificarTutor.php?parametro="+cod;
+}
+</script>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
@@ -235,32 +245,40 @@
                     <p class="text-muted font-13 m-b-30">
                       Vista de Datos Personales de la Persona.
                     </p>
-					
+                
                     <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                       <thead>
+                      <tbody>
                         <tr>
                           <th>Codigo</th>
                           <th>Nombre</th>
                           <th>Apellido</th>
                           <th>Especialidad</th>
-                          <th></th>
+                          <th>  </th>
                         </tr>
                       </thead>
-                      <tbody>
-                     
-                        <tr>
-                        
-                          <td>Willian</td>
-                          <td>Ernesto</td>
-                          <td>Barrera</td>
-                          <td>Abarca</td>
-                          <td></td>
-                        </tr>
+                      <thead>
+                      <?php
+                       
+                        $query="SELECT * FROM empleado as e,especialidad_empleado as esm where e.especialidad_es_em=esm.id_es_em";
+                        $resultado=$mysqli->query($query);
+                        while($row=$resultado->fetch_assoc()){
+                          ?>
+                           <tr>  
+                           <td> <?php echo $row['idempleado']?> </td>
+                           <td> <?php echo $row['nombre_em']?> </td>
+                           <td> <?php echo $row['apellido_em']?> </td>
+                           <td> <?php echo $row['nombre_es_em']?> </td>
+                           <td><button class="btn btn-round btn-danger" onclick="Modificar(<?php echo $row['idempleado']?>)"><i class=" fa fa-edit"> Modificar </i></button></td>
+                           </tr>
+
+                           <?php
+                        }  
+                        ?>
+                       </thead>
                       </tbody>
                     </table>
-					
-					
-                  </div>
+                    
                 </div>
               </div>
             </div>
@@ -268,6 +286,8 @@
         </div>
         <!-- /page content -->
 <!-- footer content -->
+
+
 <footer>
           <div class="pull-right">
             Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>

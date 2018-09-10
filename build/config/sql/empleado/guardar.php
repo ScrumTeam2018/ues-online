@@ -1,7 +1,10 @@
 <?php
-include('../../conexion.php');
+require "../../conexion.php";
 
 //function guardar(){
+    /*if(isset($_POST["dui"])){
+        echo "la variable se imprimira";
+    }*/
 $cargo = '1';
 $dui = $_POST['dui'];
 $nit = $_POST['nit'];
@@ -9,14 +12,11 @@ $nombre = $_POST['first'];
 $apellido = $_POST['last'];
 $direccion = $_POST['di'];
 $genero = $_POST['genero'];
-//$foto = $_POST['foto'];
 $estado = '1';
 $especialidad = '1';
 $foto = '12344';
-//$genero = $_POST['genero'];
 /*$telefono= $_POST['telefono'];
-
- for($i=0 ; $i <count($telefono); $i++ ){
+for($i=0 ; $i <count($telefono); $i++ ){
     echo $telefono[$i];
  }
  
@@ -39,28 +39,63 @@ echo $especialidad;
 //echo $telefono;
 /*echo $correo;*/
 
-//require "../../build/config/conexion.php"; 
-//$con=conectarMysql();
+$funcion=$_POST['funcion'];
+$cod=$_POST['cod'];
+echo $funcion;
+
+
+
+if($funcion=="modificar"){
+
+   $sql="UPDATE empleado SET nombre_em='$nombre',apellido_em='$apellido',DUI_em='$dui',NIT_em='$nit',
+   direccion_em='$direccion',cargo_em='$cargo',especialidad_es_em='$especialidad',foto_em='$foto',genero_em='$genero',
+   estado_em='$estado' where idempleado=$cod";
+    
+
+}else{
+
+    $sql = "INSERT INTO empleado (nombre_em,apellido_em,DUI_em,NIT_em,direccion_em,cargo_em,especialidad_es_em,foto_em,genero_em,estado_em) 
+    VALUES ('$nombre','$apellido','$dui','$nit','$direccion','$cargo','$especialidad','$foto','$genero','$estado') ";
+}
+
 
 
     
         
-$sql = "INSERT INTO empleado (nombre_em,apellido_em,DUI_em,NIT_em,direccion_em,cargo_em,especialidad_em,foto_em,genero_em,estado_em) 
-VALUES ('$nombre','$apellido','$dui','$nit','$direccion','$cargo','$especialidad','$foto','$genero','$estado') ";
 
-//$telefono = $_POST[''];
-//$sql = "INSERT INTO empleado_telefono (telefono_em) VALUES ('$AddTelefono')  ";
 
-//$correo = $_POST[''];
-//$sql = "INSERT INTO empleado_correo (correo_em) VALUES ('$AddCorreo') ";
+
+//$sql1 = "INSERT INTO empleado_telefono (telefono_em) VALUES ('$telefono')";
+
+
+//$sql2 = "INSERT INTO empleado_correo (correo_em) VALUES ('$correo') ";
 
 $conexion = conectarMysql();
+//$conexion1 = conectarMysql();
+//$conexion2 = conectarMysql();
 $ejecutar=mysqli_query($conexion,$sql);
+//$ejecutar1=mysqli_query($conexion1,$sql1);
+//$ejecutar2=mysqli_query($conexion2,$sql2);
 if($ejecutar){
 echo 'exito';
+echo "<script type='text/javascript'>";
+echo "location.href='../../../../produccion/Administracion/Tutor/VistaTutor.php'";
+echo "</script>"; 
+
+
 }else{
     echo 'no';
 }
+/*if($ejecutar1){
+    echo 'exito';
+    }else{
+        echo 'no';
+    }
+    if($ejecutar2){
+        echo 'exito';
+        }else{
+            echo 'no';
+        }*/
 //$nombre.val(" ");
 //return $ejecutar;
 
