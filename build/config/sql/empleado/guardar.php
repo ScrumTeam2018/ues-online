@@ -14,7 +14,6 @@ $direccion = $_POST['di'];
 $genero = $_POST['genero'];
 $estado = '1';
 $especialidad = '1';
-$foto = '12344';
 /*$telefono= $_POST['telefono'];
 for($i=0 ; $i <count($telefono); $i++ ){
     echo $telefono[$i];
@@ -48,14 +47,14 @@ echo $funcion;
 if($funcion=="modificar"){
 
    $sql="UPDATE empleado SET nombre_em='$nombre',apellido_em='$apellido',DUI_em='$dui',NIT_em='$nit',
-   direccion_em='$direccion',cargo_em='$cargo',especialidad_es_em='$especialidad',foto_em='$foto',genero_em='$genero',
+   direccion_em='$direccion',cargo_em='$cargo',especialidad_es_em='$especialidad',genero_em='$genero',
    estado_em='$estado' where idempleado=$cod";
     
 
 }else{
 
-    $sql = "INSERT INTO empleado (nombre_em,apellido_em,DUI_em,NIT_em,direccion_em,cargo_em,especialidad_es_em,foto_em,genero_em,estado_em) 
-    VALUES ('$nombre','$apellido','$dui','$nit','$direccion','$cargo','$especialidad','$foto','$genero','$estado') ";
+    $sql = "INSERT INTO empleado (nombre_em,apellido_em,DUI_em,NIT_em,direccion_em,cargo_em,especialidad_es_em,genero_em,estado_em) 
+    VALUES ('$nombre','$apellido','$dui','$nit','$direccion','$cargo','$especialidad','$genero','$estado') ";
 }
 
 

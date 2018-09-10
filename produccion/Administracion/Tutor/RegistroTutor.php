@@ -137,16 +137,6 @@
                         <button class="btn btn-round btn-success" type="button" onclick="Modal_Nuevo();"><i class=" fa fa-plus">Agregar</i></button>
                       </div>
 
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Foto</label>
-                        <div class="col-md-5 col-sm-5 col-xs-12">
-
-                      <!--<form method="post" action="upload.php" enctype="multipart/form-data" id="uploadForm">-->
-                      <input type="file" name="foto" id="foto" />
-                     
-                      <!--</form>-->
-                      </div>
-                      </div>
                      
                       <div class="form-group">
                      
@@ -319,15 +309,6 @@ $('#uploadForm').after('<embed src="'+e.target.result+'" width="450" height="300
 $("#file").change(function () {
     filePreview(this);
 });
-
-$image = imagecreatefromjpeg('imagen.jpeg');
-ob_start();
-imagejpeg($image);
-$jpg = ob_get_contents();
-ob_end_clean();
-
-$jpg = str_replace('##','##',mysql_escape_string($jpg));
-$result = mysql_query("INSERT INTO tbl_Banner SET Imagen='$jpg'");
 
  </script>
 

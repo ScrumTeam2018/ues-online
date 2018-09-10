@@ -18,8 +18,12 @@
 $cod=$_GET["parametro"];
 $query = $mysqli -> query ("SELECT * FROM empleado where idempleado=$cod");
 
-                            
-  ?>
+?>
+
+  <script> function ver(cod){
+  window.location="http://localhost/ues-online/produccion/Administracion/Tutor/VistaTutor.php?parametro="+cod;
+}
+</script>
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
@@ -159,17 +163,6 @@ $query = $mysqli -> query ("SELECT * FROM empleado where idempleado=$cod");
                         <span class="help-block" id="error"></span>
                         <button class="btn btn-round btn-success" type="button" onclick="Modal_Nuevo();"><i class=" fa fa-plus">Agregar</i></button>
                       </div>
-
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Foto</label>
-                        <div class="col-md-5 col-sm-5 col-xs-12">
-
-                      <!--<form method="post" action="upload.php" enctype="multipart/form-data" id="uploadForm">-->
-                      <input type="file" name="foto" id="foto" />
-                     
-                      <!--</form>-->
-                      </div>
-                      </div>
                      
                       <div class="form-group">
                      
@@ -207,7 +200,7 @@ $query = $mysqli -> query ("SELECT * FROM empleado where idempleado=$cod");
             </div>
             </div>
             <br>
-           
+            <?php } ?>
             <!-- Monty:fin bloque -->
                       
                     <div class="ln_solid"></div>
@@ -216,7 +209,7 @@ $query = $mysqli -> query ("SELECT * FROM empleado where idempleado=$cod");
                         <button class="btn btn-round btn-primary" type="submit" ><i class=" fa fa-save" > Guardar</i></button>
 						  <button class="btn btn-round btn-default" type="reset"><i class=" fa fa-ban"> Cancelar</i></button>
 
-               <?php } ?>
+               
 
                     <input type="hidden" name="funcion" value="modificar" />
                     <input type="hidden" name="cod" value="<?php echo $cod; ?>" />
@@ -339,15 +332,6 @@ $('#uploadForm').after('<embed src="'+e.target.result+'" width="450" height="300
 $("#file").change(function () {
     filePreview(this);
 });
-
-$image = imagecreatefromjpeg('imagen.jpeg');
-ob_start();
-imagejpeg($image);
-$jpg = ob_get_contents();
-ob_end_clean();
-
-$jpg = str_replace('##','##',mysql_escape_string($jpg));
-$result = mysql_query("INSERT INTO tbl_Banner SET Imagen='$jpg'");
 
  </script>
 
