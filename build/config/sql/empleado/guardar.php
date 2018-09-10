@@ -13,17 +13,16 @@ $apellido = $_POST['last'];
 $direccion = $_POST['di'];
 $genero = $_POST['genero'];
 $estado = '1';
-<<<<<<< HEAD
+
 $especialidad = '1';
-=======
+
 $especialidad = $_POST['especialidad'];
 $foto = '12344';
->>>>>>> 7ad72d35f67e6b2b0dbfec73915647cd80948a93
-/*$telefono= $_POST['telefono'];
+$telefono= $_POST['telefono'];
 for($i=0 ; $i <count($telefono); $i++ ){
     echo $telefono[$i];
  }
- 
+
 $correo = $_POST['correo'];
 
 for($j=0 ; $j <count($correo); $j++ ){
@@ -58,11 +57,6 @@ if($funcion=="modificar"){
 
 }else{*/
 
-<<<<<<< HEAD
-    $sql = "INSERT INTO empleado (nombre_em,apellido_em,DUI_em,NIT_em,direccion_em,cargo_em,especialidad_es_em,genero_em,estado_em) 
-    VALUES ('$nombre','$apellido','$dui','$nit','$direccion','$cargo','$especialidad','$genero','$estado') ";
-}
-=======
     
 //}
 $conexion = conectarMysql();
@@ -80,7 +74,6 @@ $conexion = conectarMysql();
 
       $sql = "INSERT INTO empleado(idempleado,nombre_em,apellido_em,DUI_em,NIT_em,direccion_em,cargo_em,especialidad_em,foto_em,genero_em,estado_em) 
     VALUES('$id','$nombre','$apellido','$dui','$nit','$direccion','$cargo','$especialidad','$foto','$genero','$estado') ";
->>>>>>> 7ad72d35f67e6b2b0dbfec73915647cd80948a93
 
 
 
@@ -122,6 +115,35 @@ echo "</script>";
         }*/
 //$nombre.val(" ");
 //return $ejecutar;
+
+/*
+
+        $consulta  = "insert into cliente values('$id',trim('$nombre'),trim('$apellido'),trim('$direccion'),'$fecha','$estadofam',trim('$ocupacion'),trim('$dui'),trim('$nit'),'$genero',trim('$correo'),trim('$ruta'),'1');";
+        $result = $mysqli->query($consulta);
+
+        $consulta1  = "insert into telefono_cliente values('null',trim('$telefono1'),'$id');";
+        $result1 = $mysqli->query($consulta1);
+
+        mysqli_query("BEGIN");
+
+        if(!$result || !$result1){
+          mysqli_query("rollback");
+          echo "<script type='text/javascript'>";
+          echo   "swal('Error','Sin Conexión Dase Datos','error');";
+          echo "</script>"; 
+        }else{
+          if((strcmp($telefono2,$tel)!==0) || $telefono2!=""){
+            $consulta2  = "insert into telefono_cliente values('null',trim('$telefono2'),'$id');";
+            $result2 = $mysqli->query($consulta2);
+          }
+          mysqli_query("commit");
+          echo "<script language='javascript'>";
+          echo "alert(exito)";
+          echo "</script>";
+         
+        }//fin else*/
+                
+        
 
 
 ?>
