@@ -77,7 +77,7 @@
                         <span class="fa fa-envelope-o form-control-feedback left" aria-hidden="true"></span>
                       </div>
                       </div>
-                     <div class="ln_solid"></div>
+                    
 
                  <!-- españa: inicio de datos de responsable de Facultad -->
            
