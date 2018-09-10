@@ -49,8 +49,8 @@ $(document).ready(function(){
         codigo: {
           alfanumOespacio: true,
           required: true,
-          minlength: 3,
-          maxlength: 50
+          minlength: 6,
+          maxlength: 6
         },
         nombre: {
           letrasOespacio: true,
@@ -70,17 +70,17 @@ $(document).ready(function(){
       },
       messages: {
         codigo: {
+          required: "Por favor, ingrese c&oacute;digo.",
+          maxlength: "Debe ingresar 6 dígitos.",
+          minlength: "Debe ingresar 6 dígitos."
+        },
+        nombre: {
           required: "Por favor, ingrese nombre.",
           maxlength: "Debe ingresar m&aacute;ximo 50 dígitos.",
           minlength: "Debe ingresar m&iacute;nimo 3 dígitos."
         },
-        nombre: {
-          required: "Por favor, ingrese apellido.",
-          maxlength: "Debe ingresar m&aacute;ximo 50 dígitos.",
-          minlength: "Debe ingresar m&iacute;nimo 3 dígitos."
-        },
         duracion: {
-          required: "Por favor, seleccione duracion."
+          required: "Por favor, seleccione duraci&oacute;n."
         },
         facultad: {
             required: "Por favor, seleccione facultad."
