@@ -1,5 +1,5 @@
-            <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+<!-- sidebar menu -->
+<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>Menu General</h3>
                 <ul class="nav side-menu">
@@ -19,9 +19,15 @@
                   </li>
                   <li><a><i class="fa fa-edit"></i>Carrera <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="../../../produccion/Administracion/carrera/registrocarrera.php">Registro</a></li>
-                      <li><a href="../../../produccion/Administracion/Facultad/listarcarrera.php">Modificaci&oacute;n</a></li>
+                      <li><a href="../../../produccion/Administracion/carrera/registroCarrera.php">Registro</a></li>
+                      <li><a href="../../../produccion/Administracion/carrera/listaCarrera.php">Modificaci&oacute;n</a></li>
                       <li><a href="#">Dashboard3</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-clone"></i>Empleado 2 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="../../../produccion/Administracion/Empleado/registroEmpleado.php">Registro</a></li>
+                      <li><a href="../../../produccion/Administracion/Empleado/listaEmpleado.php">Listar</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i>Asignatura<span class="fa fa-chevron-down"></span></a>
@@ -39,7 +45,7 @@
                   </li>
                   <li><a><i class="fa fa-table"></i>Plan de Estudio<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Tables</a></li>
+                      <li><a href="../../../produccion/Administracion/planestudio/registroplan.php">Registro</a></li>
                       <li><a href="#">Table Dynamic</a></li>
                     </ul>
                   </li>
