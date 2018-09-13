@@ -1,26 +1,25 @@
+<!--Alertas -->
+<script src="../../../../vendors/alertas/dist/sweetalert-dev.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../vendors/alertas/dist/sweetalert.css"/>
+
+
 <?php
  require "../../conexion.php"; 
     
   if(isset($_POST["bandera"])){
 
     $bandera=$_POST["bandera"];
-    $codigo=$_POST["codigo"];
-    $nombre=$_POST["nombre"];
-    $duracion=$_POST["duracion"];
-    //$facul=$_POST["facul"];
-    $facultad=$_POST["facultad"];
-
-   echo $bandera;
-   echo $codigo;
-   echo $nombre;
-   echo $duracion;
-   echo $facultad;
-
     
 
-    if($bandera=="add"){
-
    $con=conectarMysql();
+
+    if($bandera=="add"){
+      $codigo=$_POST["codigo"];
+      $nombre=$_POST["nombre"];
+      $duracion=$_POST["duracion"];
+      //$facul=$_POST["facul"];
+      $facultad=$_POST["facultad"];
+   
 
    $consulta = "SELECT * FROM carrera WHERE codigo_ca='$codigo' OR nombre_ca='$nombre'";
    $result = $con->query($consulta);
@@ -45,23 +44,58 @@
        echo "no1";
       }
     }
-   //     mysqli_query("BEGIN");
-        
+  
+   if(!$result1){
+    echo "<script language='javascript'>";
+    echo "swal({ 
+            title:'Error',
+            text: 'Sin Conexión Dase Datos',
+            type: 'error'
+          },
+           function(){
+              //event to perform on click of ok button of sweetalert
+              location.href='../../../../produccion/Administracion/carrera/registroCarrera.php';
+          });";
+    echo "</script>";
+  }else{
+    echo "<script language='javascript'>";
+    echo "swal({ 
+            title:'Éxito',
+            text: 'Datos Almacenados',
+            type: 'success'
+          },
+           function(){
+              //event to perform on click of ok button of sweetalert
+              location.href='registroCarrera.php';
+          });";
+    echo "</script>";
+   
+  }//fin else
+            
+    }
+    
+    if($bandera=="darbaja"){
+      $baccion=$_REQUEST["baccion"];
 
-        if(!$result1){
-   //       mysqli_query("rollback");
-          echo "<script type='text/javascript'>";
-          echo   "alert('Código o nombre ya existen');";
-          echo "</script>"; 
-        }else{
-     //     mysqli_query("commit");
+      $consulta2  = "UPDATE carrera set estado_ca='0' where idcarrera=".$baccion."";
+      $result2 =mysqli_query($con,$consulta2);
+        if (result2) {
           echo "<script language='javascript'>";
-          echo "location.href='../../../../produccion/Administracion/carrera/registrocarrera.php';";
-          echo "alert('Datos Almacenados');";
-          echo "</script>";
-         
-        }//fin else
-       //$con->close();      
+              echo "swal({ 
+                      title:'Éxito',
+                      text: 'Datos Almacenados',
+                      type: 'success'
+                    },
+                     function(){
+                        //event to perform on click of ok button of sweetalert
+                        location.href='../../../../produccion/Administracion/carrera/listarCarrera.php';
+                    });";
+              echo "</script>";
+        } else {
+              echo "<script type='text/javascript'>";
+              echo   "swal('Error','Sin Conexión Dase Datos','error');";
+              echo "</script>"; 
+        }
     }
   }
 ?>

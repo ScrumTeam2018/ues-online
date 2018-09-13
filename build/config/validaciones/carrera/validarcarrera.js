@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  var codinvalid=0;
     
     $('input').on('keypress', function(e){
       if (e.keyCode == 13) {
@@ -87,6 +88,32 @@ $(document).ready(function(){
           }
       }
     });
+
+    $("#codigo").blur(function(e) {
+      e.preventDefault();
+      var data = $(this).serializeArray();
+
+      data.push({name: 'tag', value: 'cod'});
+
+                $.ajax({            
+                    type : 'POST',
+                    url  : '../../../build/config/sql/carrera/crudCarrera.php',
+                    dataType : 'json',
+                    data : data
+                })
+                .done(function(){
+                  console.log("success");
+                  $('#msjcod').html('<span class="help-block" id="error"></span>').validate;
+                  codinvalid = 0;
+                })
+                .fail(function(){
+                  console.log("error");
+                  $('#msjcod').html('<span class="help-block" id="error">C&oacute;digo ya existe</span>');
+                  codinvalid = 1;
+                });
+alert(codinvalid);
+
+   });
 
  
 

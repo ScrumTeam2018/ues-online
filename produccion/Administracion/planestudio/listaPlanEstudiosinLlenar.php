@@ -102,7 +102,7 @@ body {font-family: "Lato", sans-serif;}
         <!--Magda titulo -->
         <div class="page-title">
               <div class="col-sm-12 col-sm-offset-1 col-md-10 col-md-offset-1 ">
-                <h3 style="color: RGB(0, 0, 128);"><strong>RECURSOS HUMANOS.</strong></h3>
+                <h3 style="color: RGB(0, 0, 128);"><strong>PLAN DE ESTUDIO.</strong></h3>
                 
               </div> 
         </div>
@@ -112,16 +112,16 @@ body {font-family: "Lato", sans-serif;}
               <div class="col-sm-12 col-sm-offset-1 col-md-10 col-md-offset-1 ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h3 style="color:RGB(205, 92, 92);">Lista de Empleados Activos.</h3>
+                    <h3 style="color:RGB(205, 92, 92);">Lista Plan de Estudio.</h3>
                     <ul class="nav navbar-right panel_toolbox">
-                    <li><a href="registroEmpleado.php">Registrar Empleado</a>
+                    <li><a href="registroplan.php">Registrar Plan de Estudio</a>
                     </li>
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                      Responsive is an extension for DataTables that resolves that problem by optimising the table's layout for different screen sizes through the dynamic insertion and removal of columns from the table.
+                        Lista de todos los Planes de Estudio que estan Activos pero que a&uacute;n no se han Completado.
                     </p>
 
                     <form id="formtutor" data-parsley-validate class="form-horizontal form-label-left">
@@ -133,9 +133,8 @@ body {font-family: "Lato", sans-serif;}
                       <thead>
                         <tr>
                           <th>No.</th>
-                          <th>Nombres</th>
-                          <th>Apellidos</th>
-                          <th>Especialidad</th>
+                          <th>C&oacute;digo Carrera</th>
+                          <th>Plan de Estudio</th>
                           <th>Acciones</th>
                         </tr>
                       </thead>
@@ -144,18 +143,16 @@ body {font-family: "Lato", sans-serif;}
                       <?php
                       require '../../../build/config/conexion.php';
                       $con=conectarMysql();
-                      $result = $con->query("SELECT * FROM empleado as e,especialidad_empleado as esm where e.especialidad_em=esm.id_es_em");
+                      $result = $con->query("SELECT ca.codigo_ca,pe.idplanestudio, pe.nombre_pe FROM  carrera as ca, plan_estudio as pe WHERE pe.idcarrerafk=ca.idcarrera AND pe.estado_pe='1' AND pe.estadolleno_pe='0'");
                       $contador=1;
                       if ($result) {
                         while ($fila = $result->fetch_object()) {
                          
                           echo "<tr>";
                           echo "<td>" .$contador. "</td>";
-                          echo "<td>" . $fila->nombre_em . "</td>";
-                          echo "<td>" . $fila->apellido_em . "</td>";
-                          echo "<td>" . $fila->nombre_es . "</td>";
-                          echo "<td> <a class='btn btn-success btn-lg' onclick='modify(".$fila->idempleado.")' ><i class='fa fa-edit'></i></a>
-                                     <a class='btn btn-danger btn-lg' onclick='confirmar(".$fila->idempleado.")' ><i class='fa fa-long-arrow-down'></i></a>
+                          echo "<td>" . $fila->codigo_ca . "</td>";
+                          echo "<td>" . $fila->nombre_pe . "</td>";
+                          echo "<td> <a class='btn btn-danger btn-lg' onclick='confirmar(".$fila->idplanestudio.")' ><i class='fa fa-long-arrow-down'></i></a>
                                       </td>";
                           echo "</tr>";
                           $contador++;
@@ -165,7 +162,8 @@ body {font-family: "Lato", sans-serif;}
                       ?>
                       </tbody>
                     </table>
-                      </div>
+                    </div>
+					
 					          </form>
                   </div>
                 </div>

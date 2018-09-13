@@ -118,14 +118,14 @@ body {font-family: "Lato", sans-serif;}
                   <div class="x_title">
                     <h3 style="color:RGB(205, 92, 92);">Lista de Carreras Activas.</h3>
                     <ul class="nav navbar-right panel_toolbox">
-                    <li><a href="registrocarrera.php">Registrar Carrera</a>
+                    <li><a href="registroCarrera.php">Registrar Carrera</a>
                     </li>
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                      Responsive is an extension for DataTables that resolves that problem by optimising the table's layout for different screen sizes through the dynamic insertion and removal of columns from the table.
+                      Lista de todas las Carreras Activas 
                     </p>
                     <form id="formtutor" data-parsley-validate class="form-horizontal form-label-left">
                     <input type="hidden" name="bandera" id="bandera">

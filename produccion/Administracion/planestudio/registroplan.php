@@ -98,9 +98,10 @@
                         <span class="help-block" id="error"></span>
                       </div>
 
+                      
+                      <div class="ln_solid"></div>
                       <p style="color: RGB(0, 0, 128);">( ' ) Campos no Editables.</p>
                       <p style="color:RGB(205, 92, 92);">( * ) Campos Obligatorios Editables.</p> 
-                      <div class="ln_solid"></div>
                       <div class="form-group" align="right">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                           <button class="btn btn-round btn-primary" type="submit"  id="btnguardar" value="guardar"><i class="fa fa-save">  Guardar</i></button>

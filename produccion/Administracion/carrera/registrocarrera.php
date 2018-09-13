@@ -59,20 +59,59 @@ body {font-family: "Lato", sans-serif;}
 }
 </style>
 <?php include '../../global/head.php' ?>
+
+
 <script type="text/javascript">
-    function verificar(){
-		if(document.getElementById('codigo').value=="" || 
-		document.getElementById('nombre').value=="" || 
-		document.getElementById('duracion').value=="" || 
-    document.getElementById('facultad').value==""){
-			alert('Campos sin llenar');
-			document.getElementById('bandera').value="";
-		}else{
-			document.getElementById('bandera').value="add";
-			document.formcarrera.submit();			
-		}//fin else
-  }//fin de la función verificar
-  </script>
+        function salir(){
+          swal({ 
+            title: "Advertencia",
+            text: "¿Seguro que Desea Cerrar Sesión?",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: "No",
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: "Si",
+            closeOnConfirm: false },
+
+            function(){ 
+            swal({ 
+            title:'Éxito',
+            text: 'Sesión Cerrada',
+            type: 'success'
+          },
+            function(){
+              //event to perform on click of ok button of sweetalert
+              location.href='logout.php';
+           });
+          });
+        }
+
+      
+        function cancelar(){
+          swal({ 
+            title: "Advertencia",
+            text: "Se Eliminarán Datos Ingresados ",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Aceptar",
+            closeOnConfirm: false },
+
+            function(){ 
+            swal({ 
+            title:'Éxito',
+            text: 'Datos Eliminados',
+            type: 'success'
+          },
+            function(){
+              //event to perform on click of ok button of sweetalert
+              location.href='registroCarrera.php';
+            });
+          });
+        }
+      </script>
 </head>
 
 <body class="nav-md">
@@ -118,14 +157,14 @@ body {font-family: "Lato", sans-serif;}
                 <div class="x_title">
                   <h3 style="color:RGB(205, 92, 92);">Registro.</h3>
                   <ul class="nav navbar-right panel_toolbox">
-                  <li><a href="listaCarrera.php">Modificar Carrera</a>
+                  <li><a href="listarCarrera.php">Modificar Carrera</a>
                   </li>
                   </ul>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                   <br />
-                  <form id="formcarrera" action="../../../build/config/sql/carrera/guardarCarrera.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+                  <form id="formcarrera" action="../../../build/config/sql/carrera/guardarcarrera.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
                   <input type="hidden" name="bandera" id="bandera">
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="codigo">C&oacute;digo: <span class="required" style="color: #CD5C5C;"> *</span> 
@@ -133,7 +172,9 @@ body {font-family: "Lato", sans-serif;}
                       <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="text" id="codigo" name="codigo" required="required" class="form-control col-md-7 col-xs-12" tabindex="1">
                       </div>
+                      <div id="msjcod">
                       <span class="help-block" id="error"></span>
+                      </div>
                     </div>
 
                     <div class="form-group">
@@ -185,7 +226,7 @@ body {font-family: "Lato", sans-serif;}
                     <div class="form-group" align="right">
                       <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                         <button class="btn btn-round btn-primary" type="submit"  id="btnguardar" value="guardar"><i class="fa fa-save">  Guardar</i></button>
-                        <button class="btn btn-round btn-default" type="reset"><i class="fa fa-ban">  Cancelar</i></button>
+                        <button class="btn btn-round btn-default" type="reset" onclick="cancelar()"><i class="fa fa-ban">  Cancelar</i></button>
                       </div>
                     </div>
 
