@@ -27,7 +27,8 @@
                   <li><a><i class="fa fa-clone"></i>Empleado 2 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="../../../produccion/Administracion/Empleado/registroEmpleado.php">Registro</a></li>
-                      <li><a href="../../../produccion/Administracion/Empleado/listaEmpleado.php">Listar</a></li>
+                      <li><a href="../../../produccion/Administracion/Empleado/listaEmpleado.php">Modificaci&oacute;n</a></li>
+                      <li><a href="../../../produccion/Administracion/Empleado/listaEmpleadoDarAlta.php">Dar Alta</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i>Asignatura<span class="fa fa-chevron-down"></span></a>
