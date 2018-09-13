@@ -12,6 +12,7 @@ if(isset($_POST["bandera"])){
     $direccion = $_POST['direccion'];
     $genero = $_POST['genero'];
     $estado = '1';
+    $estado_ci = $_POST['estado'];
     $especialidad = $_POST['especialidad'];
 
     $telefono= $_POST['telefono'];
@@ -30,6 +31,7 @@ if(isset($_POST["bandera"])){
     echo "apellido ".$apellido;
     echo "direccion ".$direccion;
     echo "genero ".$genero;
+    echo "estado ".$estado_ci;
 
     //echo $estado;
     echo "especialidad ".$especialidad;
@@ -111,8 +113,8 @@ if(isset($_POST["bandera"])){
 
         echo "id ".$id;
 
-        $consulta1 = "INSERT INTO empleado(idempleado,nombre_em,apellido_em,DUI_em,NIT_em,direccion_em,cargo_em,especialidad_em,genero_em,estado_em) 
-        VALUES('$id','$nombre','$apellido','$dui','$nit','$direccion','$cargo','$especialidad','$genero','$estado')";
+        $consulta1 = "INSERT INTO empleado(idempleado,nombre_em,apellido_em,DUI_em,NIT_em,direccion_em,cargo_em,especialidad_em,genero_em,estado_em,estado_ci) 
+        VALUES('$id','$nombre','$apellido','$dui','$nit','$direccion','$cargo','$especialidad','$genero','1','$estado_ci')";
 
        
         $result1 = mysqli_query($con,$consulta1);
@@ -137,7 +139,12 @@ if(isset($_POST["bandera"])){
             echo $consulta3;
             echo "</br>";
             $result3 =mysqli_query($con,$consulta3);
+
         }
+
+        echo "<script type='text/javascript'>";
+        echo "location.href='../../../../produccion/Administracion/empleado/listaEmpleado.php'";
+        echo "</script>"; 
 
        }
      

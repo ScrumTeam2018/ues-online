@@ -134,6 +134,23 @@
                         </div>
                       </div>
 
+
+                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Estado Civil</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="form-control" id="estado" name="estado">
+                          <option selected="selected" value="">Seleccione Estado Civil...</option>
+                            <option value="Soltero">Soltero/a</option>
+                            <option value="Casado">Casado/a</option>
+                            <option value="Viudo/a">Viudo/a</option>
+                            <option value="Divorciado">Divorciado/a</option>
+                            <option value="Separado">Separado/a</option>
+                            <option value="Conviviente">Conviviente</option>
+                          </select>
+                          <span class="help-block" id="error"></span>
+                        </div>
+                        </div>
+
                      
 
                       <div class="form-group">

@@ -277,6 +277,7 @@
                            <td> <?php echo $row['nombre_es']?> </td>
                            <td><button class="btn btn-app btn-danger" onclick="Modificar(<?php echo $row['idempleado']?>)"><i class=" fa fa-edit">  </i></button></td>
                            <td><button class="btn btn-app btn-default" onclick="Baja(<?php echo $row['idempleado']?>)" ><i class='fa fa-long-arrow-down'>  </i></button></td>
+                           
                            </tr>
 
                            <?php
