@@ -65,12 +65,14 @@ $(document).ready(function(){
         dui: {
           numero: true,
           required: true,
-          minlength: 10
+          minlength: 9,
+          maxlength: 9
         },
         nit: {
           numero: true,
           required: true,
-          minlength: 17
+          minlength: 17,
+          maxlength: 17
         },
         direccion: {
           alfanumOespacio: true,
@@ -98,11 +100,13 @@ $(document).ready(function(){
         },
         dui: {
           required: "Por favor, ingrese DUI.",
-          minlength: "Debe ingresar m&iacute;nimo 10 dígitos."
+          maxlength: "Debe ingresar 9 dígitos.",
+          minlength: "Debe ingresar 9 dígitos."
         },
         nit: {
           required: "Por favor, ingrese NIT.",
-          minlength: "Debe ingresar m&iacute;nimo 17 dígitos."
+          maxlength: "Debe ingresar 17 dígitos.",
+          minlength: "Debe ingresar 17 dígitos."
         },
         direccion: {
           required: "Por favor, ingrese direcci&oacute;n.",

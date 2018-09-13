@@ -182,10 +182,9 @@ function confirmar(id){
                       <thead>
                         <tr>
                           <th>No.</th>
-                          <th>C&oacute;digo</th>
-                          <th>Carrera</th>
-                          <th>Duraci&oacute;n</th>
                           <th>Facultad</th>
+                          <th>Tel&eacute;fono</th>
+                          <th>Correo</th>
                           <th>Representante</th>
                           <th>Acciones&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                         </tr>
@@ -195,16 +194,15 @@ function confirmar(id){
                       <?php
                       require '../../../build/config/conexion.php';
                       $con=conectarMysql();
-                      $result = $con->query("SELECT fa.idfacultad, fa.nombre_fa, fa.telefono_fa, fa.correo_fa, re.nombre_rf FROM facultad as fa, representante_facultad as re WHERE fa.estado_fa=1 AND fa.id_re_fafk= re.id_re_fa ;              ORDER BY fa.nombre_fa  ASC");
+                      $result = $con->query("SELECT fa.idfacultad, fa.nombre_fa, fa.telefono_fa, fa.correo_fa, re.nombre_rf FROM facultad as fa, representante_facultad as re WHERE fa.estado_fa=1 AND fa.id_re_fafk= re.id_re_fa ORDER BY fa.nombre_fa  ASC");
                       $contador=1;
                       if ($result) {
                         while ($fila = $result->fetch_object()) {
                          
                           echo "<tr>";
                           echo "<td>" .$contador. "</td>";
-                          echo "<td>" . $fila->idfacultad . "</td>";
                           echo "<td>" . $fila->nombre_fa . "</td>";
-                          echo "<td>" . $fila->tekefono_fa . " Años</td>";
+                          echo "<td>" . $fila->telefono_fa . " Años</td>";
                           echo "<td>" . $fila->correo_fa . "</td>";
                           echo "<td>" . $fila->nombre_rf . "</td>";
                           echo "<td> <a class='btn btn-success btn-lg' onclick='modify(".$fila->idfacultad.")' ><i class='fa fa-edit'></i></a>
