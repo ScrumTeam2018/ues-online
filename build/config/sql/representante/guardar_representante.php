@@ -3,20 +3,22 @@
 require "../../conexion.php"; 
     $nombre=$_POST["nombres_r"];
     $apellido=$_POST["apellidos_r"];
+    $genero=$_POST["genero"];
     $telefono=$_POST["telefono_r"];
     $correo=$_POST["correo_r"];
-    $facultad=$_POST["facultad"];
+   // $facultad=$_POST["facultad"];
 
     echo $nombre;
-    echo $apellido;  
+    echo $apellido; 
+    echo $genero; 
     echo $telefono;
     echo $correo;
    
     $con=conectarMysql();
 
           
-    $sql="INSERT INTO representante_facultad (nombre_rf,apellido_rf,telefono_rf,correo_rf,estado_rf,idfacultadrefk)  
-    VALUES('$nombre','$apellido','$telefono','$correo','1','$facultad')";
+    $sql="INSERT INTO representante_facultad (nombre_rf,apellido_rf,genero_rf,telefono_rf,correo_rf,estado_rf)  
+    VALUES('$nombre','$apellido','$telefono','$genero','$correo','1')";
    
    $result =mysqli_query($con,$sql);
     
@@ -44,6 +46,4 @@ require "../../conexion.php";
      
     }//fin else
  
-    ?>
-
    ?>

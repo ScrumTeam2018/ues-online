@@ -1,26 +1,30 @@
 <?php
 require "../../conexion.php"; 
-
-
-   
+<
     $nombre=$_POST["nombre_f"];
     $telefono=$_POST["telefono_f"];
     $correo=$_POST["correo_f"];
+
+    $represent=$_POST["representante"];
+
     //$estado='1';
 
    
    echo $nombre;
    echo $telefono;
    echo $correo;
+   echo $represent;
    //echo $estado;
 
-  
-   $con=conectarMysql();
 
    
+
+   $con=conectarMysql();
+
+    
         
-   $sql  = "INSERT INTO facultad (nombre_fa,telefono_fa,correo_fa,estado_fa)  
-   VALUES('$nombre','$telefono','$correo','1')";
+   $sql  = "INSERT INTO facultad (nombre_fa,telefono_fa,correo_fa,estado_fa,id_re_fafk)  
+   VALUES('$nombre','$telefono','$correo','1','$represent')";
   
   $result =mysqli_query($con,$sql);
    
@@ -34,18 +38,6 @@ require "../../conexion.php";
 
    
 
-   if(!$result){
-//       mysqli_query("rollback");
-     echo "<script type='text/javascript'>";
-     echo   "alert('Sin Conexión a la Dase Datos');";
-     echo "</script>"; 
-   }else{
-//     mysqli_query("commit");
-     echo "<script language='javascript'>";
-     //echo "location.href='../../../produccion/Administracion/carrera/registrocarrera.php';";
-     echo "alert('Datos Almacenados');";
-     echo "</script>";
-    
-   }//fin else
-
+ 
+ 
    ?>

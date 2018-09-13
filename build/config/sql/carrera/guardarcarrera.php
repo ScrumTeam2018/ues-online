@@ -13,7 +13,7 @@
 
    $con=conectarMysql();
 
-    if($bandera=="add"){
+    if($bandera=="add"){z
       $codigo=$_POST["codigo"];
       $nombre=$_POST["nombre"];
       $duracion=$_POST["duracion"];
