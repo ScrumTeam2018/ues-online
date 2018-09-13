@@ -60,14 +60,61 @@ body {font-family: "Lato", sans-serif;}
 </style>
 <?php include '../../global/head.php' ?>
 
-    <script type="text/javascript">
+<script type="text/javascript">
 
-        function modify(id){
-        document.getElementById('bandera').value='enviar';
-        document.getElementById('baccion').value=id;
-        document.siccif.submit();
+function salir(){
+  swal({ 
+    title: "Advertencia",
+    text: "¿Seguro que Desea Cerrar Sesión?",
+    type: "warning",
+    showCancelButton: true,
+    cancelButtonText: "No",
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: "Si",
+    closeOnConfirm: false },
+
+    function(){ 
+    swal({ 
+    title:'Éxito',
+    text: 'Sesión Cerrada',
+    type: 'success'
+  },
+    function(){
+      //event to perform on click of ok button of sweetalert
+      location.href='logout.php';
+   });
+  });
+}
+
+function modify(id){
+  document.getElementById('bandera').value='enviar';
+  document.getElementById('baccion').value=id;
+  document.siccif.submit();
+}
+
+function confirmar(id){
+          swal({ 
+            title: "Advertencia",
+            text: "¿Desea Dar Alta a Este Registro?",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: "No",
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Si",
+            closeOnConfirm: false },
+
+            function(){ 
+              //event to perform on click of ok button of sweetalert
+              document.getElementById('bandera').value='daralta';
+              document.getElementById('baccion').value=id;
+              $("#formcarrera").submit();
+            
+          });
         }
-    </script>
+
+</script>
+
 </head>
 
   <body class="nav-md">
@@ -116,7 +163,7 @@ body {font-family: "Lato", sans-serif;}
                 <div class="col-sm-12 col-sm-offset-1 col-md-10 col-md-offset-1">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h3 style="color:RGB(205, 92, 92);">Lista de Carreras Activas.</h3>
+                    <h3 style="color:RGB(205, 92, 92);">Lista de Carreras Inactivas.</h3>
                     <ul class="nav navbar-right panel_toolbox">
                     <li><a href="registroCarrera.php">Registrar Carrera</a>
                     </li>
@@ -125,14 +172,15 @@ body {font-family: "Lato", sans-serif;}
                   </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                      Lista de todas las Carreras Activas 
+                      Lista de todas las Carreras Inactivas 
                     </p>
-                    <form id="formtutor" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="formcarrera" action="../../../build/config/sql/carrera/guardarcarrera.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
                     <input type="hidden" name="bandera" id="bandera">
                     <input type="hidden" name="baccion" id="baccion">
 
 					
-                    <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                    <div class="responsive-table">
+                      <table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">
                       <thead>
                         <tr>
                           <th>No.</th>
@@ -140,7 +188,7 @@ body {font-family: "Lato", sans-serif;}
                           <th>Carrera</th>
                           <th>Duraci&oacute;n</th>
                           <th>Facultad</th>
-                          <th>Acciones</th>
+                          <th>Acciones&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -148,7 +196,7 @@ body {font-family: "Lato", sans-serif;}
                       <?php
                       require '../../../build/config/conexion.php';
                       $con=conectarMysql();
-                      $result = $con->query("SELECT ca.idcarrera, ca.codigo_ca, ca.nombre_ca, ca.duracion_ca, fa.nombre_fa FROM carrera as ca, facultad as fa WHERE ca.estado_ca=1 AND ca.idfacultadfk=fa.idfacultad  
+                      $result = $con->query("SELECT ca.idcarrera, ca.codigo_ca, ca.nombre_ca, ca.duracion_ca, fa.nombre_fa FROM carrera as ca, facultad as fa WHERE ca.estado_ca=0 AND ca.idfacultadfk=fa.idfacultad  
                       ORDER BY fa.nombre_fa  ASC");
                       $contador=1;
                       if ($result) {
@@ -160,8 +208,8 @@ body {font-family: "Lato", sans-serif;}
                           echo "<td>" . $fila->nombre_ca . "</td>";
                           echo "<td>" . $fila->duracion_ca . " Años</td>";
                           echo "<td>" . $fila->nombre_fa . "</td>";
-                          echo "<td> <a class='btn btn-app' onclick='modify(".$fila->idcarrera.")' ><i class='fa fa-edit'></i></a>
-                                     <a class='btn btn-app' onclick='confirmar(".$fila->idcarrera.")' ><i class='fa fa-long-arrow-down'></i></a>
+                          echo "<td>
+                                     <a class='btn btn-success btn-lg' onclick='confirmar(".$fila->idcarrera.")' ><i class='fa fa-long-arrow-up'></i></a>
                                       </td>";
                           echo "</tr>";
                           $contador++;
@@ -171,6 +219,7 @@ body {font-family: "Lato", sans-serif;}
                       ?>
                       </tbody>
                     </table>
+                    </div>
 					          </form>
                   </div>
                 </div>
@@ -182,6 +231,10 @@ body {font-family: "Lato", sans-serif;}
       </div>
     </div>
     <?php include '../../global/script.php' ?>
-    
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('#datatables-example').DataTable();
+      });
+    </script>
   </body>
 </html>

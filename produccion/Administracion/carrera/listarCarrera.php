@@ -88,9 +88,7 @@ function salir(){
 }
 
 function modify(id){
-  document.getElementById('bandera').value='enviar';
-  document.getElementById('baccion').value=id;
-  document.siccif.submit();
+  document.location.href='editarCarrera.php?id='+id;
 }
 
 function confirmar(id){
