@@ -6,16 +6,10 @@
 <html lang="en">
   <head>
 
-<script> function Modificar(cod){
-  window.location="http://localhost/ues-online/produccion/Administracion/Tutor/ModificarTutor.php?parametro="+cod;
+<script> function Alta(cod_alta){
+  window.location="http://localhost/ues-online/produccion/Administracion/Tutor/AltaTutor.php?parametro="+cod_alta;
 }
 </script>
-
-<script> function Baja(cod_baja){
-  window.location="http://localhost/ues-online/produccion/Administracion/Tutor/BajaTutor.php?parametro="+cod_baja;
-}
-</script>
-
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -240,7 +234,7 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><small>Vista Datos del Personal</small></h2>
+                    <h2><small>Lista de Usuarios Inactivos</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                     
                      
@@ -249,7 +243,7 @@
                   </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                      Vista de Datos Personales de la Persona.
+                      Tutores Inactivos.
                     </p>
                 
                     <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
@@ -266,7 +260,7 @@
                       <thead>
                       <?php
                        
-                        $query="SELECT * FROM empleado as e,especialidad_empleado as esm where e.especialidad_em=esm.id_es_em AND e.estado_em=1";
+                        $query="SELECT * FROM empleado as e,especialidad_empleado as esm where e.especialidad_em=esm.id_es_em AND e.estado_em=0";
                         $resultado=$mysqli->query($query);
                         while($row=$resultado->fetch_assoc()){
                           ?>
@@ -275,8 +269,7 @@
                            <td> <?php echo $row['nombre_em']?> </td>
                            <td> <?php echo $row['apellido_em']?> </td>
                            <td> <?php echo $row['nombre_es']?> </td>
-                           <td><button class="btn btn-app btn-danger" onclick="Modificar(<?php echo $row['idempleado']?>)"><i class=" fa fa-edit">  </i></button></td>
-                           <td><button class="btn btn-app btn-default" onclick="Baja(<?php echo $row['idempleado']?>)" ><i class='fa fa-long-arrow-down'>  </i></button></td>
+                           <td><button class="btn btn-app btn-default" onclick="Alta(<?php echo $row['idempleado']?>)" ><i class='fa fa-long-arrow-up'>  </i></button></td>
                            </tr>
 
                            <?php

@@ -1,5 +1,5 @@
 <?php
-require "../../conexion.php";
+include ('../../conexion.php');
 
 //function guardar(){
     /*if(isset($_POST["dui"])){
@@ -13,21 +13,15 @@ $apellido = $_POST['last'];
 $direccion = $_POST['di'];
 $genero = $_POST['genero'];
 $estado = '1';
+$estado_ci = $_POST['estado'];
 $especialidad = $_POST['especialidad'];
 
-<<<<<<< HEAD
-$telefono= $_POST['telefono'];
-for($i=0 ; $i <count($telefono); $i++ ){
-    echo $telefono[$i];
- }
-/*
-=======
+
 /*$telefono= $_POST['telefono'];
 for($i=0 ; $i <count($telefono); $i++ ){
     echo $telefono[$i];
  }
  
->>>>>>> db5ed2f7bf151ca9c6082227cbbdc5ca175c544d
 $correo = $_POST['correo'];
 
 for($j=0 ; $j <count($correo); $j++ ){
@@ -41,30 +35,56 @@ echo "nombre ".$nombre;
 echo "apellido ".$apellido;
 echo "direccion ".$direccion;
 echo "genero ".$genero;
+echo "estado".$estado_ci;
 
 //echo $estado;
 echo "especialidad ".$especialidad;
 //echo $telefono;
 /*echo $correo;*/
 
-/*$funcion=$_POST['funcion'];
+$funcion=$_POST['funcion'];
 $cod=$_POST['cod'];
+$baja=$_POST['funcion_baja'];
+$codbaja=$_POST['cod_baja'];
+$alta=$_POST['funcion_alta'];
+$codalta=$_POST['cod_alta'];
 echo $funcion;
 
 
 
 if($funcion=="modificar"){
+    echo $cod;
+    $conexion = conectarMysql();
 
    $sql="UPDATE empleado SET nombre_em='$nombre',apellido_em='$apellido',DUI_em='$dui',NIT_em='$nit',
-   direccion_em='$direccion',cargo_em='$cargo',especialidad_es_em='$especialidad',genero_em='$genero',
-   estado_em='$estado' where idempleado=$cod";
+   direccion_em='$direccion',cargo_em='$cargo',especialidad_em='$especialidad',genero_em='$genero',
+   estado_em='$estado',estado_ci='$estado_ci' where idempleado=$cod";
     
 
-}else{*/
+}else if($baja=="baja"){
+
+    echo $codbaja;
+    $conexion = conectarMysql();
+
+    $sql="UPDATE empleado SET nombre_em='$nombre',apellido_em='$apellido',DUI_em='$dui',NIT_em='$nit',
+   direccion_em='$direccion',cargo_em='$cargo',especialidad_em='$especialidad',genero_em='$genero',
+   estado_em='0',estado_ci='$estado_ci' where idempleado=$codbaja";
+
 
     
-//}
-$conexion = conectarMysql();
+}else if($alta=="alta"){
+
+    echo $codalta;
+    $conexion = conectarMysql();
+
+    $sql="UPDATE empleado SET nombre_em='$nombre',apellido_em='$apellido',DUI_em='$dui',NIT_em='$nit',
+   direccion_em='$direccion',cargo_em='$cargo',especialidad_em='$especialidad',genero_em='$genero',
+   estado_em='1',estado_ci='$estado_ci' where idempleado=$codalta";
+
+
+}else{
+
+    $conexion = conectarMysql();
     $result = $conexion->query("select max(idempleado)+1 as 'id' from empleado");
       if ($result) {
         while ($fila = $result->fetch_object()) {
@@ -77,8 +97,12 @@ $conexion = conectarMysql();
 
       echo "id ".$id;
 
-      $sql = "INSERT INTO empleado(idempleado,nombre_em,apellido_em,DUI_em,NIT_em,direccion_em,cargo_em,especialidad_em,genero_em,estado_em) 
-    VALUES('$id','$nombre','$apellido','$dui','$nit','$direccion','$cargo','$especialidad','$genero','$estado') ";
+      $sql = "INSERT INTO empleado(idempleado,nombre_em,apellido_em,DUI_em,NIT_em,direccion_em,cargo_em,especialidad_em,genero_em,estado_em,estado_ci) 
+    VALUES('$id','$nombre','$apellido','$dui','$nit','$direccion','$cargo','$especialidad','$genero','$estado','$estado_ci') ";
+      }
+
+
+
 
 
 

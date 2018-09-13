@@ -58,23 +58,24 @@ $query = $mysqli -> query ("SELECT * FROM empleado where idempleado=$cod");
                   </div>
                   <div class="x_content">
                     <br />
-                    <form action = "../../../build/config/sql/empleado/guardar.php" enctype="multipart/form-data" method ="POST" id="uploadForm" name="form" data-parsley-validate class="form-horizontal form-label-left">
+                    <form action = "../../../build/config/sql/empleado/guardar.php" enctype="multipart/form-data" method ="POST" id="uploadForm" name="uploadForm" data-parsley-validate class="form-horizontal form-label-left">
                     <!--<form action = "../sql/guardar.php" method ="POST" name="form">-->
 
                     <?php foreach ($query as $fila){ ?> 
 
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="dui">Codigo <span class="required"></span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="dui"><span class="required"></span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                        
-                        <?php echo $cod; ?>
+                        <input type="hidden"  value=" <?php echo $cod; ?>" />
+                       
                       
                         </div>
                       </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Cargo</label>
-                        <div class="col-md-5 col-sm-5 col-xs-12">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control" id="cargo" name="cargo">
 
                           <?php $query = $mysqli -> query ("SELECT * FROM cargo");
@@ -86,7 +87,6 @@ $query = $mysqli -> query ("SELECT * FROM empleado where idempleado=$cod");
                       </select>
                       <span class="help-block" id="error"></span>
                        </div>
-                        <button class="btn btn-round btn-success" type="button" onclick="Modal_Nuevo();"><i class=" fa fa-plus">Agregar</i></button>
                         </div>
 
                         <div class="form-group">
@@ -131,13 +131,18 @@ $query = $mysqli -> query ("SELECT * FROM empleado where idempleado=$cod");
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Estado Civil</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control" id="estado" name="estado">
-                          <option selected="selected">Seleccione Estado Civil...</option>
-
-                            <?php $query = $mysqli -> query ("SELECT * FROM empleado");
-                          while ($valores = mysqli_fetch_array($query)) {
-                         echo '<option value="'.$valores[idempleado].'">'.$valores[estado_em].'</option>';
-                        }
-                        ?>
+                            <option value="Soltero">Soltero/a</option>
+                            <option value="Casado">Casado/a</option>
+                            <option value="Viudo/a">Viudo/a</option>
+                            <option value="Divorciado">Divorciado/a</option>
+                            <option value="Separado">Separado/a</option>
+                            <option value="Conviviente">Conviviente</option>
+                           
+                            <script language="javascript">
+                            document.forms['uploadForm']['estado'].value=<?php echo $fila['estado_ci']; ?>;
+                            </script>
+              Fin de la conversación de chat
+              Escribe un
                            
                             
                           </select>
@@ -147,7 +152,7 @@ $query = $mysqli -> query ("SELECT * FROM empleado where idempleado=$cod");
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Especialidad</label>
-                        <div class="col-md-5 col-sm-5 col-xs-12">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control" id="especialidad" name="especialidad">
 
                           <?php $query = $mysqli -> query ("SELECT * FROM especialidad_empleado");
@@ -158,7 +163,6 @@ $query = $mysqli -> query ("SELECT * FROM empleado where idempleado=$cod");
                           </select>
                         </div>
                         <span class="help-block" id="error"></span>
-                        <button class="btn btn-round btn-success" type="button" onclick="Modal_Nuevo();"><i class=" fa fa-plus">Agregar</i></button>
                       </div>
                      
                       <div class="form-group">
@@ -197,6 +201,8 @@ $query = $mysqli -> query ("SELECT * FROM empleado where idempleado=$cod");
             </div>
             </div>
             <br>
+           
+
             <?php } ?>
             <!-- Monty:fin bloque -->
                       
@@ -206,11 +212,10 @@ $query = $mysqli -> query ("SELECT * FROM empleado where idempleado=$cod");
                         <button class="btn btn-round btn-primary" type="submit" ><i class=" fa fa-save" > Guardar</i></button>
 						  <button class="btn btn-round btn-default" type="reset"><i class=" fa fa-ban"> Cancelar</i></button>
 
-               
+            <input type="hidden" name="funcion" value="modificar" />
+            <input type="hidden" name="cod" value="<?php echo $cod; ?>" />
 
-                    <input type="hidden" name="funcion" value="modificar" />
-                    <input type="hidden" name="cod" value="<?php echo $cod; ?>" />
-
+                  
                         </div>
                       </div>
                       </form>
@@ -253,63 +258,6 @@ function AgregaTelefono(){
   append("telefono", telefono);
 
 }
-function Modal_Nuevo(){
-  $("#Modal_Nueva_Especialidad").modal("show");
-}
-
-function Modal_Nuevo(){
-  $("#Modal_Nuevo_Cargo").modal("show");
-}
-
-   </script>
-  </body>
-</html>
-  $("#Modal_Nuevo_Cargo").modal("show");
-<div class="modal" tabindex="-1" role="dialog" id="Modal_Nueva_Especialidad">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Ingrese Nueva Especialidad</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <label class="col-lg-3 control-label">Especialidad:</label>
-      <input class="col-md-6 col-sm-6 col-xs-12"  type="text"  id="especialidad" name="especialidad">
-        <br></br>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Guardar</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-</body>
-</html>
-<div class="modal" tabindex="-1" role="dialog" id="Modal_Nuevo_Cargo">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Ingrese Nuevo Cargo</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <label class="col-lg-3 control-label">Cargo:</label>
-      <input class="col-md-6 col-sm-6 col-xs-12"  type="text"  id="especialidad" name="especialidad">
-        <br></br>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Guardar</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
  <script>
