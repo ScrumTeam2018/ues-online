@@ -35,46 +35,10 @@ if(isset($_POST["bandera"])){
 
     //echo $estado;
     echo "especialidad ".$especialidad;
-    //echo $telefono;
-    /**/
+    
 
-    /*$funcion=$_POST['funcion'];
-    $cod=$_POST['cod'];
-    echo $funcion;
-
-
-
-    if($funcion=="modificar"){
-
-    $sql="UPDATE empleado SET nombre_em='$nombre',apellido_em='$apellido',DUI_em='$dui',NIT_em='$nit',
-    direccion_em='$direccion',cargo_em='$cargo',especialidad_es_em='$especialidad',genero_em='$genero',
-    estado_em='$estado' where idempleado=$cod";
-        
-
-    }else{*/
-
-        
-    //}
-    /*  
-
-        
-
-        
-            
-
-
-
-    //$sql1 = "INSERT INTO empleado_telefono (telefono_em) VALUES ('$telefono')";
-
-
-    //$sql2 = "INSERT INTO empleado_correo (correo_em) VALUES ('$correo') ";
-
-
-    //$conexion1 = conectarMysql();
-    //$conexion2 = conectarMysql();
     $ejecutar=mysqli_query($conexion,$sql);
-    //$ejecutar1=mysqli_query($conexion1,$sql1);
-    //$ejecutar2=mysqli_query($conexion2,$sql2);
+    
     if($ejecutar){
     echo 'exito';
     echo "<script type='text/javascript'>";
@@ -85,19 +49,7 @@ if(isset($_POST["bandera"])){
     }else{
         echo 'no';
     }
-    /*if($ejecutar1){
-        echo 'exito';
-        }else{
-            echo 'no';
-        }
-        if($ejecutar2){
-            echo 'exito';
-            }else{
-                echo 'no';
-            }*/
-    //$nombre.val(" ");
-    //return $ejecutar;
-
+    
 
     if($bandera=="add"){
         $con = conectarMysql();
@@ -150,20 +102,6 @@ if(isset($_POST["bandera"])){
      
        
          
- 
-      /*   if(!$result1 || !$result2){
-           mysqli_query("rollback");
-           echo "<script type='text/javascript'>";
-           echo   "alert('Código o nombre ya existen');";
-           echo "</script>"; 
-         }else{
-           mysqli_query("commit");
-           echo "<script language='javascript'>";
-           //echo "location.href='../../../../produccion/Administracion/carrera/registrocarrera.php';";
-           echo "alert('Datos Almacenados');";
-           echo "</script>";
-          
-         }//fin else*/
         
 
     }

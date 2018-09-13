@@ -47,14 +47,13 @@ $(document).ready(function(){
         },
       rules: {
         nombre_f: {
-          alfanumOespacio: false,
+          
           letrasOespacio: true,
           required: true,
           minlength: 10,
           maxlength: 150
         },
         telefon_f: {
-          letrasOespacio: false,
           numero:true,
           required: true,
           minlength: 9,
@@ -63,11 +62,12 @@ $(document).ready(function(){
         
         correo_f: {
           required: true,
-          number: true
+          correo: true
+        
         },
         facultad:{
-            required: true,
-           correo: true
+            required: true
+           
         },
         representante:{
             required: true,
