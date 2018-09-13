@@ -1,3 +1,6 @@
+<!--Alertas -->
+<script src="../../../../vendors/alertas/dist/sweetalert-dev.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../vendors/alertas/dist/sweetalert.css"/>
 <?php
 include ('../../conexion.php');
 

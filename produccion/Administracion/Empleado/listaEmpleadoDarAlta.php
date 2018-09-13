@@ -69,7 +69,7 @@ body {font-family: "Lato", sans-serif;}
       function confirmar(id){
           swal({ 
             title: "Advertencia",
-            text: "¿Desea Dar Baja a Este Registro?",
+            text: "¿Desea Dar Alta a Este Registro?",
             type: "warning",
             showCancelButton: true,
             cancelButtonText: "No",
@@ -79,7 +79,7 @@ body {font-family: "Lato", sans-serif;}
 
             function(){ 
               //event to perform on click of ok button of sweetalert
-              document.getElementById('bandera').value='darbaja';
+              document.getElementById('bandera').value='daralta';
               document.getElementById('baccion').value=id;
               $("#formempleado").submit();
             
@@ -130,7 +130,7 @@ body {font-family: "Lato", sans-serif;}
               <div class="col-sm-12 col-sm-offset-1 col-md-10 col-md-offset-1 ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h3 style="color:RGB(205, 92, 92);">Lista de Tutores Activos.</h3>
+                    <h3 style="color:RGB(205, 92, 92);">Lista de Tutores Inactivos.</h3>
                     <ul class="nav navbar-right panel_toolbox">
                     <li><a href="registroEmpleado.php">Registrar Tutor</a>
                     </li>
@@ -139,7 +139,7 @@ body {font-family: "Lato", sans-serif;}
                   </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                      Lista de Tutores Activos.
+                      Lista de Tutores Inactivos.
                     </p>
 
                     <form id="formempleado" action="../../../build/config/sql/empleado/crudEmpleado.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
@@ -162,7 +162,7 @@ body {font-family: "Lato", sans-serif;}
                       <?php
                       require '../../../build/config/conexion.php';
                       $con=conectarMysql();
-                      $result = $con->query("SELECT * FROM empleado as e,especialidad_empleado as esm where e.especialidad_em=esm.id_es_em AND e.estado_em='1'");
+                      $result = $con->query("SELECT * FROM empleado as e,especialidad_empleado as esm where e.especialidad_em=esm.id_es_em AND e.estado_em='0'");
                       $contador=1;
                       if ($result) {
                         while ($fila = $result->fetch_object()) {
@@ -172,8 +172,8 @@ body {font-family: "Lato", sans-serif;}
                           echo "<td>" . $fila->nombre_em . "</td>";
                           echo "<td>" . $fila->apellido_em . "</td>";
                           echo "<td>" . $fila->nombre_es . "</td>";
-                          echo "<td> <a class='btn btn-info btn-lg' onclick='modify(".$fila->idempleado.")' ><i class='fa fa-edit'></i></a>
-                                     <a class='btn btn-danger btn-lg' onclick='confirmar(".$fila->idempleado.")' ><i class='fa fa-long-arrow-down'></i></a>
+                          echo "<td> 
+                                     <a class='btn btn-success btn-lg' onclick='confirmar(".$fila->idempleado.")' ><i class='fa fa-long-arrow-up'></i></a>
                                       </td>";
                           echo "</tr>";
                           $contador++;
