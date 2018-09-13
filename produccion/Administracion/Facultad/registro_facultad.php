@@ -225,6 +225,6 @@ body {font-family: "Lato", sans-serif;}
   </div>
   
   <?php include '../../global/script.php' ?>
-  <script src="../../../build/config/validaciones/carrera/validarcarrera.js"></script>
+  <script src="../../../build/config/validaciones/facultad/validar_fa.js"></script>
 </body>
 </html>
