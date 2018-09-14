@@ -34,6 +34,8 @@
                   <li><a><i class="fa fa-edit"></i>Asignatura<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="../../../produccion/Administracion/planestudio/registroasignatura.php">llenar Plan de Estudio</a></li>
+                      <li><a href="../../../produccion/Administracion/asignaturas/listarasignaturas.php">Lista de Asignaturas Electivas Activas</a></li>
+                      <li><a href="../../../produccion/Administracion/asignaturas/listarAsignaturaDarAlta.php">Lista de Asignaturas Inactivas</a></li>
 
                     </ul>
                   </li>

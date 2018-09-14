@@ -66,7 +66,7 @@
       $baccion=$_REQUEST["baccion"];
       $nombre=$_POST["nombre"];
 
-      $consulta2  = "UPDATE carrera set nombre_ca='$nombre' where idcarrera=".$baccion."";
+      $consulta2  = "UPDATE asignatura set nombre_as='$nombre' where idasignatura=".$baccion."";
      // $result2 =mysqli_query($con,$consulta2);
       $result2 = $con->query($consulta2);
         if (result2) {
@@ -90,10 +90,10 @@
     else if($bandera=="darbaja"){
       $baccion=$_REQUEST["baccion"];
 
-      $consulta3  = "UPDATE plan_estudio set estado_pe='0' where idplanestudio=".$baccion."";
+      $consulta3  = "UPDATE asignatura set estado_as='0' where idasignatura=".$baccion."";
      // $result2 =mysqli_query($con,$consulta2);
       $result3 = $con->query($consulta3);
-        if ($result3) {
+        if (result3) {
           echo "<script language='javascript'>";
               echo "swal({ 
                       title:'Éxito',
@@ -102,7 +102,7 @@
                     },
                      function(){
                         //event to perform on click of ok button of sweetalert
-                        location.href='../../../../produccion/Administracion/planestudio/listarPlanEstudio.php';
+                        location.href='../../../../produccion/Administracion/asignaturas/listarasignaturas.php';
                     });";
               echo "</script>";
         } else {
@@ -113,10 +113,10 @@
     }else if($bandera=="daralta"){
       $baccion=$_REQUEST["baccion"];
 
-      $consulta4  = "UPDATE plan_estudio set estado_pe='1' where idplanestudio=".$baccion."";
+      $consulta4  = "UPDATE asignatura set estado_as='1' where idasignatura=".$baccion."";
       $result4= $con->query($consulta4);
       //$result3 =mysqli_query($con,$consulta3);
-        if($result4) {
+        if(result4) {
           echo "<script language='javascript'>";
               echo "swal({ 
                       title:'Éxito',
@@ -125,7 +125,7 @@
                     },
                      function(){
                         //event to perform on click of ok button of sweetalert
-                        location.href='../../../../produccion/Administracion/planestudio/listarPlanEstudioDarAlta.php';
+                        location.href='../../../../produccion/Administracion/asignaturas/listarAsignaturaDarAlta.php';
                     });";
               echo "</script>";
         } else {
