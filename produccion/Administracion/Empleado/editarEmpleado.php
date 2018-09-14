@@ -27,9 +27,6 @@
 <?php include '../../global/head.php' ?>
 
 <script type="text/javascript">
-        $('#nombre').blur(funcion(e){
-            alert($('#estadoff').val)
-        });
         function salir(){
           swal({ 
             title: "Advertencia",

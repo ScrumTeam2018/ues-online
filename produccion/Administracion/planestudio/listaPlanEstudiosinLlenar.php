@@ -135,7 +135,6 @@ body {font-family: "Lato", sans-serif;}
                           <th>No.</th>
                           <th>C&oacute;digo Carrera</th>
                           <th>Plan de Estudio</th>
-                          <th>Acciones</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -152,8 +151,7 @@ body {font-family: "Lato", sans-serif;}
                           echo "<td>" .$contador. "</td>";
                           echo "<td>" . $fila->codigo_ca . "</td>";
                           echo "<td>" . $fila->nombre_pe . "</td>";
-                          echo "<td> <a class='btn btn-danger btn-lg' onclick='confirmar(".$fila->idplanestudio.")' ><i class='fa fa-long-arrow-down'></i></a>
-                                      </td>";
+        
                           echo "</tr>";
                           $contador++;
 

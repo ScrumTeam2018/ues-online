@@ -3,6 +3,57 @@
 <!-- abrir head  -->
 <head>
 <?php include '../../global/head.php' ?>
+<script type="text/javascript">
+        function salir(){
+          swal({ 
+            title: "Advertencia",
+            text: "¿Seguro que Desea Cerrar Sesión?",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: "No",
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: "Si",
+            closeOnConfirm: false },
+
+            function(){ 
+            swal({ 
+            title:'Éxito',
+            text: 'Sesión Cerrada',
+            type: 'success'
+          },
+            function(){
+              //event to perform on click of ok button of sweetalert
+              location.href='logout.php';
+           });
+          });
+        }
+
+      
+        function cancelar(){
+          swal({ 
+            title: "Advertencia",
+            text: "Se Eliminarán Datos Ingresados ",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Aceptar",
+            closeOnConfirm: false },
+
+            function(){ 
+            swal({ 
+            title:'Éxito',
+            text: 'Datos Eliminados',
+            type: 'success'
+          },
+            function(){
+              //event to perform on click of ok button of sweetalert
+              location.href='registroEmpleado.php';
+            });
+          });
+        }
+      </script>
 </head>
 
   <body class="nav-md">
@@ -136,7 +187,7 @@
 
 
                        <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Estado Civil</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Estado Civil: <span class="required" style="color: #CD5C5C;"> *</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control" id="estado" name="estado">
                           <option selected="selected" value="">Seleccione Estado Civil...</option>
@@ -206,7 +257,7 @@
                       <div class="form-group" align="right">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                             <button class="btn btn-round btn-primary" type="submit"  id="btnguardar" value="guardar"><i class="fa fa-save">  Guardar</i></button>
-						                <button class="btn btn-round btn-default" type="reset"><i class="fa fa-ban">  Cancelar</i></button>
+						                <button class="btn btn-round btn-default" type="reset" onclick="cancelar()"><i class="fa fa-ban">  Cancelar</i></button>
                         </div>
                       </div>
                       

@@ -34,7 +34,7 @@ $(document).ready(function(){
         return /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/i.test(value);
     }, "Ingrese un correo v&aacute;lido.");
 
-    $("#formcarrera").validate({
+    $("#formfacultad").validate({
       errorPlacement: function (error, element) {
             $(element).closest('.form-group').find('.help-block').html(error.html());
         },
@@ -46,52 +46,51 @@ $(document).ready(function(){
             $(element).closest('.form-group').find('.help-block').html('');
         },
       rules: {
-        nombre_f: {
-          
+        nombres_r: {
           letrasOespacio: true,
           required: true,
-          minlength: 10,
+          minlength: 3,
           maxlength: 150
         },
-        telefon_f: {
+        apellidos_r: {
+          letrasOespacio: true,
+          required: true,
+          minlength: 4,
+          maxlength: 150
+        },
+        telefono_r: {
           numero:true,
           required: true,
           minlength: 9,
           maxlength: 9
         },
         
-        correo_f: {
-          required: true,
-          correo: true
-        
-        },
-        facultad:{
-            required: true
-           
-        },
-        representante:{
-            required: true,
-            number: true
+        correo_r: {
+          correo: true,
+          required: true
         }
       },
       messages: {
-        nombre_f: {
+        nombres_r: {
           required: "Por favor, ingrese nombre.",
-          minlength: "Debe ingresar m&iacute;nimo 150 dígitos.",
-          maxlength: "Debe ingresar m&aacute;ximo 10 dígitos."
+          minlength: "Debe ingresar m&iacute;nimo 3 dígitos.",
+          maxlength: "Debe ingresar m&aacute;ximo 150 dígitos."
           
         },
-        telefon_f: {
+        apellidos_r: {
+          required: "Por favor, ingrese apellido.",
+          minlength: "Debe ingresar m&iacute;nimo 4 dígitos.",
+          maxlength: "Debe ingresar m&aacute;ximo 150 dígitos."
+          
+        },
+        telefono_r: {
           required: "Por favor, ingrese teléfono.",
-          maxlength: "Debe ingresar m&aacute;ximo 9 dígitos.",
-          minlength: "Debe ingresar m&iacute;nimo 9 dígitos."
+          maxlength: "Debe ingresar 9 dígitos.",
+          minlength: "Debe ingresar 9 dígitos."
         },
-        correo_f: {
-          required: "Por favor, ingrese una direcciocón de correo válida."
-        },
-        representante: {
-            required: "Por favor, seleccione un representante."
-          }
+        correo_r: {
+          required: "Por favor, ingrese una dirección de correo válida."
+        }
       }
     });
 
@@ -122,7 +121,7 @@ $(document).ready(function(){
 
 });
 
-  $("#representante").keypress(function(e) {
+  $("#correo_r").keypress(function(e) {
        if(e.which == 13) {
           $('#btnguardar').click();
        }

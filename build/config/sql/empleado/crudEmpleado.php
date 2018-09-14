@@ -22,27 +22,6 @@ if(isset($_POST["bandera"])){
     echo "estado ".$estado_ci;
 
     //echo $estado;
-<<<<<<< HEAD
-    echo "especialidad ".$especialidad;
-    
-
-    $ejecutar=mysqli_query($conexion,$sql);
-    
-    if($ejecutar){
-    echo 'exito';
-    echo "<script type='text/javascript'>";
-    echo "location.href='../../../../produccion/Administracion/Tutor/VistaTutor.php'";
-    echo "</script>"; 
-
-
-    }else{
-        echo 'no';
-    }
-    
-
-    if($bandera=="add"){
-        $con = conectarMysql();
-=======
     echo "especialidad ".$especialidad;*/
  
     $con = conectarMysql();
@@ -64,7 +43,6 @@ if(isset($_POST["bandera"])){
         $correo = $_POST['correo'];
 
        
->>>>>>> fe91bb6656b911619345677356dca61a683a0e20
         $result = $con->query("select max(idempleado)+1 as 'id' from empleado");
         if ($result) {
             while ($fila = $result->fetch_object()) {
@@ -107,13 +85,27 @@ if(isset($_POST["bandera"])){
         }
 
         echo "<script type='text/javascript'>";
-        echo "location.href='../../../../produccion/Administracion/empleado/listaEmpleado.php'";
+        echo "location.href='../../../../produccion/Administracion/Empleado/registroEmpleado.php'";
         echo "</script>"; 
 
        }
      
        
          
+ 
+      /*   if(!$result1 || !$result2){
+           mysqli_query("rollback");
+           echo "<script type='text/javascript'>";
+           echo   "alert('Código o nombre ya existen');";
+           echo "</script>"; 
+         }else{
+           mysqli_query("commit");
+           echo "<script language='javascript'>";
+           //echo "location.href='../../../../produccion/Administracion/carrera/registrocarrera.php';";
+           echo "alert('Datos Almacenados');";
+           echo "</script>";
+          
+         }//fin else*/
         
 
     }else if($bandera=="modificar"){
