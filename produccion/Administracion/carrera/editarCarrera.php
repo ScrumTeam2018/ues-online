@@ -172,9 +172,9 @@ body {font-family: "Lato", sans-serif;}
             <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
               <div class="x_panel" >
                 <div class="x_title">
-                  <h3 style="color:RGB(205, 92, 92);">Registro.</h3>
+                  <h3 style="color:RGB(205, 92, 92);">Editar.</h3>
                   <ul class="nav navbar-right panel_toolbox">
-                  <li><a href="listarCarrera.php">Modificar Carrera</a>
+                  <li><a href="listarCarrera.php">Lista de Carreras</a>
                   </li>
                   </ul>
                   <div class="clearfix"></div>

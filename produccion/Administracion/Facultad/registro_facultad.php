@@ -107,55 +107,57 @@ body {font-family: "Lato", sans-serif;}
           },
             function(){
               //event to perform on click of ok button of sweetalert
-              location.href='registroCarrera.php';
+              location.href='registro_facultad.php';
             });
           });
         }
       </script>
 </head>
 
-  <body class="nav-md">
-    <div class="container body">
-      <div class="main_container">
-        <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="#" class="site_title"><img src="../../../public/images/logo2.png"/><span> Sede Cojutepeque</span></a>
-            </div>
-
-            <div class="clearfix"></div>
-            <br />
-            <!-- Monty:llamado al menu a la direccion carpeta global -->
-           <?php include '../../global/menu.php' ?>
+<body class="nav-md">
+  <div class="container body">
+    <div class="main_container">
+      <div class="col-md-3 left_col">
+        <div class="left_col scroll-view">
+          <div class="navbar nav_title" style="border: 0;">
+            <a href="#" class="site_title"><img src="../../../public/images/logo2.png"/><span> Sede Cojutepeque</span></a>
           </div>
+          <div class="clearfix"></div>
+        
+          <br />
+          <?php include '../../global/menu.php' ?>
         </div>
-         <!-- Monty:llamado al navegacion a la direccion carpeta global -->
-       <?php include '../../global/navigation.php'?>
+      </div>
+     <?php include '../../global/navigation.php' ?>
+      <!-- page content Panel de Trabajo -->
+      <div class="right_col" role="main">
+      <!--Monty: Aqui dentro iria todo lo necesario para el panel de trabajo -->
 
-        <!-- España Panel de Trabajo -->
-                
-          <div class="right_col" role="main">
-          <div class="right_col" role="main">
-            <div class="page-title">
-              <div class="title_left">
-              <h4><strong><p style="color: RGB(0, 0, 128);"> ADMINISTRACIÓN DE FACULTADES.</strong></p></h4>
-              </div></div>
-        <div class="row">
-              <div class="col-md-10 col-sm-10 col-xs-10">
-                <div class="x_panel">
-                  <div class="x_title">
-                  <h4> <p style="color:RGB(205, 92, 92);"> Registrar Facultad.</p></h4>
-                   
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <br />
-                    <form id="formfacultad" action = "../../../build/config/sql/facultad/guardar_facultad.php" method ="POST" name="form" data-parsley-validate class="form-horizontal form-label-left">
-                    
-                    <input type="hidden" name="bandera" id="bandera">
+      <!--Magda titulo de plan -->
+      <div class="page-title">
+            <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
+              <h3 style="color: RGB(0, 0, 128);"><strong>ADMINISTRACIÓN DE FACULTADES.</strong></h3>
+            </div> 
+      </div>
+      <div class="clearfix"></div>
 
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" class="required" for="nombre_f">Nombre<span class="required" style="color: #CD5C5C;"> *</span>
+      <div class="row" >
+            <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
+              <div class="x_panel" >
+                <div class="x_title">
+                  <h3 style="color:RGB(205, 92, 92);">Registrar Facultad.</h3>
+                  <ul class="nav navbar-right panel_toolbox">
+                  <li><a href="listarFacultad.php">Lista de las Facultades</a>
+                  </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <br />
+                  <form id="formfacultad" action="../../../build/config/sql/facultad/guardar_facultad.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+                  <input type="hidden" name="bandera" id="bandera">
+                  <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" class="required" for="nombre_f">Nombre: <span class="required" style="color: #CD5C5C;"> *</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="text" id="nombre_f" name="nombre_f" required="required" class="form-control col-md-7 col-xs-12" tabindex="1" placeholder="Digite Nombre">
@@ -164,7 +166,7 @@ body {font-family: "Lato", sans-serif;}
                       </div>
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telefon_f">Teléfono<span class="required" style="color: #CD5C5C;"> *</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telefono_f">Tel&eacute;fono: <span class="required" style="color: #CD5C5C;"> *</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="text" class="form-control has-feedback-left" id="telefono_f" name= "telefono_f" required="required" tabindex="2" placeholder="Digite número de Teléfono">
@@ -174,10 +176,10 @@ body {font-family: "Lato", sans-serif;}
                       </div>
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="correo_f">Correo Electrónico <span class="required" style="color: #CD5C5C;"> *</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="correo_f">Correo Electr&oacute;nico: <span class="required" style="color: #CD5C5C;"> *</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="email" class="form-control has-feedback-left" id="correo_f_f" name= "correo_f" required="required" tabindex="3" placeholder="Digite Correo Electrónico">
+                        <input type="text" class="form-control has-feedback-left" id="correo_f" name= "correo_f" required="required" tabindex="3" placeholder="Digite Correo Electrónico">
                         <span class="fa fa-envelope-o form-control-feedback left" aria-hidden="true"></span>
                       </div>
                       <span class="help-block" id="error"></span>
@@ -204,27 +206,28 @@ body {font-family: "Lato", sans-serif;}
                       <span class="help-block" id="error"></span>
                     </div>
                     
-
                     <div class="ln_solid"></div>
                     <p style="color:RGB(205, 92, 92);">( * ) Campos Obligatorios.</p>
-                      <div class="form-group" align="right">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                        <button class="btn btn-round btn-primary" type="submit"  id="btnguardar" value="guardar"><i class=" fa fa-save"> Guardar</i></button>
-						              <button class="btn btn-round btn-default" type="reset" ><i class=" fa fa-ban"> Cancelar</i></button>
-                        </div>
-                      </div>                      
-                    </form>
-                  </div>
+                    <div class="form-group" align="right">
+                      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <button class="btn btn-round btn-primary" type="submit"  id="btnguardar" value="guardar"><i class="fa fa-save">  Guardar</i></button>
+                        <button class="btn btn-round btn-default" type="reset" onclick="cancelar()"><i class="fa fa-ban">  Cancelar</i></button>
+                      </div>
+                    </div>
+
+                  </form>
                 </div>
               </div>
-            </div>            
-        </div>
-        <!-- /page content -->    
+            </div>
+          </div>
+      
+      </div>
+      <!-- /page content -->    
       <?php include '../../global/footer.php' ?>
     </div>
   </div>
   
   <?php include '../../global/script.php' ?>
-  <script src="../../../build/config/validaciones/facultad/validar_fa.js"></script>
+  <script src="../../../build/config/validaciones/facultad/validarfacultad.js"></script>
 </body>
 </html>

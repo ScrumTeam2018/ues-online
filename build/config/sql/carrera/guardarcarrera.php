@@ -17,7 +17,6 @@
       $codigo=$_POST["codigo"];
       $nombre=$_POST["nombre"];
       $duracion=$_POST["duracion"];
-      //$facul=$_POST["facul"];
       $facultad=$_POST["facultad"];
    
 
