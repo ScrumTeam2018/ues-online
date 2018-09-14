@@ -88,7 +88,7 @@ $(document).ready(function(){
           }
       }
     });
-
+/*
     $("#codigo").blur(function(e) {
       e.preventDefault();
       var data = $(this).serializeArray();
@@ -113,7 +113,7 @@ $(document).ready(function(){
                 });
 alert(codinvalid);
 
-   });
+   });*/
 
  
 
