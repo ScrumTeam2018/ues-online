@@ -9,29 +9,28 @@
      $uv = $_POST['uv-'.$ciclos];
      $prerequisito =$_POST['prerequisito-'.$ciclos];
      $postrequisito=$_POST['postrequisito-'.$ciclos];
-     $cant_ciclos =$_POST['cant_ciclos'];
+     $idcarrera = $_POST['idcarrera'];
+     $cant_ciclos = $_POST['val'];
 
-     if($uv == 'Obligatoria'){
-         $uvr= '1';
-     }else{
-         $uvr ='2';
-     }
+     
 
-     if(!empty($codigo) && !empty($nombre) && !empty($tipo) && !empty($uv)){
-         echo $codigo;
-         echo $nombre;
-         echo $tipo;
-         echo $uv;
+     if(!empty($prerequisito) && !empty($postrequisito) && !empty($codigo) && !empty($nombre) && !empty($tipo) && !empty($uv) && !empty($idcarrera)){
         if($ciclos < $cant_ciclos){
+            for($i = 0; $i < count($codigo) ; $i ++){
+                if($uv[$i] == 'Obligatoria'){
+                    $uvr= '1';
+                }else{
+                    $uvr ='2';
+                }
             $consulta = "INSERT INTO asignatura(codigo_as,nombre_as,tipo_as,uv_as,ciclo_as,estado_as,prerequisito,postrequisito,idplanestudiofk)
-        values ('$codigo','$nombre','$uvr','$uv','$ciclos','1','$prerequisito','$postrequisito','1')";
+        values ('$codigo[$i]','$nombre[$i]','$uvr','$uv[$i]','$ciclos[$i]','$idcarrera[$i]','$prerequisito[$i]','$postrequisito[$i]','1')";
         $result = mysqli_query($con,$consulta);
+    }
         }else{
             $consulta = "INSERT INTO asignatura(codigo_as,nombre_as,tipo_as,uv_as,ciclo_as,estado_as,prerequisito,postrequisito,idplanestudiofk)
-        values ('$codigo','$nombre','$uvr','$uv','$ciclos','1','$prerequisito','$postrequisito','1')";
+        values ('$codigo','$nombre','$uvr','$uv','$ciclos','$idcarrera','$prerequisito','$postrequisito','$idcarrera')";
         $result = mysqli_query($con,$consulta);
         }
-
         if(!$result){
             echo "<script type='text/javascript'>";
             echo   "alert('Informacion ya existen en la base de datos');";
@@ -43,5 +42,6 @@
             echo "</script>";
            
           }//fin else
+        
      }
 ?>

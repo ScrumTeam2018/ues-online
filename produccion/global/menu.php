@@ -33,21 +33,16 @@
                   </li>
                   <li><a><i class="fa fa-edit"></i>Asignatura<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">General Elements</a></li>
-                      <li><a href="#">Media Gallery</a></li>
-                      <li><a href="#">Typography</a></li>
-                      <li><a href="#">Icons</a></li>
-                      <li><a href="#">Glyphicons</a></li>
-                      <li><a href="#">Widgets</a></li>
-                      <li><a href="#">Invoice</a></li>
-                      <li><a href="#">Inbox</a></li>
-                      <li><a href="#">Calendar</a></li>
+                      <li><a href="../../../produccion/Administracion/planestudio/registroasignatura.php">llenar Plan de Estudio</a></li>
+
                     </ul>
                   </li>
                   <li><a><i class="fa fa-table"></i>Plan de Estudio<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="../../../produccion/Administracion/planestudio/registroplan.php">Registro</a></li>
+                      <li><a href="../../../produccion/Administracion/planestudio/registroplan.php">Registro Plan</a></li>
                       <li><a href="../../../produccion/Administracion/planestudio/listaPlanEstudiosinLlenar.php">Lista Planes Sin Llenar</a></li>
+                      <li><a href="../../../produccion/Administracion/planestudio/listarPlanEstudioDarAlta.php">Lista Planes Inactivos</a></li>
+                      <li><a href="../../../produccion/Administracion/planestudio/listarPlanEstudio.php">Lista Planes Activos</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-clone"></i>Empleados <span class="fa fa-chevron-down"></span></a>

@@ -54,14 +54,14 @@ if(contador==1){
  "<label class='control-label col-md-3 col-sm-3 col-xs-12' for='last-name'>Pre-Requisito: <span class='required'></span>"+
  "</label>"+
  "<div class='col-md-6 col-sm-6 col-xs-12'>"+
- "<input type='text' id='prerequisito"+-+i+"' name='prerequisito"+-+i+"' required='required' class='form-control col-md-7 col-xs-12'>"+
+ "<input type='text' id='prerequisito"+-+x+"' name='prerequisito"+-+x+"' required='required' class='form-control col-md-7 col-xs-12'>"+
  "</div>"+
  "</div>"+
  "<div class='form-group'>"+
  "<label class='control-label col-md-3 col-sm-3 col-xs-12' for='last-name'>Post-Requisito <span class='required'></span>"+
  "</label>"+
  "<div class='col-md-6 col-sm-6 col-xs-12'>"+
- "<input type='text' id='postrequisito"+-+i+"' name='postrequisito"+-+i+"' required='required' class='form-control col-md-7 col-xs-12'>"+
+ "<input type='text' id='postrequisito"+-+x+"' name='postrequisito"+-+x+"' required='required' class='form-control col-md-7 col-xs-12'>"+
  "</div>"+
  "</div>"+
  "<div class='ln_solid'></div>"+

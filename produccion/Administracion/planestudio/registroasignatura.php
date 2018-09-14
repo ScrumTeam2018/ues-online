@@ -43,17 +43,29 @@ document.planestudio.submit()
         <div >
           
         <div class="form-group">
-          <label class="control-label col-md-1 col-sm-1 col-xs-2">Carrera: </label>
-          <div class="col-md-5 col-sm-5 col-xs-10">
-            <select class="form-control">
-              <option>Ingenieria en Sistemas Codigo: 175</option>
-              <option>Administracion Codigo: 185</option>
-            </select>
-          </div>
-        </div>
-        <input type="text" name="ciclos" id="ciclos" placeholder="escribe un numero a generar">
-        <label for="">ingrese el valor y das clic en cualquier otro lugar(este valor depende depende de los años) se quitara.</label>
-
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Carrera: <span class="required" style="color: #CD5C5C;"> *</span></label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                      <?php
+                            require '../../../build/config/conexion.php';
+                            $con=conectarMysql();
+                            
+                            $consulta1  = "SELECT * FROM plan_estudio WHERE estado_pe='1' ORDER BY nombre_pe";          
+                            $result1 = $con->query($consulta1);
+                        echo "<select class='form-control' onChange='generar(this.value)' id='facultad' name='facultad' tabindex='4'>";
+                          echo "<option selected='selected'   value=''>Seleccione Carrera...</option>";
+                            if ($result1) {
+                              while ($fila2 = $result1->fetch_object()) {
+                                $consulta  = "SELECT * FROM carrera WHERE idcarrera='5' ORDER BY nombre_ca";
+                                $result = $con->query($consulta);
+                                $fila = $result->fetch_object();
+                                echo "<option value='".$fila->duracion_ca.'-'.$fila2->idplanestudio."'>".strtoupper($fila2->nombre_pe)."</option>";
+                              }//fin while
+                            }
+                          ?>  
+                        </select>
+                      </div>
+                      <span class="help-block" id="error"></span>
+                    </div>
         <div class="clearfix"></div>
         </br>
 
