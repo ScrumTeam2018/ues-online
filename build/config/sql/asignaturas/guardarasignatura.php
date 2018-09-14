@@ -67,8 +67,8 @@
       $nombre=$_POST["nombre"];
 
       $consulta2  = "UPDATE asignatura set nombre_as='$nombre' where idasignatura=".$baccion."";
-     // $result2 =mysqli_query($con,$consulta2);
-      $result2 = $con->query($consulta2);
+     $result2 =mysqli_query($con,$consulta2);
+     // $result2 = $con->query($consulta2);
         if (result2) {
           echo "<script language='javascript'>";
               echo "swal({ 
@@ -78,7 +78,7 @@
                     },
                      function(){
                         //event to perform on click of ok button of sweetalert
-                        location.href='../../../../produccion/Administracion/carrera/listarCarrera.php';
+                        location.href='../../../../produccion/Administracion/asignaturas/listarasignaturas.php';
                     });";
               echo "</script>";
         } else {

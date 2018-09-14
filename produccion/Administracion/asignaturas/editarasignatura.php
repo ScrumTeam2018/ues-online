@@ -129,6 +129,24 @@ body {font-family: "Lato", sans-serif;}
             });
           });
         }
+        function confirmar(id){
+          swal({ 
+            title: "Advertencia",
+            text: "¿Desea modificar la carrera?",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: "No",
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Si",
+            closeOnConfirm: false },
+
+            function(){ 
+              //event to perform on click of ok button of sweetalert
+              document.getElementById('bandera').value='modificar';
+              $("#formasignatura").submit();
+            
+          });
+        }
       </script>
 </head>
 
@@ -231,7 +249,7 @@ body {font-family: "Lato", sans-serif;}
                     <p style="color:RGB(205, 92, 92);">( * ) Campos Obligatorios Editables.</p> 
                     <div class="form-group" align="right">
                       <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                        <button class="btn btn-round btn-primary" type="submit"  id="btnmodificar" value="modificar"><i class="fa fa-refresh">  Actualizar</i></button>
+                        <button class="btn btn-round btn-primary" type="button" onclick="confirmar()" id="btnmodificar" value="modificar"><i class="fa fa-refresh">  Actualizar</i></button>
                         <button class="btn btn-round btn-default" type="reset" onclick="cancelar()"><i class="fa fa-ban">  Cancelar</i></button>
                       </div>
                     </div>
