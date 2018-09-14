@@ -3,12 +3,18 @@
 <!-- abrir head el cierre esta dentro del archivo que se incluye -->
 <head>
 <!-- estilo vertical para las ventanas -->
+<script>
+function guardarTemporal(x){
 
+document.planestudio.submit()
+
+}
+</script>
 <?php include 'style/estiloTab.php' ?>
 <?php include '../../global/head.php' ?>
 
   <body class="nav-md">
-    <div class="container body">
+  <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
@@ -55,7 +61,7 @@
         <div id = "addtab" class="tab"></div>
 
 <!-- Monty: formulario pa el resguardar la informacion -->
-<form action="">
+<form action="../../../build/config/sql/planestudio/guardar.php" name="planestudio" id="planestudio" method="POST">
 <!-- Monty: agregara todos los tabcontent el contenido usando jquery -->
 <div id= "addtabcontent" class="addtabcontent" >
 </div>

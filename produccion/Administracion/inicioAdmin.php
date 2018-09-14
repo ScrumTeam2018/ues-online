@@ -25,7 +25,7 @@
 
         </div>
         <!-- /page content -->
-        <?php include '../../global/footer.php' ?>
+        <?php include '../global/footer.php' ?>
       </div>
     </div>
     <?php include '../global/global-admin/script.php' ?>

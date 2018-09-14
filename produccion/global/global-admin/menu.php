@@ -5,9 +5,29 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i>Falcutad <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Dashboard</a></li>
-                      <li><a href="#">Dashboard2</a></li>
+                      <li><a href="../../../produccion/Administracion/Facultad/registro_facultad.php">Registro</a></li>
+                      <li><a href="../../../produccion/Administracion/Facultad/mantenimiento_facultad.php">Modificaci&oacute;n</a></li>
                       <li><a href="#">Dashboard3</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-home"></i>Representante <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="../../../produccion/Administracion/Representante/registro_representante.php">Registro</a></li>
+                      <li><a href="../../../produccion/Administracion/Representante/mantenimiento_representante.php">Modificaci&oacute;n</a></li>
+                      <li><a href="#">Dashboard3</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-edit"></i>Carrera <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="../../../produccion/Administracion/carrera/registroCarrera.php">Registro</a></li>
+                      <li><a href="../../../produccion/Administracion/carrera/listaCarrera.php">Modificaci&oacute;n</a></li>
+                      <li><a href="#">Dashboard3</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-clone"></i>Empleado 2 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="../../../produccion/Administracion/Empleado/registroEmpleado.php">Registro</a></li>
+                      <li><a href="../../../produccion/Administracion/Empleado/listaEmpleado.php">Listar</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i>Asignatura<span class="fa fa-chevron-down"></span></a>
@@ -25,8 +45,14 @@
                   </li>
                   <li><a><i class="fa fa-table"></i>Plan de Estudio<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Tables</a></li>
+                      <li><a href="../../../produccion/Administracion/planestudio/registroplan.php">Registro</a></li>
                       <li><a href="#">Table Dynamic</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-clone"></i>Empleados <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="../../../produccion/Administracion/Tutor/RegistroTutor.php">Registro</a></li>
+                      <li><a href="../../../produccion/Administracion/Tutor/VistaTutor.php">Listar</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i>Estadisticas<span class="fa fa-chevron-down"></span></a>
