@@ -2,14 +2,15 @@
      require '../../../build/config/conexion.php';
      $con=conectarMysql();
      $id=$_REQUEST['id'];
-     $result = $con->query("SELECT * FROM carrera WHERE idcarrera=".$id);
+     $result = $con->query("SELECT * FROM asignatura WHERE idasignatura=".$id);
      if ($result) {
        while ($fila = $result->fetch_object()) {
-         $idcarrera=$fila->idcarrera;
-         $codigo=$fila->codigo_ca;
-         $nombre=$fila->nombre_ca;
-         $duracion=$fila->duracion_ca;
-         $facultad=$fila->idfacultadfk;
+         $idasignatura=$fila->idasignatura;
+         $codigo=$fila->codigo_as;
+         $nombre=$fila->nombre_as;
+         $tipo = $fila->tipo_as;
+         $prerequisito = $fila->prerequisito;
+         $postrequisito = $fila->postrequisito;
        }
      }
 
@@ -108,7 +109,7 @@ body {font-family: "Lato", sans-serif;}
         function cancelar(){
           swal({ 
             title: "Advertencia",
-            text: "Se Eliminarán Datos Ingresados ",
+            text: "Esta Seguro de Regresar?",
             type: "warning",
             showCancelButton: true,
             cancelButtonText: "Cancelar",
@@ -119,13 +120,31 @@ body {font-family: "Lato", sans-serif;}
             function(){ 
             swal({ 
             title:'Éxito',
-            text: 'Datos Eliminados',
+            text: 'Cargando....',
             type: 'success'
           },
             function(){
               //event to perform on click of ok button of sweetalert
-              location.href='listarCarrera.php';
+              location.href='listarasignaturas.php';
             });
+          });
+        }
+        function confirmar(id){
+          swal({ 
+            title: "Advertencia",
+            text: "¿Desea modificar la carrera?",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: "No",
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Si",
+            closeOnConfirm: false },
+
+            function(){ 
+              //event to perform on click of ok button of sweetalert
+              document.getElementById('bandera').value='modificar';
+              $("#formasignatura").submit();
+            
           });
         }
       </script>
@@ -163,7 +182,7 @@ body {font-family: "Lato", sans-serif;}
       <!--Magda titulo de plan -->
       <div class="page-title">
             <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
-              <h3 style="color: RGB(0, 0, 128);"><strong>CARRERA.</strong></h3>
+              <h3 style="color: RGB(0, 0, 128);"><strong>ASIGNATURAS.</strong></h3>
             </div> 
       </div>
       <div class="clearfix"></div>
@@ -172,18 +191,18 @@ body {font-family: "Lato", sans-serif;}
             <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
               <div class="x_panel" >
                 <div class="x_title">
-                  <h3 style="color:RGB(205, 92, 92);">Editar.</h3>
+                  <h3 style="color:RGB(205, 92, 92);">Modificacion.</h3>
                   <ul class="nav navbar-right panel_toolbox">
-                  <li><a href="listarCarrera.php">Lista de Carreras</a>
+                  <li><a href="listarasignaturas.php">Modificar Asignaturas</a>
                   </li>
                   </ul>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                   <br />
-                  <form id="formcarrera" action="../../../build/config/sql/carrera/guardarcarrera.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+                  <form id="formasignatura" action="../../../build/config/sql/asignaturas/guardarasignatura.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
                     <input type="hidden" name="bandera" id="bandera">
-                    <input type="hidden" name="baccion" id="baccion" value="<?php echo $idcarrera; ?>">
+                    <input type="hidden" name="baccion" id="baccion" value="<?php echo $idasignatura; ?>">
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="codigo">C&oacute;digo: <span style="color:	#000080;"> '</span>
                       </label>
@@ -200,43 +219,29 @@ body {font-family: "Lato", sans-serif;}
                       </div>
                       <span class="help-block" id="error"></span>
                     </div>
-                    
 
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Duraci&oacute;n Carrera: <span style="color:	#000080;"> '</span></label>
+                     <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="codigo">Tipo: <span style="color:	#000080;"> '</span>
+                      </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <select class="form-control" id="duracion" name="duracion" disabled>
-                          <option selected="selected" value="">Seleccione Duraci&oacute;n...</option>
-                          <option value="3">3 AÑOS</option>
-                          <option value="5">5 AÑOS</option>
-                          <option value="8">8 AÑOS</option>
-                        </select>
+                        <input type="text" id="codigo" name="codigo" required="required" class="form-control col-md-7 col-xs-12" value="Electiva" disabled>
                       </div>
-                      <script language="javascript">
-                        document.forms['formcarrera']['duracion'].value=<?php echo $duracion; ?>;
-                      </script>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="codigo">Pre-Requisito: <span style="color:	#000080;"> '</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="codigo" name="codigo" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $prerequisito; ?>" disabled>
+                      </div>
                     </div>
 
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Facultad: <span style="color:	#000080;"> '</span></label>
+                     <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="codigo">Post-Requisito <span style="color:	#000080;"> '</span>
+                      </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <select class="form-control" id="facultad" name="facultad" disabled>
-                          <option selected="selected" value="">Seleccione Facultad...</option>
-                          <?php
-                            
-                            $consulta  = "SELECT * FROM facultad WHERE estado_fa='1' ORDER BY nombre_fa";
-                            $result = $con->query($consulta);
-                            if ($result) {
-                              while ($fila = $result->fetch_object()) {
-                                echo "<option value='".$fila->idfacultad."'>".$fila->nombre_fa."</option>";
-                              }//fin while
-                            }
-                          ?>  
-                        </select>
+                        <input type="text" id="codigo" name="codigo" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $postrequisito; ?>" disabled>
                       </div>
-                      <script language="javascript">
-                        document.forms['formcarrera']['facultad'].value=<?php echo $facultad; ?>;
-                      </script>
                     </div>
                     
                     <div class="ln_solid"></div>
@@ -244,7 +249,7 @@ body {font-family: "Lato", sans-serif;}
                     <p style="color:RGB(205, 92, 92);">( * ) Campos Obligatorios Editables.</p> 
                     <div class="form-group" align="right">
                       <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                        <button class="btn btn-round btn-primary" type="submit"  id="btnmodificar" value="moficicar"><i class="fa fa-refresh">  Actualizar</i></button>
+                        <button class="btn btn-round btn-primary" type="button" onclick="confirmar()" id="btnmodificar" value="modificar"><i class="fa fa-refresh">  Actualizar</i></button>
                         <button class="btn btn-round btn-default" type="reset" onclick="cancelar()"><i class="fa fa-ban">  Cancelar</i></button>
                       </div>
                     </div>

@@ -17,6 +17,7 @@
       $codigo=$_POST["codigo"];
       $nombre=$_POST["nombre"];
       $duracion=$_POST["duracion"];
+      //$facul=$_POST["facul"];
       $facultad=$_POST["facultad"];
    
 
@@ -89,10 +90,10 @@
     else if($bandera=="darbaja"){
       $baccion=$_REQUEST["baccion"];
 
-      $consulta3  = "UPDATE carrera set estado_ca='0' where idcarrera=".$baccion."";
+      $consulta3  = "UPDATE plan_estudio set estado_pe='0' where idplanestudio=".$baccion."";
      // $result2 =mysqli_query($con,$consulta2);
       $result3 = $con->query($consulta3);
-        if (result3) {
+        if ($result3) {
           echo "<script language='javascript'>";
               echo "swal({ 
                       title:'Éxito',
@@ -101,7 +102,7 @@
                     },
                      function(){
                         //event to perform on click of ok button of sweetalert
-                        location.href='../../../../produccion/Administracion/carrera/listarCarrera.php';
+                        location.href='../../../../produccion/Administracion/planestudio/listarPlanEstudio.php';
                     });";
               echo "</script>";
         } else {
@@ -112,10 +113,10 @@
     }else if($bandera=="daralta"){
       $baccion=$_REQUEST["baccion"];
 
-      $consulta4  = "UPDATE carrera set estado_ca='1' where idcarrera=".$baccion."";
-      $result34= $con->query($consulta4);
+      $consulta4  = "UPDATE plan_estudio set estado_pe='1' where idplanestudio=".$baccion."";
+      $result4= $con->query($consulta4);
       //$result3 =mysqli_query($con,$consulta3);
-        if(result4) {
+        if($result4) {
           echo "<script language='javascript'>";
               echo "swal({ 
                       title:'Éxito',
@@ -124,7 +125,7 @@
                     },
                      function(){
                         //event to perform on click of ok button of sweetalert
-                        location.href='../../../../produccion/Administracion/carrera/listarCarreraDarAlta.php';
+                        location.href='../../../../produccion/Administracion/planestudio/listarPlanEstudioDarAlta.php';
                     });";
               echo "</script>";
         } else {

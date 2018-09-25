@@ -17,6 +17,7 @@
       $codigo=$_POST["codigo"];
       $nombre=$_POST["nombre"];
       $duracion=$_POST["duracion"];
+      //$facul=$_POST["facul"];
       $facultad=$_POST["facultad"];
    
 
@@ -65,9 +66,9 @@
       $baccion=$_REQUEST["baccion"];
       $nombre=$_POST["nombre"];
 
-      $consulta2  = "UPDATE carrera set nombre_ca='$nombre' where idcarrera=".$baccion."";
-     // $result2 =mysqli_query($con,$consulta2);
-      $result2 = $con->query($consulta2);
+      $consulta2  = "UPDATE asignatura set nombre_as='$nombre' where idasignatura=".$baccion."";
+     $result2 =mysqli_query($con,$consulta2);
+     // $result2 = $con->query($consulta2);
         if (result2) {
           echo "<script language='javascript'>";
               echo "swal({ 
@@ -77,7 +78,7 @@
                     },
                      function(){
                         //event to perform on click of ok button of sweetalert
-                        location.href='../../../../produccion/Administracion/carrera/listarCarrera.php';
+                        location.href='../../../../produccion/Administracion/asignaturas/listarasignaturas.php';
                     });";
               echo "</script>";
         } else {
@@ -89,7 +90,7 @@
     else if($bandera=="darbaja"){
       $baccion=$_REQUEST["baccion"];
 
-      $consulta3  = "UPDATE carrera set estado_ca='0' where idcarrera=".$baccion."";
+      $consulta3  = "UPDATE asignatura set estado_as='0' where idasignatura=".$baccion."";
      // $result2 =mysqli_query($con,$consulta2);
       $result3 = $con->query($consulta3);
         if (result3) {
@@ -101,7 +102,7 @@
                     },
                      function(){
                         //event to perform on click of ok button of sweetalert
-                        location.href='../../../../produccion/Administracion/carrera/listarCarrera.php';
+                        location.href='../../../../produccion/Administracion/asignaturas/listarasignaturas.php';
                     });";
               echo "</script>";
         } else {
@@ -112,8 +113,8 @@
     }else if($bandera=="daralta"){
       $baccion=$_REQUEST["baccion"];
 
-      $consulta4  = "UPDATE carrera set estado_ca='1' where idcarrera=".$baccion."";
-      $result34= $con->query($consulta4);
+      $consulta4  = "UPDATE asignatura set estado_as='1' where idasignatura=".$baccion."";
+      $result4= $con->query($consulta4);
       //$result3 =mysqli_query($con,$consulta3);
         if(result4) {
           echo "<script language='javascript'>";
@@ -124,7 +125,7 @@
                     },
                      function(){
                         //event to perform on click of ok button of sweetalert
-                        location.href='../../../../produccion/Administracion/carrera/listarCarreraDarAlta.php';
+                        location.href='../../../../produccion/Administracion/asignaturas/listarAsignaturaDarAlta.php';
                     });";
               echo "</script>";
         } else {

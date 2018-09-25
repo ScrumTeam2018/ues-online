@@ -1,3 +1,8 @@
+<!--Alertas -->
+<script src="../../../../vendors/alertas/dist/sweetalert-dev.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../vendors/alertas/dist/sweetalert.css"/>
+
+
 <?php
  require "../../conexion.php"; 
     
@@ -43,18 +48,31 @@
     $result2 = mysqli_query($con,$consulta2);
    }
 
-        if(!$result2){
-          echo "<script type='text/javascript'>";
-          echo   "alert('Informacion ya existen en la base de datos');";
-          echo "</script>"; 
-        }else{
-          echo "<script language='javascript'>";
-          echo "alert('Datos Almacenados');";
-          echo "location.href='../../../../produccion/Administracion/planestudio/registroplan.php';";
-          echo "</script>";
-         
-        }//fin else
-      // $con->close();    
+   if(!$result2){
+    echo "<script language='javascript'>";
+    echo "swal({ 
+            title:'Error',
+            text: 'Sin Conexión Dase Datos',
+            type: 'error'
+          },
+           function(){
+              //event to perform on click of ok button of sweetalert
+              location.href='../../../../produccion/Administracion/Facultad/registro_facultad.php';
+          });";
+    echo "</script>";
+  }else{
+    echo "<script language='javascript'>";
+    echo "swal({ 
+            title:'Éxito',
+            text: 'Datos Almacenados',
+            type: 'success'
+          },
+           function(){
+              //event to perform on click of ok button of sweetalert
+              location.href='../../../../produccion/Administracion/planestudio/registroplan.php';
+          });";
+    echo "</script>";  
     }
+  }
   }
 ?>

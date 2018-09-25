@@ -1,5 +1,7 @@
-$('#ciclos').focusout(function() {
-  var x = $(this).val();
+function generar(y) {
+
+  y.split('-');
+  var x = y['0'] * 2;
   var tabcontent = $('#addtabcontent');
   var tab = $('#addtab');
   tab.empty();
@@ -24,6 +26,7 @@ $('#ciclos').focusout(function() {
       "<br><br>"+
       "<!-- Monty: comienzo del form -->"+
       "<form id='"+i+"' method='POST' name='"+i+"' action='../../../build/config/sql/planestudio/guardarTemp.php' data-parsley-validate class='form-horizontal form-label-left'>"+
+      "<input type='hidden' value='"+y['2']+"' id='idcarrera' name='idcarrera'>"+
       "<div class='form-group' align='right'>"+
       "<div class='col-md-6 col-sm-6 col-xs-12 col-md-offset-3'>"+
       "<!-- Monty: coloque una id para usar jquery y asi hacer el llamado al metodo"+
@@ -99,6 +102,7 @@ $('#ciclos').focusout(function() {
   "<!-- Monty: coloque una id para usar jquery y asi hacer el llamado al metodo"+
   "que se encuentra dentro de public y un archivo js, llamado planestudio.js -->"+
   "<input type='hidden' value='temporal' id='val' name='val'>"+
+  "<input type='hidden' value='"+y['2']+"' id='idcarrera' name='idcarrera'>"+
   "<button class='btn btn-round btn-success' type='button'  value='add' id="+i+" onClick='agregar("+i+");'><i class='fa fa-plus'>  Agregar Nuevo</i></button>"+
   "</div>"+
   "</div>"+
@@ -107,6 +111,7 @@ $('#ciclos').focusout(function() {
   "<!-- Monty: comienzo del form -->"+
 
   "<form id='"+i+"' name='"+i+"' method='POST' action='../../../build/config/sql/planestudio/guardarTemp.php' data-parsley-validate class='form-horizontal form-label-left'>"+
+  "<input type='hidden' value='"+y['2']+"' id='idcarrera' name='idcarrera'>"+
       "<div class='form-group' align='right'>"+
       "<div class='col-md-6 col-sm-6 col-xs-12 col-md-offset-3'>"+
       "<!-- Monty: coloque una id para usar jquery y asi hacer el llamado al metodo"+
@@ -183,5 +188,5 @@ $('#ciclos').focusout(function() {
  
   // Recomiendo usar la consola en lugar de alerts
   console.log(x);
- });
+}
 

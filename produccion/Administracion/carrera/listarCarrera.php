@@ -206,7 +206,7 @@ function confirmar(id){
                           echo "<td>" . $fila->nombre_ca . "</td>";
                           echo "<td>" . $fila->duracion_ca . " Años</td>";
                           echo "<td>" . $fila->nombre_fa . "</td>";
-                          echo "<td> <a class='btn btn-success btn-lg' onclick='modify(".$fila->idcarrera.")' ><i class='fa fa-edit'></i></a>
+                          echo "<td> <a class='btn btn-info btn-lg' onclick='modify(".$fila->idcarrera.")' ><i class='fa fa-edit'></i></a>
                                      <a class='btn btn-danger btn-lg' onclick='confirmar(".$fila->idcarrera.")' ><i class='fa fa-long-arrow-down'></i></a>
                                       </td>";
                           echo "</tr>";
