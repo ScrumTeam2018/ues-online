@@ -2,7 +2,9 @@
 <html lang="es">
 <!-- abrir head  -->
 <head>
+
 <?php include '../../global/head.php' ?>
+
 <script type="text/javascript">
         function salir(){
           swal({ 
@@ -88,7 +90,7 @@
         <!--Magda titulo -->
         <div class="page-title">
               <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
-                <h3 style="color: RGB(0, 0, 128);"><strong>RECURSOS HUMANOS.</strong></h3>
+                <h4 style="color: RGB(0, 0, 128);"><strong>RECURSOS HUMANOS.</strong></h4>
               </div> 
         </div>
         <div class="clearfix"></div>
@@ -97,7 +99,7 @@
               <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
                 <div class="x_panel" >
                   <div class="x_title">
-                    <h3 style="color:RGB(205, 92, 92);">Registro.</h3>
+                    <h4 style="color:RGB(205, 92, 92);">Registro.</h4>
                     <ul class="nav navbar-right panel_toolbox">
                     <li><a href="listaEmpleado.php">Modificar Tutor</a>
                     </li>

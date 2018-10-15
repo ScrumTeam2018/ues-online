@@ -2,62 +2,7 @@
 <html lang="es">
 <!-- abrir head el cierre esta dentro del archivo que se incluye -->
 <head>
-<!-- estilo vertical para las ventanas -->
-<style>
-* {box-sizing: border-box}
-body {font-family: "Lato", sans-serif;}
 
-/* Style the tab */
-.tab {
-    float: left;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    width: 10%;
-    height: 300px;
-}
-
-/* Style the buttons inside the tab */
-.tab button {
-    display: block;
-    background-color: inherit;
-    color: black;
-    padding: 22px 16px;
-    width: 100%;
-    border: none;
-    outline: none;
-    text-align: left;
-    cursor: pointer;
-    font-size: 17px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-    background-color: #ccc;
-}
-
-/* Create an active/current "tab button" class */
-.tab button.active {
-    background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-    float: left;
-    padding: 0px 12px;
-    border: 1px solid #ccc;
-    width: 90%;
-    border-left: none;
-    height: 300px;
-    display: none;
-}
-
-/* Clear floats after the tab */
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-</style>
 <?php include '../../global/head.php' ?>
 
 <script type="text/javascript">
@@ -87,11 +32,22 @@ function salir(){
   });
 }
 
-function modify(id){
-  document.getElementById('bandera').value='enviar';
-  document.getElementById('baccion').value=id;
-  document.siccif.submit();
+
+function ver(id){
+  $.ajax({
+        type: 'POST',
+        url: '../../../produccion/Administracion/carrera/mostrarCarrera.php',
+        data: {'id': id}
+      })
+      .done(function(listas_rep){
+        $('.modal-body').html(listas_rep)
+        $('#datosCarrera').modal({show:true});
+      })
+      .fail(function(){
+        alert('Hubo un errror al cargar las Carreras')
+      })
 }
+
 
 function confirmar(id){
           swal({ 
@@ -149,7 +105,7 @@ function confirmar(id){
         <!--Magda titulo -->
         <div class="page-title">
               <div class="col-sm-12 col-sm-offset-1 col-md-10 col-md-offset-1 ">
-                <h3 style="color: RGB(0, 0, 128);"><strong>CARRERA.</strong></h3>
+                <h4 style="color: RGB(0, 0, 128);"><strong>CARRERA.</strong></h4>
                 
               </div> 
         </div>
@@ -163,7 +119,7 @@ function confirmar(id){
                 <div class="col-sm-12 col-sm-offset-1 col-md-10 col-md-offset-1">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h3 style="color:RGB(205, 92, 92);">Lista de Carreras Inactivas.</h3>
+                    <h4 style="color:RGB(205, 92, 92);">Lista de Carreras Inactivas.</h4>
                     <ul class="nav navbar-right panel_toolbox">
                     <li><a href="registroCarrera.php">Registrar Carrera</a>
                     </li>
@@ -208,8 +164,8 @@ function confirmar(id){
                           echo "<td>" . $fila->nombre_ca . "</td>";
                           echo "<td>" . $fila->duracion_ca . " Años</td>";
                           echo "<td>" . $fila->nombre_fa . "</td>";
-                          echo "<td>
-                                     <a class='btn btn-success btn-lg' onclick='confirmar(".$fila->idcarrera.")' ><i class='fa fa-long-arrow-up'></i></a>
+                          echo "<td> <a class='btn btn-success openBtn' type='button' onclick='ver(".$fila->idcarrera.")'><i class='fa fa-eye'></i></a>
+                                     <a class='btn btn-primary' onclick='confirmar(".$fila->idcarrera.")' ><i class='fa fa-long-arrow-up'></i></a>
                                       </td>";
                           echo "</tr>";
                           $contador++;
@@ -225,6 +181,27 @@ function confirmar(id){
                 </div>
                 </div>
             </div>
+            <div class="modal fade" id="datosCarrera" name="datosCarrera" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog ">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span class="label label-danger" aria-hidden="true" style="color: #FFFFFF;">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel" style="color: RGB(0, 0, 128);">Informaci&oacute;n Carrera</h4>
+                        </div>
+                        <div class="modal-body">
+                          
+                        </div>
+                        <div class="modal-footer">
+                          <p align="left"" style="color: RGB(0, 0, 128);">( ' ) Campos no Editables.</p>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                          
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
         </div>
         <!-- /page content -->
         <?php include '../../global/footer.php' ?>    

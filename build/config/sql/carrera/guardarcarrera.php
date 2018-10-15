@@ -18,6 +18,9 @@
       $nombre=$_POST["nombre"];
       $duracion=$_POST["duracion"];
       $facultad=$_POST["facultad"];
+      $result = 0;
+      $result1 = 0;
+      $datos = null;
    
 
    $consulta = "SELECT * FROM carrera WHERE codigo_ca='$codigo' OR nombre_ca='$nombre'";

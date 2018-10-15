@@ -2,62 +2,7 @@
 <html lang="es">
 <!-- abrir head  -->
 <head>
-<!-- estilo vertical para las ventanas -->
-<style>
-* {box-sizing: border-box}
-body {font-family: "Lato", sans-serif;}
 
-/* Style the tab */
-.tab {
-    float: left;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    width: 10%;
-    height: 300px;
-}
-
-/* Style the buttons inside the tab */
-.tab button {
-    display: block;
-    background-color: inherit;
-    color: black;
-    padding: 22px 16px;
-    width: 100%;
-    border: none;
-    outline: none;
-    text-align: left;
-    cursor: pointer;
-    font-size: 17px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-    background-color: #ccc;
-}
-
-/* Create an active/current "tab button" class */
-.tab button.active {
-    background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-    float: left;
-    padding: 0px 12px;
-    border: 1px solid #ccc;
-    width: 90%;
-    border-left: none;
-    height: 300px;
-    display: none;
-}
-
-/* Clear floats after the tab */
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-</style>
 <?php include '../../global/head.php' ?>
 
 
@@ -136,7 +81,7 @@ body {font-family: "Lato", sans-serif;}
       <!--Magda titulo de plan -->
       <div class="page-title">
             <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
-              <h3 style="color: RGB(0, 0, 128);"><strong>ADMINISTRACIÓN DE REPRESENTANTES DE FACULTAD.</strong></h3>
+              <h4 style="color: RGB(0, 0, 128);"><strong>ADMINISTRACIÓN DE REPRESENTANTES DE FACULTAD.</strong></h4>
             </div> 
       </div>
       <div class="clearfix"></div>
@@ -145,7 +90,7 @@ body {font-family: "Lato", sans-serif;}
             <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
               <div class="x_panel" >
                 <div class="x_title">
-                  <h3 style="color:RGB(205, 92, 92);">Registrar Representante.</h3>
+                  <h4 style="color:RGB(205, 92, 92);">Registrar Representante.</h4>
                   <ul class="nav navbar-right panel_toolbox">
                   <li><a href="listarRepresentante.php">Lista de Representantes.</a>
                   </li>
@@ -191,7 +136,7 @@ body {font-family: "Lato", sans-serif;}
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telefono_r">Tel&eacute;fono: <span class="required" style="color: #CD5C5C;"> *</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" class="form-control has-feedback-left" id="telefono_r"  name="telefono_r" required="required" placeholder="Digite número de Teléfono">
+                        <input type="text" class="form-control has-feedback-left" id="telefono_r"  name="telefono_r" required="required" placeholder="Digite Número de Teléfono">
                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                       </div>
                       <span class="help-block" id="error"></span>
@@ -201,7 +146,7 @@ body {font-family: "Lato", sans-serif;}
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="correo_r">Correo Electr&oacute;nico: <span class="required" style="color: #CD5C5C;"> *</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" class="form-control has-feedback-left" id="correo_r" name="correo_r" required="required" placeholder="Digite Correo Electrónico Personal o Institucional">
+                        <input type="text" class="form-control has-feedback-left" id="correo_r" name="correo_r" required="required" placeholder="Digite Correo Personal o Institucional">
                         <span class="fa fa-envelope-o form-control-feedback left" aria-hidden="true"></span>
                       </div>
                       <span class="help-block" id="error"></span>

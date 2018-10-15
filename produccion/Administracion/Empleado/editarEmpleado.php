@@ -24,6 +24,7 @@
 <html lang="es">
 <!-- abrir head  -->
 <head>
+
 <?php include '../../global/head.php' ?>
 
 <script type="text/javascript">
@@ -111,7 +112,7 @@
         <!--Magda titulo -->
         <div class="page-title">
               <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
-                <h3 style="color: RGB(0, 0, 128);"><strong>RECURSOS HUMANOS.</strong></h3>
+                <h4 style="color: RGB(0, 0, 128);"><strong>RECURSOS HUMANOS.</strong></h4>
               </div> 
         </div>
         <div class="clearfix"></div>
@@ -120,7 +121,7 @@
               <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
                 <div class="x_panel" >
                   <div class="x_title">
-                    <h3 style="color:RGB(205, 92, 92);">Editar.</h3>
+                    <h4 style="color:RGB(205, 92, 92);">Editar.</h4>
                     <ul class="nav navbar-right panel_toolbox">
                     <li><a href="listaEmpleado.php">Lista Tutor</a>
                     </li>
@@ -204,7 +205,7 @@
                         <label>
                         <input type='radio' class='flat' id="genero" value="Masculino" name='genero' <?php if($genero=="Masculino") echo "checked"; ?>> Masculino </label>
                         <label>
-                        <input type='radio' class='flat' id="genero" value="Femenino" name='genero'<?php if($genero=="Femenino") echo "checked"; ?>> Femenino </label>
+                        <input type='radio' class='flat' id="genero" value="Femenino" name='genero' <?php if($genero=="Femenino") echo "checked"; ?>> Femenino </label>
                         </div>
                       </div>
 

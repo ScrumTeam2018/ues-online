@@ -1,130 +1,218 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-  
-  <script src="../../../public/js/personales/data-mask.js"></script>
+<!-- abrir head  -->
+<head>
 <?php include '../../global/head.php' ?>
 
-  <body class="nav-md">
-    <div class="container body">
-      <div class="main_container">
-        <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="#" class="site_title"><img src="../../../public/images/logo2.png"/><span> Sede Cojutepeque</span></a>
-              </div>
-            <div class="clearfix"></div>
-            <br />
-            <!-- Monty:llamado al menu a la direccion carpeta global -->
-           <?php include '../../global/menu.php' ?>
+<script type="text/javascript">
+        function salir(){
+          swal({ 
+            title: "Advertencia",
+            text: "¿Seguro que Desea Cerrar Sesión?",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: "No",
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: "Si",
+            closeOnConfirm: false },
+
+            function(){ 
+            swal({ 
+            title:'Éxito',
+            text: 'Sesión Cerrada',
+            type: 'success'
+          },
+            function(){
+              //event to perform on click of ok button of sweetalert
+              location.href='logout.php';
+           });
+          });
+        }
+
+      
+        function cancelar(){
+          swal({ 
+            title: "Advertencia",
+            text: "Se Eliminarán Datos Ingresados ",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Aceptar",
+            closeOnConfirm: false },
+
+            function(){ 
+            swal({ 
+            title:'Éxito',
+            text: 'Datos Eliminados',
+            type: 'success'
+          },
+            function(){
+              //event to perform on click of ok button of sweetalert
+              location.href='registroAula.php';
+            });
+          });
+        }
+      </script>
+</head>
+
+<body class="nav-md">
+  <div class="container body">
+    <div class="main_container">
+      <div class="col-md-3 left_col">
+        <div class="left_col scroll-view">
+          <div class="navbar nav_title" style="border: 0;">
+            <a href="#" class="site_title"><img src="../../../public/images/logo2.png"/><span> Sede Cojutepeque</span></a>
           </div>
+          <div class="clearfix"></div>
+        
+          <br />
+          <?php include '../../global/menu.php' ?>
         </div>
-         <!-- Monty:llamado al navegacion a la direccion carpeta global -->
-       <?php include '../../global/navigation.php'?>
+      </div>
+     <?php include '../../global/navigation.php' ?>
+      <!-- page content Panel de Trabajo -->
+      <div class="right_col" role="main">
+      <!--Monty: Aqui dentro iria todo lo necesario para el panel de trabajo -->
 
-        <!-- Monty:page content Panel de Trabajo -->
-                
-          <div class="right_col" role="main">
-          <div class="right_col" role="main">
-            <div class="page-title">
-              <div class="title_left">
-              <h4><strong><p style="color: RGB(0, 0, 128);"> ADMINISTRACIÓN DE AULAS</strong></p></h4>
-                
-                </div></div>
-          <div class="row">
-                <div class="col-md-10 col-sm-10 col-xs-10">
-                  <div class="x_panel">
-                    <div class="x_title">
-                    <h4> <p style="color:RGB(205, 92, 92);"> Registrar Aula.</p></h4>
-                   
-                   <div class="ln_solid"></div>
+      <!--Magda titulo de plan -->
+      <div class="page-title">
+            <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
+              <h4 style="color: RGB(0, 0, 128);"><strong>ADMINISTRACI&Oacute;N DE AULAS.</strong></h4>
+            </div> 
+      </div>
+      <div class="clearfix"></div>
 
-                   <form action = "../../../build/config/sql/aula/crudaula.php" method ="POST" name="form" data-parsley-validate class="form-horizontal form-label-left">                    
-                   <input type="hidden" name="bandera" id="bandera">
-                   
-                   <h5> <strong><p style="color:RGB(0, 0, 128);"> Datos Aula:</strong></p></h5>
-                    
+      <div class="row" >
+            <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
+              <div class="x_panel" >
+                <div class="x_title">
+                  <h4 style="color:RGB(205, 92, 92);">Registrar Aula.</h4>
+                  <ul class="nav navbar-right panel_toolbox">
+                  <li><a href="listarAula.php">Modificar Aula</a>
+                  </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
                   
+                  <form id="formaula" action="../../../build/config/sql/aula/crudaula.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+                  <input type="hidden" name="bandera" id="bandera">
 
-                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="direccion_e">Nombre <span class="required" style="color: #CD5C5C;"> *</span></span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="nombre" name="nombre" required="required" placeholder="Digite Nombre de Aula" class="form-control col-md-7 col-xs-12" tabindex="1">
-                        </div>
-                        <span class="help-block" id="error"></span>
+                    <h5> <strong><p style="color:RGB(0, 0, 128);"> Datos Aula:</strong></p></h5>
+                
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Nombre: <span class="required" style="color: #CD5C5C;"> *</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="nombre" name="nombre" required="required" placeholder="Digite Nombre del Aula" class="form-control col-md-7 col-xs-12" tabindex="1">
                       </div>
+                      <span class="help-block" id="error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ubicacion">Ubicaci&oacute;n: <span class="required" style="color: #CD5C5C;"> *</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="ubicacion" name="ubicacion" required="required" placeholder="Digite Ubicaci&oacute;n del Aula" class="form-control col-md-7 col-xs-12" tabindex="2">
+                      </div>
+                      <span class="help-block" id="error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="capacidad">Capacidad: <span class="required" style="color: #CD5C5C;"> *</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="capacidad" name="capacidad" required="required" placeholder="Digite Capacidad del Aula" class="form-control col-md-7 col-xs-12" tabindex="3">
+                      </div>
+                      <span class="help-block" id="error"></span>
+                    </div>
+
+                    <h5> <strong><p style="color:RGB(0, 0, 128);"> Complemento Aula:</strong></p></h5>
+                      
+                    <div class="form-group">
+                        <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
+                          <div class="form-group" align="left">
+                            <button  class="btn btn-round btn-success btn-sm " type="button" id="otro" name="otro"><i class="fa fa-plus">  Agregar</i></button>
+                          </div> 
+                          
+                        
+                        </div> 
+
+                        <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 " id="getComplemento" name="getComplemento">
+  
+                        </div>
+                        
+                    </div>
+                       
+                       
+                    
+                    <div class="ln_solid"></div>
+                    <p style="color:RGB(205, 92, 92);">( * ) Campos Obligatorios.</p>
+                    <div class="form-group" align="right">
+                      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <button class="btn btn-round btn-primary" type="submit"  id="btnguardar" value="guardar"><i class="fa fa-save">  Guardar</i></button>
+                        <button class="btn btn-round btn-default" type="reset" onclick="cancelar()"><i class="fa fa-ban">  Cancelar</i></button>
+                      </div>
+                    </div>
+
+
+                    
+
+
+                  </form>
+
+                  <!-- Modal -->
+                  <form id="fromcomplemento" name="fromcomplemento">
+                    <div class="modal fade" id="agregarComplementoAula" name="agregarComplementoAula" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog ">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="myModalLabel" style="color: RGB(0, 0, 128);">Complemento Aula</h4>
+                        </div>
+                        
+
+                        <div class="modal-body">
 
                         <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="direccion_e">Ubicacion <span class="required" style="color: #CD5C5C;"> *</span></span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="ubicacion" name="ubicacion" required="required" placeholder="Digite Ubicacion de Aula" class="form-control col-md-7 col-xs-12" tabindex="1">
+                          <label class="control-label col-md-2 col-sm-2 col-xs-12" for="complemento">Nombre: <span class="required" style="color: #CD5C5C;"> *</span>
+                          </label>
+                          <div class="col-md-10 col-sm-10 col-xs-12">
+                            <input type="text" id="complemento" name="complemento" placeholder="Digite Nombre del Complemento" class="form-control col-md-7 col-xs-12" tabindex="1">
+                            <br>
+                            <span class="help-block" id="error"></span>
+                          </div>
                         </div>
-                        <span class="help-block" id="error"></span>
-                      </div>
-                     
+                        <br><br><br>
                           
-
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="direccion_e">Capacidad <span class="required" style="color: #CD5C5C;"> *</span></span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="capacidad" name="capacidad" required="required" placeholder="Digite Capacidad de Aula" class="form-control col-md-7 col-xs-12" tabindex="1">
                         </div>
-                        <span class="help-block" id="error"></span>
-                      </div>
-                     <br> 
-                      
-                      <h5> <strong><p style="color:RGB(0, 0, 128);"> Coplemento de Aula:</strong></p></h5>
-
-                                       
-                     <p style="padding: 5px;">
-                      <div class="form-group">
-                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="direccion_e"><input type="checkbox" name="checkbox[]" id="checkbox" value="1" class="flat" />  <span class="required" style="color: #CD5C5C;"> </span>Cannon Multimedia</span>
-                        </label>
-
-                         <div class="form-group">
-                        <label class="control-label col-md-4 col-sm-5 col-xs-12" for="direccion_e"> <input type="checkbox" name="checkbox[]" id="checkbox" value="2" class="flat" />  <span class="required" style="color: #CD5C5C;"> </span>Aire Acondicionado&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-                        </label>
+                        <div class="modal-footer">
+                          <p align="left" style="color:RGB(205, 92, 92);">( * ) Campos Obligatorios.</p>
+                          <button class="btn btn-round btn-primary" type="button" id="modalguardar" name="modalguardar" ><i class="fa fa-save">  Guardar</i></button>
                         </div>
 
-                       <div class="form-group">
-                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="direccion_e">  <input type="checkbox" name="checkbox[]" id="checkbox" value="3" class="flat" />  <span class="required" style="color: #CD5C5C;"> </span> Pantalla Electrica&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        </label>
-
-                         <div class="form-group">
-                        <label class="control-label col-md-4 col-sm-5 col-xs-12" for="direccion_e">  <input type="checkbox" name="checkbox[]" id="checkbox" value="4" class="flat" />  <span class="required" style="color: #CD5C5C;"> </span>Sistema de Ventiladores</span>
-                        </label>
-                         </div>
-                      <br>
-                    
-            <!-- Monty:fin bloque -->
-                      <p style="color:RGB(205, 92, 92);">( * ) Campos Obligatorios.</p>
-                       <div class="ln_solid"></div>
-                      <div class="form-group" align="right">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                        <button type="submit" class="btn btn-round btn-primary" id="btnguardar" value="guardar"><i class=" fa fa-save"> Guardar</i></button>
-						              <button class="btn btn-round btn-default" type="reset"><i class=" fa fa-ban"> Cancelar</i></button>
-                        </div>
+                       
                       </div>
-                      </div>
-                    </form>
+                    </div>
                   </div>
+                  </form>
+                  <!-- Fin Modal -->
                 </div>
               </div>
-            </div>            
-        </div>
-        <!-- Monty:/page content -->
+            </div>
+          </div>
 
-        
+
+      
       </div>
+      <!-- /page content -->    
+      <?php include '../../global/footer.php' ?>
     </div>
-     <!-- Monty:llamado al pie de pagina a la direccion carpeta global -->
-   <?php include '../../global/footer.php'?>
- <!-- Monty:llamado a todos los script a la direccion carpeta global-->
-   <?php include '../../global/script.php'?>
+  </div>
   
-   
-  </body>
+  <?php include '../../global/script.php' ?>
+  <script src="../../../build/config/validaciones/aula/validaraula.js"></script>
+</body>
 </html>

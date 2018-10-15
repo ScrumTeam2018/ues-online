@@ -2,7 +2,60 @@
 <html lang="es">
 <!-- abrir head el cierre esta dentro del archivo que se incluye -->
 <head>
+
 <?php include '../../global/head.php' ?>
+
+<script type="text/javascript">
+        function salir(){
+          swal({ 
+            title: "Advertencia",
+            text: "¿Seguro que Desea Cerrar Sesión?",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: "No",
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: "Si",
+            closeOnConfirm: false },
+
+            function(){ 
+            swal({ 
+            title:'Éxito',
+            text: 'Sesión Cerrada',
+            type: 'success'
+          },
+            function(){
+              //event to perform on click of ok button of sweetalert
+              location.href='logout.php';
+           });
+          });
+        }
+
+      
+        function cancelar(){
+          swal({ 
+            title: "Advertencia",
+            text: "Se Eliminarán Datos Ingresados ",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Aceptar",
+            closeOnConfirm: false },
+
+            function(){ 
+            swal({ 
+            title:'Éxito',
+            text: 'Datos Eliminados',
+            type: 'success'
+          },
+            function(){
+              //event to perform on click of ok button of sweetalert
+              location.href='registroplan.php';
+            });
+          });
+        }
+      </script>
 </head>
 
   <body class="nav-md">
@@ -37,7 +90,7 @@
         <!--Magda titulo de plan -->
         <div class="page-title">
         <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
-                <h3 style="color: RGB(0, 0, 128);"><strong>PLAN DE ESTUDIO.</strong></h3>
+                <h4 style="color: RGB(0, 0, 128);"><strong>PLAN DE ESTUDIO.</strong></h4>
                 
               </div> 
         </div>
@@ -47,7 +100,7 @@
               <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
                 <div class="x_panel" >
                   <div class="x_title">
-                    <h3 style="color:RGB(205, 92, 92);">Registro.</h3>
+                    <h4 style="color:RGB(205, 92, 92);">Registro.</h4>
                     <ul class="nav navbar-right panel_toolbox">
                     <li><a href="registroasignatura.php">Registrar Asignaturas</a>
                     </li>
@@ -79,7 +132,7 @@
                               $result = $con->query($consulta);
                               if ($result) {
                                 while ($fila = $result->fetch_object()) {
-                                  echo "<option value='".$fila->nombre_ca."'>".strtoupper($fila->nombre_ca)."</option>";
+                                  echo "<option value='".$fila->nombre_ca."'>".$fila->nombre_ca."</option>";
                                 }//fin while
                               }
                             ?>  
@@ -105,7 +158,7 @@
                       <div class="form-group" align="right">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                           <button class="btn btn-round btn-primary" type="submit"  id="btnguardar" value="guardar"><i class="fa fa-save">  Guardar</i></button>
-						              <button class="btn btn-round btn-default" type="reset"><i class="fa fa-ban">  Cancelar</i></button>
+						              <button class="btn btn-round btn-default" type="reset" onclick="cancelar()"><i class="fa fa-ban">  Cancelar</i></button>
                         </div>
                       </div>
 
