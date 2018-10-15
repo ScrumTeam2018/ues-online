@@ -74,7 +74,10 @@
                     <ul class="nav child_menu">
                       <li><a href="../../../produccion/Administracion/Evaluacion_Desempenio/registrar_criterio.php">Registro de Criterio</a></li>
                       <li><a href="../../../produccion/Administracion/Evaluacion_Desempenio/listar_criterio.php">Lista de Criterios</a></li>
-                      <li><a href="../../../produccion/Administracion/Evaluacion_Desempenio/registrar_aspectos_a_evaluar.php">Dar Alta</a></li>
+                      <li><a href="../../../produccion/Administracion/Evaluacion_Desempenio/registrar_aspectos_a_evaluar.php">Registro de Aspectos</a></li>
+                      <li><a href="../../../produccion/Administracion/Evaluacion_Desempenio/listar_aspecto.php">Lista de Aspectos</a></li>
+                      <li><a href="../../../produccion/Administracion/Evaluacion_Desempenio/registrar_item.php">Registro de &Iacute;tem</a></li>
+                      <li><a href="../../../produccion/Administracion/Evaluacion_Desempenio/listar_item.php">Lista de &Iacute;tem</a></li>
                     </ul>
                   </li>
                   <!--
