@@ -2,62 +2,7 @@
 <html lang="es">
 <!-- abrir head el cierre esta dentro del archivo que se incluye -->
 <head>
-<!-- estilo vertical para las ventanas -->
-<style>
-* {box-sizing: border-box}
-body {font-family: "Lato", sans-serif;}
 
-/* Style the tab */
-.tab {
-    float: left;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    width: 10%;
-    height: 300px;
-}
-
-/* Style the buttons inside the tab */
-.tab button {
-    display: block;
-    background-color: inherit;
-    color: black;
-    padding: 22px 16px;
-    width: 100%;
-    border: none;
-    outline: none;
-    text-align: left;
-    cursor: pointer;
-    font-size: 17px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-    background-color: #ccc;
-}
-
-/* Create an active/current "tab button" class */
-.tab button.active {
-    background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-    float: left;
-    padding: 0px 12px;
-    border: 1px solid #ccc;
-    width: 90%;
-    border-left: none;
-    height: 300px;
-    display: none;
-}
-
-/* Clear floats after the tab */
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-</style>
 <?php include '../../global/head.php' ?>
 
 <script type="text/javascript">
@@ -89,6 +34,21 @@ function salir(){
 
 function modify(id){
   document.location.href='editarCarrera.php?id='+id;
+}
+
+function ver(id){
+  $.ajax({
+        type: 'POST',
+        url: '../../../produccion/Administracion/carrera/mostrarCarrera.php',
+        data: {'id': id}
+      })
+      .done(function(listas_rep){
+        $('.modal-body').html(listas_rep)
+        $('#datosCarrera').modal({show:true});
+      })
+      .fail(function(){
+        alert('Hubo un errror al cargar las Carreras')
+      })
 }
 
 function confirmar(id){
@@ -147,21 +107,20 @@ function confirmar(id){
         <!--Magda titulo -->
         <div class="page-title">
               <div class="col-sm-12 col-sm-offset-1 col-md-10 col-md-offset-1 ">
-                <h3 style="color: RGB(0, 0, 128);"><strong>CARRERA.</strong></h3>
+                <h4 style="color: RGB(0, 0, 128);"><strong>CARRERA.</strong></h4>
                 
               </div> 
         </div>
         <div class="clearfix"></div>
-
+       
         <div class="row" >
           <!--    <div class="col-sm-12 col-sm-offset-1 col-md-10 col-md-offset-1 ">-->
-                
-                   
+                  
                     
                 <div class="col-sm-12 col-sm-offset-1 col-md-10 col-md-offset-1">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h3 style="color:RGB(205, 92, 92);">Lista de Carreras Activas.</h3>
+                    <h4 style="color:RGB(205, 92, 92);">Lista de Carreras Activas.</h4>
                     <ul class="nav navbar-right panel_toolbox">
                     <li><a href="registroCarrera.php">Registrar Carrera</a>
                     </li>
@@ -186,7 +145,7 @@ function confirmar(id){
                           <th>Carrera</th>
                           <th>Duraci&oacute;n</th>
                           <th>Facultad</th>
-                          <th>Acciones&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                          <th>Acciones&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -204,10 +163,11 @@ function confirmar(id){
                           echo "<td>" .$contador. "</td>";
                           echo "<td>" . $fila->codigo_ca . "</td>";
                           echo "<td>" . $fila->nombre_ca . "</td>";
-                          echo "<td>" . $fila->duracion_ca . " Años</td>";
+                          echo "<td>" . $fila->duracion_ca . " A&ntilde;os</td>";
                           echo "<td>" . $fila->nombre_fa . "</td>";
-                          echo "<td> <a class='btn btn-info btn-lg' onclick='modify(".$fila->idcarrera.")' ><i class='fa fa-edit'></i></a>
-                                     <a class='btn btn-danger btn-lg' onclick='confirmar(".$fila->idcarrera.")' ><i class='fa fa-long-arrow-down'></i></a>
+                          echo "<td> <a class='btn btn-success openBtn' type='button' onclick='ver(".$fila->idcarrera.")'><i class='fa fa-eye'></i></a>
+                                     <a class='btn btn-info' onclick='modify(".$fila->idcarrera.")' ><i class='fa fa-edit'></i></a>
+                                     <a class='btn btn-danger' onclick='confirmar(".$fila->idcarrera.")' ><i class='fa fa-long-arrow-down'></i></a>
                                       </td>";
                           echo "</tr>";
                           $contador++;
@@ -224,6 +184,68 @@ function confirmar(id){
                 </div>
             </div>
         </div>
+        
+        <div class="modal fade" id="datosCarrera" name="datosCarrera" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog ">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="myModalLabel" style="color: RGB(0, 0, 128);">Informaci&oacute;n Carrera</h4>
+                        </div>
+                        <div class="modal-body">
+                          
+                        </div>
+                        <div class="modal-footer">
+                          <p align="left"" style="color: RGB(0, 0, 128);">( ' ) Campos no Editables.</p>
+                          <button type="button" class="btn btn-round btn-default" data-dismiss="modal"><i class="fa fa-ban">  Cancelar</i></button>
+                          
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                <!--
+        <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Modal title</h4>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-4">.col-md-4</div>
+                  <div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+                  <div class="col-md-2 col-md-offset-4">.col-md-2 .col-md-offset-4</div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3</div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-9">
+                    Level 1: .col-sm-9
+                    <div class="row">
+                      <div class="col-xs-8 col-sm-6">
+                        Level 2: .col-xs-8 .col-sm-6
+                      </div>
+                      <div class="col-xs-4 col-sm-6">
+                        Level 2: .col-xs-4 .col-sm-6
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>-->
+           <!-- </div><!- /.modal-content --> 
+          <!-- </div><!- /.modal-dialog -->
+       <!--   </div><!- /.modal --> 
+
         <!-- /page content -->
         <?php include '../../global/footer.php' ?>    
       </div>
@@ -232,6 +254,10 @@ function confirmar(id){
     <script type="text/javascript">
       $(document).ready(function(){
         $('#datatables-example').DataTable();
+
+       
+
+      
       });
     </script>
   </body>

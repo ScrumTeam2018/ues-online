@@ -18,6 +18,8 @@ function conectarMysql(){
 		echo 'Conexion Fallida : ', mysqli_connect_error();
 		exit();
     }
+
+   // $conexion
     
     return $conexion;
 

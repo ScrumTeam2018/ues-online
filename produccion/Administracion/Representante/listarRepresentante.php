@@ -2,62 +2,7 @@
 <html lang="es">
 <!-- abrir head el cierre esta dentro del archivo que se incluye -->
 <head>
-<!-- estilo vertical para las ventanas -->
-<style>
-* {box-sizing: border-box}
-body {font-family: "Lato", sans-serif;}
 
-/* Style the tab */
-.tab {
-    float: left;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    width: 10%;
-    height: 300px;
-}
-
-/* Style the buttons inside the tab */
-.tab button {
-    display: block;
-    background-color: inherit;
-    color: black;
-    padding: 22px 16px;
-    width: 100%;
-    border: none;
-    outline: none;
-    text-align: left;
-    cursor: pointer;
-    font-size: 17px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-    background-color: #ccc;
-}
-
-/* Create an active/current "tab button" class */
-.tab button.active {
-    background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-    float: left;
-    padding: 0px 12px;
-    border: 1px solid #ccc;
-    width: 90%;
-    border-left: none;
-    height: 300px;
-    display: none;
-}
-
-/* Clear floats after the tab */
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-</style>
 <?php include '../../global/head.php' ?>
 
 <script type="text/javascript">
@@ -91,25 +36,20 @@ function modify(id){
   document.location.href='mantenimiento_representante.php?id='+id;
 }
 
-function confirmar(id){
-          swal({ 
-            title: "Advertencia",
-            text: "¿Desea Dar Baja a Este Registro?",
-            type: "warning",
-            showCancelButton: true,
-            cancelButtonText: "No",
-            confirmButtonColor: "#DD6B55",
-            confirmButtonText: "Si",
-            closeOnConfirm: false },
-
-            function(){ 
-              //event to perform on click of ok button of sweetalert
-              document.getElementById('bandera').value='darbaja';
-              document.getElementById('baccion').value=id;
-              $("#formcarrera").submit();
-            
-          });
-        }
+function ver(id){
+  $.ajax({
+        type: 'POST',
+        url: '../../../produccion/Administracion/Representante/mostrarRepresentante.php',
+        data: {'id': id}
+      })
+      .done(function(listas_rep){
+        $('.modal-body').html(listas_rep)
+        $('#datosRepresentante').modal({show:true});
+      })
+      .fail(function(){
+        alert('Hubo un errror al cargar los Representantes')
+      })
+}
 
 </script>
 
@@ -147,21 +87,18 @@ function confirmar(id){
         <!--Magda titulo -->
         <div class="page-title">
               <div class="col-sm-12 col-sm-offset-1 col-md-10 col-md-offset-1 ">
-                <h3 style="color: RGB(0, 0, 128);"><strong>REPRESENTANTES.</strong></h3>
+                <h4 style="color: RGB(0, 0, 128);"><strong>REPRESENTANTES.</strong></h4>
                 
               </div> 
         </div>
         <div class="clearfix"></div>
 
         <div class="row" >
-          <!--    <div class="col-sm-12 col-sm-offset-1 col-md-10 col-md-offset-1 ">-->
-                
-                   
                     
                 <div class="col-sm-12 col-sm-offset-1 col-md-10 col-md-offset-1">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h3 style="color:RGB(205, 92, 92);">Lista de Representantes Activos.</h3>
+                    <h4 style="color:RGB(205, 92, 92);">Lista de Representantes Activos.</h4>
                     <ul class="nav navbar-right panel_toolbox">
                     <li><a href="registro_representante.php">Registrar Representante</a>
                     </li>
@@ -172,7 +109,7 @@ function confirmar(id){
                     <p class="text-muted font-13 m-b-30">
                       Lista de todos los Representantes Activos 
                     </p>
-                    <form id="formcarrera" action="../../../build/config/sql/carrera/guardarcarrera.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+                    
                     <input type="hidden" name="bandera" id="bandera">
                     <input type="hidden" name="baccion" id="baccion">
 
@@ -182,10 +119,10 @@ function confirmar(id){
                       <thead>
                         <tr>
                           <th>No.</th>
-                          <th>Nombre</th>
-                          <th>Apellido</th>
+                          <th>Nombres</th>
+                          <th>Apellidos</th>
                           <th>Tel&eacute;fono</th>
-                          <th>Correo</th>
+                          <th>Correo Electr&oacute;nico</th>
                           <th>Acciones&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                         </tr>
                       </thead>
@@ -205,7 +142,8 @@ function confirmar(id){
                           echo "<td>" . $fila->apellido_rf . "</td>";
                           echo "<td>" . $fila->telefono_rf . "</td>";
                           echo "<td>" . $fila->correo_rf. "</td>";
-                          echo "<td> <a class='btn btn-info btn-lg' onclick='modify(".$fila->id_re_fa.")' ><i class='fa fa-edit'></i></a>
+                          echo "<td><a class='btn btn-success openBtn' type='button' onclick='ver(".$fila->id_re_fa.")'><i class='fa fa-eye'></i></a>
+                                    <a class='btn btn-info' onclick='modify(".$fila->id_re_fa.")' ><i class='fa fa-edit'></i></a>
                                       </td>";
                           echo "</tr>";
                           $contador++;
@@ -216,11 +154,33 @@ function confirmar(id){
                       </tbody>
                     </table>
                     </div>
-					          </form>
                   </div>
                 </div>
                 </div>
             </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="datosRepresentante" name="datosRepresentante" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="myModalLabel" style="color: RGB(0, 0, 128);">Informaci&oacute;n Representante</h4>
+                        </div>
+                        <div class="modal-body">
+                          
+                        </div>
+                        <div class="modal-footer">
+                          <p align="left"" style="color: RGB(0, 0, 128);">( ' ) Campos no Editables.</p>
+                          <button type="button" class="btn btn-round btn-default" data-dismiss="modal"><i class="fa fa-ban">  Cancelar</i></button>
+                          
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Fin Modal -->
+
         </div>
         <!-- /page content -->
         <?php include '../../global/footer.php' ?>    

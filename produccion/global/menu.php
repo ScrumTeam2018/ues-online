@@ -27,12 +27,39 @@
                     <ul class="nav child_menu">
                       <li><a href="../../../produccion/Administracion/planestudio/registroplan.php">Registro</a></li>
                       <li><a href="../../../produccion/Administracion/planestudio/listaPlanEstudiosinLlenar.php">Lista Planes Sin Llenar</a></li>
+                      <li><a href="../../../produccion/Administracion/asignaturas/listarasignaturas.php">Lista de Asignaturas Electivas Activas</a></li>
+                      <li><a href="../../../produccion/Administracion/asignaturas/listarAsignaturaDarAlta.php">Lista de Asignaturas Inactivas</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i>Asignatura<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">General Elements</a></li>
-                      <li><a href="#">Media Gallery</a></li>
+                    <li><a href="../../../produccion/Administracion/planestudio/registroasignatura.php">llenar Plan de Estudio</a></li>
+                      <li><a href="../../../produccion/Administracion/asignaturas/listarasignaturas.php">Lista de Asignaturas Electivas Activas</a></li>
+                      <li><a href="../../../produccion/Administracion/asignaturas/listarAsignaturaDarAlta.php">Lista de Asignaturas Inactivas</a></li>
+                    </ul>
+                  </li>
+
+                  <li><a><i class="fa fa-edit"></i>Estudiante <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="../../../produccion/Administracion/Estudiante/Registro_Estudiante.php">Registro</a></li>
+                      <li><a href="../../../produccion/Administracion/Estudiante/listar_Estudiante.php">Modificaci&oacute;n</a></li>
+                      <li><a href="../../../produccion/Administracion/Estudiante/listar_Estudiante_Alta.php">Dar Alta</a></li>
+                    </ul>
+                  </li>
+
+                  <li><a><i class="fa fa-edit"></i>Recepci&oacute;n Documentos <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="../../../produccion/Administracion/Comprobantes/registroComprobante.php">Registro</a></li>
+                      <li><a href="../../../produccion/Administracion/aula/listarAula1.php">Modificaci&oacute;n</a></li>
+                      <li><a href="../../../produccion/Administracion/aula/listarCarreraDarAlta.php">Dar Alta</a></li>
+                    </ul>
+                  </li>
+
+                  <li><a><i class="fa fa-edit"></i>Aula <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="../../../produccion/Administracion/aula/registroAula.php">Registro</a></li>
+                      <li><a href="../../../produccion/Administracion/aula/listarAula.php">Modificaci&oacute;n</a></li>
+                      <li><a href="../../../produccion/Administracion/aula/listarAulaDarAlta.php">Dar Alta</a></li>
                     </ul>
                   </li>
 
@@ -41,6 +68,13 @@
                       <li><a href="../../../produccion/Administracion/Empleado/registroEmpleado.php">Registro</a></li>
                       <li><a href="../../../produccion/Administracion/Empleado/listaEmpleado.php">Modificaci&oacute;n</a></li>
                       <li><a href="../../../produccion/Administracion/Empleado/listaEmpleadoDarAlta.php">Dar Alta</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-clone"></i>Evaluaci&oacute;n Desempe&ntilde;o <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="../../../produccion/Administracion/Evaluacion_Desempenio/registrar_criterio.php">Registro de Criterio</a></li>
+                      <li><a href="../../../produccion/Administracion/Evaluacion_Desempenio/listar_criterio.php">Lista de Criterios</a></li>
+                      <li><a href="../../../produccion/Administracion/Evaluacion_Desempenio/registrar_aspectos_a_evaluar.php">Dar Alta</a></li>
                     </ul>
                   </li>
                   <!--
