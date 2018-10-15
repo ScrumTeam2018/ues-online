@@ -41,7 +41,6 @@
         }
         return $msj;
       }
-<<<<<<< HEAD
     }else if($bandera=="aspecto"){
       $msj="Error";
     
@@ -61,9 +60,6 @@
         return $msj;
       }
   }
-=======
-    }
->>>>>>> e87d9ca78ca286202448d1e8f86774c33d942b08
   }
  
     echo obtenerResultado();

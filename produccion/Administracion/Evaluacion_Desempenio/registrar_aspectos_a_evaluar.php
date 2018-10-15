@@ -99,17 +99,13 @@
                   <form id="formed" method="POST" data-parsley-validate class="form-horizontal form-label-left">
                   <input type="hidden" name="bandera" id="bandera">
 
-<<<<<<< HEAD
-=======
                    
                 
->>>>>>> e87d9ca78ca286202448d1e8f86774c33d942b08
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Criterio: <span class="required" style="color: #CD5C5C;"> *</span></label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
                         <select class="form-control" id="criterio" name="criterio" tabindex="4">
                           <option selected="selected" value="">Seleccione un Criterio...</option>
-<<<<<<< HEAD
                           <?php
                             require '../../../build/config/conexion.php';
                             $con=conectarMysql();
@@ -121,8 +117,6 @@
                               }//fin while
                             }
                           ?>  
-=======
->>>>>>> e87d9ca78ca286202448d1e8f86774c33d942b08
                         </select>
                       </div>
                       <span class="help-block" id="error"></span>
