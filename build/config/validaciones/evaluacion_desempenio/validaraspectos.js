@@ -68,6 +68,8 @@ $("#evaluacion").blur(function(){
       $('#nombre_ed').val(datos[0]);
       $('#criterio_ed').val(datos[1]);
       $('#canmax').val(datos[2]);
+      var cant = datos[2]
+      for(i=0; i<= $('#canmax').val(datos[2]); )
       $('#ed').hide();
       $('#info').show();                      
   })
