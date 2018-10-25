@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+    $('#info').hide();
       
     $.validator.addMethod("letrasOespacio", function(value, element) {
         return /^[ a-záéíóúüñ]*$/i.test(value);
@@ -50,6 +52,30 @@ $(document).ready(function(){
     
 });
 
+$("#evaluacion").blur(function(){
+  
+  var evaluacion = $("#evaluacion").val();
+  //alert("aqui" + evaluacion);
+
+  $.ajax({
+    type: 'POST',
+    url: '../../../build/config/sql/evaluacion_desempenio/obtenerDatos.php',
+    data: {'evaluacion': evaluacion}
+  })
+  .done(function(obtenerDatos){
+     // alert(obtenerDatos);
+      var datos = eval(obtenerDatos);
+      $('#nombre_ed').val(datos[0]);
+      $('#criterio_ed').val(datos[1]);
+      $('#canmax').val(datos[2]);
+      $('#ed').hide();
+      $('#info').show();                      
+  })
+  .fail(function(){
+    alert('Hubo un error al cargar la Pagina')
+  })
+});
+
 
   $("#btnguardar").click(function(){
     if($("#formed").valid()){
@@ -59,7 +85,7 @@ $(document).ready(function(){
       var bandera = "aspecto";
       $.ajax({
         type: 'POST',
-        url: '../../../build/config/sql/evaluacion_desempenio/crudevaluaciond.php',
+        url: '../../../build/config/sql/evaluacion_desempenio/crud_evaluaciond.php',
         data: {'nombre': nombre, 'criterio': criterio, 'bandera' : bandera}
       })
         .done(function(listas_rep){

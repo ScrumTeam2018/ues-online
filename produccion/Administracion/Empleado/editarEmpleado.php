@@ -211,23 +211,22 @@
 
 
                        <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Estado Civil <span class="required" style="color: #CD5C5C;"> *</span></label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Estado Familiar: <span class="required" style="color: #CD5C5C;"> *</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" id="estadoff" name="estadoff">
-                          <option selected="selected" value="">Seleccione Estado Civil...</option>
-                            <option value="Soltero(a)">Soltero(a)</option>
-                            <option value="Casado(a)">Casado(a)</option>
-                            <option value="Viudo(a)">Viudo(a)</option>
-                            <option value="Divorciado(a)">Divorciado(a)</option>
-                            <option value="Separado(a)">Separado(a)</option>
-                            <option value="Conviviente">Conviviente</option>
+                          <select class="form-control" id="estado" name="estado">
+                          <option selected="selected" value="">Seleccione Estado Familiar...</option>
+                            <option value="Soltero (a)">Soltero (a)</option>
+                            <option value="Casado (a)">Casado (a)</option>
+                            <option value="Viudo (a)">Viudo (a)</option>
                           </select>
-                          </div>
                           <span class="help-block" id="error"></span>
-                          </div>
-                        <script language="javascript">
-                            document.forms['formempleado']['estadoff'].value=<?php echo $estado; ?>;
-                        </script>
+                        </div>
+                          <script language="javascript">
+                              document.forms['formempleado']['estado'].value=<?php echo $estado; ?>;
+                          </script>
+                        </div>
+                          
+                        
 
 
 

@@ -4,8 +4,6 @@
 <head>
 <?php include '../../global/head.php' ?>
 
-
-
 <script type="text/javascript">
         function salir(){
           swal({ 
@@ -81,7 +79,7 @@
       <!--Magda titulo de plan -->
       <div class="page-title">
             <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
-            <h4 style="color: RGB(0, 0, 128);"><strong>EVALUACIÓN DE DESEMPEÑO.</strong></h4>
+            <h4 style="color: RGB(0, 0, 128);"><strong>ADMINISTRACI&Oacute;N DE EVALUACIÓN DE DESEMPEÑO.</strong></h4>
             </div> 
       </div>
       <div class="clearfix"></div>
@@ -90,7 +88,7 @@
             <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
               <div class="x_panel" >
                 <div class="x_title">
-                  <h4 style="color:RGB(205, 92, 92);">Registro de Aspectos a Evaluar</h4>
+                  <h4 style="color:RGB(205, 92, 92);">Registro de Ítem por Aspecto a Evaluar</h4>
                   <ul class="nav navbar-right panel_toolbox">
                   
                   </ul>
@@ -98,81 +96,44 @@
                 </div>
                 <div class="x_content">
                   
-                  <form id="formed" data-parsley-validate class="form-horizontal form-label-left">
+                  <form id="formed" action="../../../build/config/sql/evaluacion_desempenio/crudevaluaciond.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
                   <input type="hidden" name="bandera" id="bandera">
-                  <input type="hidden" name="canmax" id="canmax">
 
-                  <div class="form-group" id="ed">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Evaluaci&oacute;n: <span class="required" style="color: #CD5C5C;"> *</span></label>
+                   
+                
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Criterio: <span class="required" style="color: #CD5C5C;"> *</span></label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <select class="form-control" id="evaluacion" name="evaluacion" tabindex="4">
-                          <option selected="selected" value="">Seleccione Evaluaci&oacute;n...</option>
-                          <?php
-                            require '../../../build/config/conexion.php';
-                            $con=conectarMysql();
-                            $sql_fa  = "SELECT id_ed, nombre_ed FROM evaulaciond WHERE estado_ed=0";
-                            $result = $con->query($sql_fa);
-                            if ($result) {
-                              while ($fila = $result->fetch_object()) {
-                                echo "<option value='".$fila->id_ed."'>".$fila->nombre_ed."</option>";
-                              }//fin while
-                            }
-                          ?>  
+                        <select class="form-control" id="criterio" name="criterio" tabindex="4">
+                          <option selected="selected" value="">Seleccione un Criterio...</option>
                         </select>
                       </div>
                       <span class="help-block" id="error"></span>
                     </div>
 
-                    <div id="info">
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre: <span style="color:	#000080;"> '</span>
-                      </label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" id="nombre_ed" name ="nombre_ed"  class="form-control col-md-7 col-xs-12"  disabled>
-                      </div>
-                    </div>
-
-                   <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Criterio: <span style="color:	#000080;"> '</span>
-                      </label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" id ="criterio_ed" name ="criterio_ed" class="form-control col-md-7 col-xs-12"  disabled>
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Aspecto 1: <span class="required" style="color: #CD5C5C;"> *</span>
-                      </label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Aspecto: <span class="required" style="color: #CD5C5C;"> *</span></label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="nombre_item" name="nombre_item" required="required" placeholder="Digite Nombre del Aspecto" class="form-control col-md-7 col-xs-12" tabindex="1">
+                        <select class="form-control" id="aspecto" name="aspecto" tabindex="4">
+                          <option selected="selected" value="">Seleccione un Aspecto...</option>
+                        </select>
                       </div>
                       <span class="help-block" id="error"></span>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Aspecto 2: <span class="required" style="color: #CD5C5C;"> *</span>
-                      </label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="nombre_item" name="nombre_item" required="required" placeholder="Digite Nombre del Aspecto" class="form-control col-md-7 col-xs-12" tabindex="1">
-                      </div>
-                      <span class="help-block" id="error"></span>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Aspecto 3: <span class="required" style="color: #CD5C5C;"> *</span>
-                      </label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="nombre_item" name="nombre_item" required="required" placeholder="Digite Nombre del Aspecto" class="form-control col-md-7 col-xs-12" tabindex="1">
-                      </div>
-                      <span class="help-block" id="error"></span>
-                    </div>
-
                     </div>
                     
-
-                     <div class="ln_solid"></div>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Nombre: <span class="required" style="color: #CD5C5C;"> *</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="nombre_item" name="nombre_item" required="required" placeholder="Digite Item del Aspecto a Complemetar" class="form-control col-md-7 col-xs-12" tabindex="1">
+                      </div>
+                      <span class="help-block" id="error"></span>
+                    </div>
+                    
+                    
+                    
+                    <div class="ln_solid"></div>
                     <p style="color:RGB(205, 92, 92);">( * ) Campos Obligatorios.</p>
-                    <p style="color:RGB(#000080);">( ' ) Campos no Editables.</p>
                     <div class="form-group" align="right">
                       <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                         <button class="btn btn-round btn-primary" type="submit"  id="btnguardar" value="guardar"><i class="fa fa-save">  Guardar</i></button>
@@ -196,6 +157,6 @@
   </div>
   
   <?php include '../../global/script.php' ?>
-  <script src="../../../build/config/validaciones/evaluacion_desempenio/validaraspectos.js"></script>
+  <script src="../../../build/config/validaciones/evaluacion_desempenio/validarcategoria.js"></script>
 </body>
 </html>

@@ -1,4 +1,22 @@
 $(document).ready(function(){
+
+  $('input').on('keypress', function(e){
+    if (e.keyCode == 13) {
+      // Obtenemos el número del atributo tabindex al que se le dio enter y le sumamos 1
+      var TabIndexActual = $(this).attr('tabindex');
+      var TabIndexSiguiente = parseInt(TabIndexActual) + 1;
+      // Se determina si el tabindex existe en el formulario
+      var CampoSiguiente = $('[tabindex='+TabIndexSiguiente+']');
+      // Si se encuentra el campo entra al if
+      if(CampoSiguiente.length > 0)
+      {
+      CampoSiguiente.focus(); //Hcemos focus al campo encontrado
+      return false; // retornamos false para detener alguna otra ejecucion en el campo
+      }else{// Si no se encontro ningún elemento, se retorna false
+      return false;
+      }
+    }
+  });
       
       $.validator.addMethod("letrasOespacio", function(value, element) {
           return /^[ a-záéíóúüñ]*$/i.test(value);
@@ -30,34 +48,67 @@ $(document).ready(function(){
             required: true,
             minlength: 3,
             maxlength: 200
+          },
+          criterio: {
+            alfanumOespacio: true,
+            required: true,
+            minlength: 3,
+            maxlength: 200
+          },
+          aspectos: {
+            numero: true,
+            required: true,
+            min: 3,
+            max: 7
           }
+          
         },
         messages: {
           nombre: {
             required: "Por favor, ingrese nombre.",
             maxlength: "Debe ingresar m&aacute;ximo 200 dígitos.",
             minlength: "Debe ingresar m&iacute;nimo 3 dígitos."
+          },
+          criterio: {
+            required: "Por favor, ingrese criterio.",
+            maxlength: "Debe ingresar m&aacute;ximo 200 dígitos.",
+            minlength: "Debe ingresar m&iacute;nimo 3 dígitos."
+          },
+          aspectos: {
+            required: "Por favor, ingrese cantidad de aspectos.",
+            max: "Debe ingresar m&aacute;ximo 7.",
+            min: "Debe ingresar m&iacute;nimo 3."
           }
         }
       });
       
   });
 
+  $("#aspectos").keypress(function(e) {
+    if(e.which == 13) {
+       $('#btnguardar').click();
+    }
+ });
+
   
     $("#btnguardar").click(function(){
       if($("#formed").valid()){
        
         var nombre = $('#nombre').val();
-        var bandera = "criterio";
+        var criterio = $('#criterio').val();
+        var aspectos = $('#aspectos').val();
+        var bandera = "add";
         $.ajax({
           type: 'POST',
-          url: '../../../build/config/sql/evaluacion_desempenio/crudevaluaciond.php',
-          data: {'nombre': nombre, 'bandera' : bandera}
+          url: '../../../build/config/sql/evaluacion_desempenio/crud_evaluaciond.php',
+          data: {'nombre': nombre, 'criterio': criterio, 'aspectos': aspectos, 'bandera' : bandera}
         })
           .done(function(listas_rep){
             if(listas_rep === "Exito"){
               
               $("#nombre").val("");
+              $("#criterio").val("");
+              $("#aspectos").val("");
               swal({ 
                 title:'Éxito',
                 text: 'Datos Almacenados',
@@ -65,7 +116,7 @@ $(document).ready(function(){
               },
                 function(){
                   //event to perform on click of ok button of sweetalert
-                  location.href='../../../produccion/Administracion/Evaluacion_Desempenio/registrar_criterio.php';
+                  location.href='../../../produccion/Administracion/Evaluacion_Desempenio/registro_evaluaciond.php';
                 })
               }
                 if(listas_rep === "Error"){
@@ -78,6 +129,12 @@ $(document).ready(function(){
             })
       }
       
+    });
+
+
+    $("#nombre").blur(function(){
+      alert("entro");
+
     });
 
 
