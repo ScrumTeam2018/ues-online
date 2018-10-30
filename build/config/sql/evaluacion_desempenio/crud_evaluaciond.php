@@ -48,12 +48,17 @@
     
       function obtenerResultado(){
       $result = 0;
-      $nombre=$_REQUEST["nombre"];
-      $criterio=$_REQUEST["criterio"];
+    
+      $aspecto= $_POST['aspecto'];
+      $id_ed=$_POST['evaluacion'];
       $con = conectarMysql();
 
-      $consulta  = "INSERT INTO ed_aspectos_evaluar(ed_naspecto,ed_idcriteriofk) VALUES('$nombre','$criterio')";
-      $result = $con->query($consulta);
+        for($i=0 ; $i <count($aspecto); $i++ ){
+          if($aspecto[$i] !=""){
+          $consulta = "INSERT INTO ed_aspectos(ed_nomasp, ed_porasp, estado_asp, id_edfk) VALUES ('$aspecto[$i]','0','0','$id_ed')";
+          $result = $con->query($consulta);
+          }
+        }
         if ($result) {
           $msj = "Exito";
         } else {

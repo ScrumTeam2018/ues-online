@@ -55,7 +55,6 @@ $(document).ready(function(){
 $("#evaluacion").blur(function(){
   
   var evaluacion = $("#evaluacion").val();
-  //alert("aqui" + evaluacion);
 
   $.ajax({
     type: 'POST',
@@ -63,13 +62,15 @@ $("#evaluacion").blur(function(){
     data: {'evaluacion': evaluacion}
   })
   .done(function(obtenerDatos){
-     // alert(obtenerDatos);
       var datos = eval(obtenerDatos);
       $('#nombre_ed').val(datos[0]);
       $('#criterio_ed').val(datos[1]);
       $('#canmax').val(datos[2]);
       var cant = datos[2]
-      for(i=0; i<= $('#canmax').val(datos[2]); )
+      for(i=1; i<= cant; i++){
+        var cadena="<div class='form-group'><label class='control-label col-md-3 col-sm-3 col-xs-12' for='nombre'>Aspecto "+i+": <span class='required' style='color: #CD5C5C;'> *</span></label><div class='col-md-6 col-sm-6 col-xs-12'><input type='text' id='aspecto[]' name='aspecto[]' required='required' placeholder='Digite Nombre del Aspecto' class='form-control col-md-7 col-xs-12' tabindex='1'></div><span class='help-block' id='error'></span></div>";
+        $('#insertaraspecto').append(cadena);
+      }
       $('#ed').hide();
       $('#info').show();                      
   })
@@ -81,19 +82,14 @@ $("#evaluacion").blur(function(){
 
   $("#btnguardar").click(function(){
     if($("#formed").valid()){
-     
-      var nombre = $('#nombre').val();
-      var criterio = $('#criterio').val();
-      var bandera = "aspecto";
+     $('#bandera').val("aspecto");
       $.ajax({
         type: 'POST',
         url: '../../../build/config/sql/evaluacion_desempenio/crud_evaluaciond.php',
-        data: {'nombre': nombre, 'criterio': criterio, 'bandera' : bandera}
+        data: $("#formed").serialize()
       })
         .done(function(listas_rep){
           if(listas_rep === "Exito"){
-            
-            $("#nombre").val("");
             swal({ 
               title:'Éxito',
               text: 'Datos Almacenados',
@@ -110,7 +106,7 @@ $("#evaluacion").blur(function(){
               }                
               })
           .fail(function(){
-            alert('Hubo un errror al cargar la Pagina')
+            alert('Hubo un error al cargar la Pagina')
           })
     }
     

@@ -33,7 +33,7 @@ function salir(){
 }
 
 function modify(id){
-  document.location.href='editar_criterio.php?id='+id;
+  document.location.href='editar_aspecto.php?id='+id;
 }
 
 function ver(id){
@@ -92,60 +92,52 @@ function ver(id){
               </div> 
         </div>
         <div class="clearfix"></div>
-
+      
         <div class="row" >
                     
                 <div class="col-sm-12 col-sm-offset-1 col-md-10 col-md-offset-1">
                 <div class="x_panel">
+                
                   <div class="x_title">
+                    
+
                     <h4 style="color:RGB(205, 92, 92);">Lista de Criterios de Evaluación Activos.</h4>
                     <ul class="nav navbar-right panel_toolbox">
-                    <li><a href="registrar_criterio.php">Registrar Criterios de Evaluación</a>
-                    </li>
+                    
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
+
+                    <div class="form-group" id="ed">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Evaluaci&oacute;n: <span class="required" style="color: #CD5C5C;"> *</span></label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <select class="form-control" id="evaluacion" name="evaluacion">
+                          <option selected="selected" value="">Seleccione Evaluaci&oacute;n...</option>
+                          <?php
+                            require '../../../build/config/conexion.php';
+                            $con=conectarMysql();
+                            $sql_fa  = "SELECT id_ed, nombre_ed FROM evaulaciond WHERE estado_ed=0";
+                            $result = $con->query($sql_fa);
+                            if ($result) {
+                              while ($fila = $result->fetch_object()) {
+                                echo "<option value='".$fila->id_ed."'>".$fila->nombre_ed."</option>";
+                              }//fin while
+                            }
+                          ?>  
+                        </select>
+                      </div>
+                      <span class="help-block" id="error"></span>
+                    </div>
+
                     <p class="text-muted font-13 m-b-30">
                       Lista de todos los Criterios de Evaluación Activos 
                     </p>
+                    <div id="agregar_t">
+                    <div>
                     
-                    <input type="hidden" name="bandera" id="bandera">
-                    <input type="hidden" name="baccion" id="baccion">
-
-					
-                    <div class="responsive-table">
-                      <table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">
-                      <thead>
-                        <tr>
-                          <th>No.</th>
-                          <th>Criterio&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                          <th>Acciones</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        
-                      <?php
-                      require '../../../build/config/conexion.php';
-                      $con=conectarMysql();
-                      $result = $con->query("SELECT * FROM ed_criterio ORDER By ed_ncriterio ASC");
-                      $contador=1;
-                      if ($result) {
-                        while ($fila = $result->fetch_object()) {
-                         
-                          echo "<tr>";
-                          echo "<td>" .$contador. "</td>";
-                          echo "<td>" . $fila->ed_ncriterio . "</td>";
-                          echo "<td>  <a class='btn btn-info' onclick='modify(".$fila->ed_idcriterio.")' ><i class='fa fa-edit'></i></a>
-                                      </td>";
-                          echo "</tr>";
-                          $contador++;
-
-                        }
-                       }
-                      ?>
-                      </tbody>
-                    </table>
+                    <div class="ln_solid"></div>
+                      <p style="color:RGB(205, 92, 92);">( * ) Campos Obligatorios Editables.</p> 
                     </div>
                   </div>
                 </div>
@@ -160,10 +152,6 @@ function ver(id){
       </div>
     </div>
     <?php include '../../global/script.php' ?>
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('#datatables-example').DataTable();
-      });
-    </script>
+     <script src="../../../build/config/validaciones/evaluacion_desempenio/validarled.js"></script>
   </body>
 </html>

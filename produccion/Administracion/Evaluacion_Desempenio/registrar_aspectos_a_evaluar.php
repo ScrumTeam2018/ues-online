@@ -105,7 +105,7 @@
                   <div class="form-group" id="ed">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Evaluaci&oacute;n: <span class="required" style="color: #CD5C5C;"> *</span></label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <select class="form-control" id="evaluacion" name="evaluacion" tabindex="4">
+                        <select class="form-control" id="evaluacion" name="evaluacion">
                           <option selected="selected" value="">Seleccione Evaluaci&oacute;n...</option>
                           <?php
                             require '../../../build/config/conexion.php';
@@ -139,43 +139,19 @@
                         <input type="text" id ="criterio_ed" name ="criterio_ed" class="form-control col-md-7 col-xs-12"  disabled>
                       </div>
                     </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Aspecto 1: <span class="required" style="color: #CD5C5C;"> *</span>
-                      </label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="nombre_item" name="nombre_item" required="required" placeholder="Digite Nombre del Aspecto" class="form-control col-md-7 col-xs-12" tabindex="1">
-                      </div>
-                      <span class="help-block" id="error"></span>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Aspecto 2: <span class="required" style="color: #CD5C5C;"> *</span>
-                      </label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="nombre_item" name="nombre_item" required="required" placeholder="Digite Nombre del Aspecto" class="form-control col-md-7 col-xs-12" tabindex="1">
-                      </div>
-                      <span class="help-block" id="error"></span>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Aspecto 3: <span class="required" style="color: #CD5C5C;"> *</span>
-                      </label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="nombre_item" name="nombre_item" required="required" placeholder="Digite Nombre del Aspecto" class="form-control col-md-7 col-xs-12" tabindex="1">
-                      </div>
-                      <span class="help-block" id="error"></span>
+                    <div id="insertaraspecto">
+                     
                     </div>
 
                     </div>
                     
 
-                     <div class="ln_solid"></div>
-                    <p style="color:RGB(205, 92, 92);">( * ) Campos Obligatorios.</p>
-                    <p style="color:RGB(#000080);">( ' ) Campos no Editables.</p>
+                    <div class="ln_solid"></div>
+                    <p style="color: RGB(0, 0, 128);">( ' ) Campos no Editables.</p>
+                    <p style="color:RGB(205, 92, 92);">( * ) Campos Obligatorios Editables.</p> 
                     <div class="form-group" align="right">
                       <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                        <button class="btn btn-round btn-primary" type="submit"  id="btnguardar" value="guardar"><i class="fa fa-save">  Guardar</i></button>
+                        <button class="btn btn-round btn-primary" type="button"  id="btnguardar" value="guardar"><i class="fa fa-save">  Guardar</i></button>
                         <button class="btn btn-round btn-default" type="reset" onclick="cancelar()"><i class="fa fa-ban">  Cancelar</i></button>
                       </div>
                     </div>
