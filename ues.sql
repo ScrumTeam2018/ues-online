@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 15-10-2018 a las 19:50:20
+-- Tiempo de generación: 30-10-2018 a las 10:58:48
 -- Versión del servidor: 5.7.21
 -- Versión de PHP: 5.6.35
 
@@ -192,37 +192,27 @@ INSERT INTO `complemento_aula` (`id_co_au`, `nombre_co_au`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ed_aspectos_evaluar`
+-- Estructura de tabla para la tabla `ed_aspectos`
 --
 
-DROP TABLE IF EXISTS `ed_aspectos_evaluar`;
-CREATE TABLE IF NOT EXISTS `ed_aspectos_evaluar` (
+DROP TABLE IF EXISTS `ed_aspectos`;
+CREATE TABLE IF NOT EXISTS `ed_aspectos` (
   `ed_idaspectos` int(11) NOT NULL AUTO_INCREMENT,
-  `ed_naspecto` text NOT NULL,
-  `ed_idcriteriofk` int(11) NOT NULL,
+  `ed_nomasp` text NOT NULL,
+  `ed_porasp` int(11) NOT NULL,
+  `estado_asp` int(11) NOT NULL,
+  `id_edfk` int(11) NOT NULL,
   PRIMARY KEY (`ed_idaspectos`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
--- Estructura de tabla para la tabla `ed_criterio`
+-- Volcado de datos para la tabla `ed_aspectos`
 --
 
-DROP TABLE IF EXISTS `ed_criterio`;
-CREATE TABLE IF NOT EXISTS `ed_criterio` (
-  `ed_idcriterio` int(11) NOT NULL AUTO_INCREMENT,
-  `ed_ncriterio` varchar(200) NOT NULL,
-  PRIMARY KEY (`ed_idcriterio`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `ed_criterio`
---
-
-INSERT INTO `ed_criterio` (`ed_idcriterio`, `ed_ncriterio`) VALUES
-(1, 'planificacion dos'),
-(2, 'puntualidad uno');
+INSERT INTO `ed_aspectos` (`ed_idaspectos`, `ed_nomasp`, `ed_porasp`, `estado_asp`, `id_edfk`) VALUES
+(1, 'aspacto 1', 0, 0, 3),
+(2, 'aspecto 2', 0, 0, 3),
+(3, 'eva 2', 0, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -379,6 +369,31 @@ INSERT INTO `estudiante` (`idestudiante`, `carnet_es`, `nombre_es`, `apellido_es
 (10, 'EA15001', 'Noe Edelison', 'Escobar Alas', 'Masculino', '0174-011089-101-7', '03354879-9', 'Tenancingo Cuscatlan', '7332-9801', 'ea15001@ues.edu.sv', 'Privada', 1, 3, 6, 'Registro'),
 (11, 'TM10991', 'Jeniffer Daniela', 'Torres Melgal', 'Femenino', '0188-120889-101-8', '01142687-1', 'Cojutepeque Cuscatlan', '6198-8800', 'tm10991@ues.edu.sv', 'Privada', 1, 2, 4, 'Registro'),
 (12, 'GM11015', 'Cesar Isaac', 'EspaÃ±a Cartagena', 'Masculino', '0716-100197-101-1', '04700556-1', 'Tenancingo Cuscatlan', '7792-6100', 'gm11015@ues.edu.sv', 'Privada', 1, 3, 6, 'Registro');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `evaulaciond`
+--
+
+DROP TABLE IF EXISTS `evaulaciond`;
+CREATE TABLE IF NOT EXISTS `evaulaciond` (
+  `id_ed` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_ed` varchar(200) NOT NULL,
+  `criterio_ed` varchar(200) NOT NULL,
+  `can_asp_ed` int(11) NOT NULL,
+  `estado_ed` int(11) NOT NULL,
+  PRIMARY KEY (`id_ed`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `evaulaciond`
+--
+
+INSERT INTO `evaulaciond` (`id_ed`, `nombre_ed`, `criterio_ed`, `can_asp_ed`, `estado_ed`) VALUES
+(1, 'Evaluacion 2018', 'Labor Academica', 6, 1),
+(2, 'Evaluacion 2018', 'Labor Academica', 6, 0),
+(3, 'Evaluacion Academica', 'Labor Academica', 4, 0);
 
 -- --------------------------------------------------------
 
