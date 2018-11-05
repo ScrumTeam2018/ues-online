@@ -73,7 +73,7 @@
                   <li><a><i class="fa fa-clone"></i>Evaluaci&oacute;n Desempe&ntilde;o <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="../../../produccion/Administracion/Evaluacion_Desempenio/registro_evaluaciond.php">Registro de Evaluaci&oacute;n</a></li>
-                      <li><a href="../../../produccion/Administracion/Evaluacion_Desempenio/listar_criterio.php">Lista de Evaluaci&oacute;n</a></li>
+                      <li><a href="../../../produccion/Administracion/Evaluacion_Desempenio/listar_evaluaciond.php">Lista de Evaluaci&oacute;n</a></li>
                       <li><a href="../../../produccion/Administracion/Evaluacion_Desempenio/registrar_aspectos_a_evaluar.php">Registro de Aspectos</a></li>
                       <li><a href="../../../produccion/Administracion/Evaluacion_Desempenio/listar_aspecto.php">Lista de Aspectos</a></li>
                       <li><a href="../../../produccion/Administracion/Evaluacion_Desempenio/registrar_item.php">Registro de &Iacute;tem</a></li>

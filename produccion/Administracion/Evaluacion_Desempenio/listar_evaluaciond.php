@@ -32,8 +32,20 @@ function salir(){
   });
 }
 
-function modify(id){
-  document.location.href='editar_aspecto.php?id='+id;
+function agregar(id){
+  document.location.href='registrar_aspectos.php?id='+id;
+ /* $.ajax({
+        type: 'POST',
+        url: '../../../produccion/Administracion/Evaluacion_Desempenio/registrar_aspectos.php',
+        data: {'id': id}
+      })
+      .done(function(listas_rep){
+        document.location.href='registrar_aspectos.php';
+      })
+      .fail(function(){
+        alert('Hubo un error al cargar los Representantes')
+      })*/
+      
 }
 
 function ver(id){
@@ -47,7 +59,7 @@ function ver(id){
         $('#datosRepresentante').modal({show:true});
       })
       .fail(function(){
-        alert('Hubo un errror al cargar los Representantes')
+        alert('Hubo un error al cargar los Representantes')
       })
 }
 
@@ -101,7 +113,7 @@ function ver(id){
                   <div class="x_title">
                     
 
-                    <h4 style="color:RGB(205, 92, 92);">Lista de Criterios de Evaluación Activos.</h4>
+                    <h4 style="color:RGB(205, 92, 92);">Lista de Evaluaciones Activas.</h4>
                     <ul class="nav navbar-right panel_toolbox">
                     
                     </ul>
@@ -130,9 +142,7 @@ function ver(id){
                       <span class="help-block" id="error"></span>
                     </div>
 
-                    <p class="text-muted font-13 m-b-30">
-                      Lista de todos los Criterios de Evaluación Activos 
-                    </p>
+                   <br><br><br>
                     <div id="agregar_t">
                     <div>
                     

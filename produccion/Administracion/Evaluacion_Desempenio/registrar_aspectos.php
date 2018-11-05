@@ -1,3 +1,22 @@
+<?php
+  require '../../../build/config/conexion.php';
+    if(isset($_REQUEST['id'])){
+    $evaluacion = $_REQUEST['id'];
+    $con=conectarMysql();
+    $consulta  = "SELECT ed.id_ed, ed.nombre_ed, ed.criterio_ed, ed.can_asp_ed, ed.estado_ed, COUNT(asp.ed_idaspectos) as maximo FROM evaulaciond as ed, ed_aspectos as asp  WHERE ed.id_ed='$evaluacion' AND ed.id_ed=asp.id_edfk";
+    $result = $con->query($consulta);
+      if ($result) {
+        while ($fila = $result->fetch_object()) {
+            $nombre=$fila->nombre_ed;
+            $criterio=$fila->criterio_ed;
+            $cantmax=$fila->maximo+1;
+                      
+        }//fin while
+      }
+      echo "exito";
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <!-- abrir head  -->
@@ -52,7 +71,7 @@
           },
             function(){
               //event to perform on click of ok button of sweetalert
-              location.href='registrar_aspectos_a_evaluar.php';
+              location.href='listar_evaluaciond.php';
             });
           });
         }
@@ -100,35 +119,16 @@
                   
                   <form id="formed" data-parsley-validate class="form-horizontal form-label-left">
                   <input type="hidden" name="bandera" id="bandera">
-                  <input type="hidden" name="canmax" id="canmax">
+                  <input type="hidden" name="canmax" id="canmax" value="<?php echo $cantmax; ?>">
+                  <input type="hidden" name="evaluacion" id="evaluacion" value="<?php echo $evaluacion; ?>">
 
-                  <div class="form-group" id="ed">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Evaluaci&oacute;n: <span class="required" style="color: #CD5C5C;"> *</span></label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <select class="form-control" id="evaluacion" name="evaluacion">
-                          <option selected="selected" value="">Seleccione Evaluaci&oacute;n...</option>
-                          <?php
-                            require '../../../build/config/conexion.php';
-                            $con=conectarMysql();
-                            $sql_fa  = "SELECT id_ed, nombre_ed FROM evaulaciond WHERE estado_ed=0";
-                            $result = $con->query($sql_fa);
-                            if ($result) {
-                              while ($fila = $result->fetch_object()) {
-                                echo "<option value='".$fila->id_ed."'>".$fila->nombre_ed."</option>";
-                              }//fin while
-                            }
-                          ?>  
-                        </select>
-                      </div>
-                      <span class="help-block" id="error"></span>
-                    </div>
-
+                  
                     <div id="info">
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre: <span style="color:	#000080;"> '</span>
                       </label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" id="nombre_ed" name ="nombre_ed"  class="form-control col-md-7 col-xs-12"  disabled>
+                        <input type="text" id="nombre_ed" name ="nombre_ed"  value="<?php echo $nombre; ?>" class="form-control col-md-7 col-xs-12"  disabled>
                       </div>
                     </div>
 
@@ -136,7 +136,7 @@
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Criterio: <span style="color:	#000080;"> '</span>
                       </label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" id ="criterio_ed" name ="criterio_ed" class="form-control col-md-7 col-xs-12"  disabled>
+                        <input type="text" id ="criterio_ed" name ="criterio_ed" value="<?php echo $criterio; ?>" class="form-control col-md-7 col-xs-12"  disabled>
                       </div>
                     </div>
                     <div id="insertaraspecto">
@@ -172,6 +172,6 @@
   </div>
   
   <?php include '../../global/script.php' ?>
-  <script src="../../../build/config/validaciones/evaluacion_desempenio/validaraspectos.js"></script>
+    <script src="../../../build/config/validaciones/evaluacion_desempenio/validaraspectosdos.js"></script> 
 </body>
 </html>
