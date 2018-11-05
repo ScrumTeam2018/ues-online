@@ -138,7 +138,7 @@ function ver(id){
                           echo "<td>" .$contador. "</td>";
                           echo "<td>" . $fila->ed_ncriterio . "</td>";
                           echo "<td>" . $fila->ed_naspecto . "</td>";
-                          echo "<td>  <a class='btn btn-info' onclick='modify(".$fila->ed_idaspectos.")' ><i class='fa fa-edit'></i></a>
+                          echo "<td>  <a class='btn btn-info' onclick='editaspecto(".$fila->ed_idaspectos.")' ><i class='fa fa-edit'></i></a>
                                       </td>";
                           echo "</tr>";
                           $contador++;

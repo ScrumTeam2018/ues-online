@@ -48,6 +48,14 @@ function agregar(id){
       
 }
 
+function editaspecto(id){
+//$('#baccion').val(id);
+alert(id);
+  //alert(aspecto);
+  //$('#aspecto').val(aspecto);
+ // $('#editaspecto').modal({show:true});
+}
+
 function ver(id){
   $.ajax({
         type: 'POST',
@@ -153,6 +161,45 @@ function ver(id){
                 </div>
                 </div>
             </div>
+
+                    <!-- Modal -->
+                    <form id="fromedit" name="fromedit">
+                    <div class="modal fade" id="editaspecto" name="editaspecto" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog ">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="myModalLabel" style="color: RGB(0, 0, 128);">Editar Aspecto</h4>
+                        </div>
+                        
+
+                        <div class="modal-body1">
+                        <br/>
+                        
+                        <div class="form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="aspecto">Aspecto: <span class="required" style="color: #CD5C5C;"> *</span>
+                          </label>
+                          <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" id="aspecto" name="aspecto" placeholder="Digite Nombre del Aspecto" class="form-control col-md-7 col-xs-12" tabindex="1">
+                            <br>
+                            <span class="help-block" id="error"></span>
+                          </div>
+                        </div>
+                        <br><br><br><br>
+                          
+                        </div>
+                        <div class="modal-footer">
+                          <p align="left" style="color:RGB(205, 92, 92);">( * ) Campos Obligatorios.</p>
+                          <button class="btn btn-round btn-primary" type="button"  id="modalguardar" name="modalguardar"><i class="fa fa-refresh">  Actualizar</i></button>
+                          <button type="button" class="btn btn-round btn-default" data-dismiss="modal"><i class="fa fa-ban">  Cancelar</i></button>
+                        </div>
+
+                       
+                      </div>
+                    </div>
+                  </div>
+                  </form>
+                  <!-- Fin Modal -->
 
             
 

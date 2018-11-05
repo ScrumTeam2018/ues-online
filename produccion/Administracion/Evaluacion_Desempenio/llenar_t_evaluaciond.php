@@ -80,7 +80,7 @@
                           echo "<td>" .$contador. "</td>";
                           echo "<td>" . $fila->ed_nomasp . "</td>";
                           echo "<td>" . $fila-> ed_idaspectos. "</td>";
-                          echo "<td>  <a class='btn btn-info' onclick='modify(".$fila->ed_idaspectos.")' ><i class='fa fa-edit'></i></a>
+                          echo "<td>  <a class='btn btn-info' onclick='editaspecto(".$fila->ed_idaspectos.")' ><i class='fa fa-edit'></i></a>
                                       <a class='btn btn-danger' onclick='modify(".$fila->ed_idaspectos.")' ><i class='fa fa-plus-circle'></i></a>
                                       </td>";
                           echo "</tr>";
