@@ -30,11 +30,12 @@
       function obtenerResultado(){
       $result = 0;
       $nombre=$_REQUEST["nombre"];
+      $criterio=$_POST["criterio"];
       $baccion=$_REQUEST["baccion"];
 
       $con = conectarMysql();
 
-      $consulta  = "UPDATE ed_criterio SET ed_ncriterio='$nombre' WHERE ed_idcriterio=".$baccion;
+      $consulta  = "UPDATE evaulaciond set nombre_ed='$nombre',criterio_ed='$criterio' where id_ed='$baccion'";
       $result = $con->query($consulta);
         if ($result) {
           $msj = "Exito";
@@ -66,7 +67,69 @@
         }
         return $msj;
       }
+  }else if($bandera=="editaraspecto"){
+    $msj="Error";
+  
+    function obtenerResultado(){
+    $result = 0;
+    $nombre=$_REQUEST["aspecto"];
+    $baccion=$_REQUEST["baccion"];
+
+    $con = conectarMysql();
+
+    $consulta  = "UPDATE ed_aspectos SET ed_nomasp='$nombre' WHERE ed_idaspectos='$baccion'";
+    $result = $con->query($consulta);
+      if ($result) {
+        $msj = "Exito";
+      } else {
+        $msj = "Error";
+      }
+      return $msj;
+    }
+  }else if($bandera=="item"){
+    $msj="Error";
+  
+    function obtenerResultado(){
+    $result = 0;
+  
+    $item= $_POST['item'];
+    $idasp=$_POST['idasp'];
+    $con = conectarMysql();
+
+      for($i=0 ; $i <count($item); $i++ ){
+        if($item[$i] !=""){
+        $consulta = "INSERT INTO ed_item(ed_nomitem, ed_poritem, estado_item, ed_idaspectofk) VALUES ('$item[$i]','0','0','$idasp')";
+        $result = $con->query($consulta);
+        }
+      }
+      if ($result) {
+        $msj = "Exito";
+      } else {
+        $msj = "Error";
+      }
+      return $msj;
+    }
+}else if($bandera=="editaritem"){
+  $msj="Error";
+
+  function obtenerResultado(){
+  $result = 0;
+  $item=$_REQUEST["item"];
+  $baccion=$_REQUEST["baccion"];
+
+  $con = conectarMysql();
+
+  $consulta  = "UPDATE ed_item SET ed_nomitem='$item' WHERE ed_iditem='$baccion'";
+  $result = $con->query($consulta);
+    if ($result) {
+      $msj = "Exito";
+    } else {
+      $msj = "Error";
+    }
+    return $msj;
   }
+}
+
   }
  
     echo obtenerResultado();

@@ -5,6 +5,8 @@
 
 <?php include '../../global/head.php' ?>
 
+
+
 <script type="text/javascript">
 
 function salir(){
@@ -48,13 +50,30 @@ function agregar(id){
       
 }
 
-function editaspecto(id){
-//$('#baccion').val(id);
-alert(id);
-  //alert(aspecto);
-  //$('#aspecto').val(aspecto);
- // $('#editaspecto').modal({show:true});
+function edited(id_ed, nombre, criterio){
+         $('#baccion').val(id_ed);
+         $('#nombre').val(nombre);
+         $('#criterio').val(criterio);
+         $('#moded').modal({show:true});
 }
+
+function additem(id){
+  document.location.href='registrar_item.php?id='+id;
+ /* $.ajax({
+        type: 'POST',
+        url: '../../../produccion/Administracion/Evaluacion_Desempenio/registrar_aspectos.php',
+        data: {'id': id}
+      })
+      .done(function(listas_rep){
+        document.location.href='registrar_aspectos.php';
+      })
+      .fail(function(){
+        alert('Hubo un error al cargar los Representantes')
+      })*/
+      
+}
+
+
 
 function ver(id){
   $.ajax({
@@ -121,7 +140,7 @@ function ver(id){
                   <div class="x_title">
                     
 
-                    <h4 style="color:RGB(205, 92, 92);">Lista de Evaluaciones Activas.</h4>
+                    <h4 style="color:RGB(205, 92, 92);">Lista de Evaluaciones Inactivas.</h4>
                     <ul class="nav navbar-right panel_toolbox">
                     
                     </ul>
@@ -152,7 +171,7 @@ function ver(id){
 
                    <br><br><br>
                     <div id="agregar_t">
-                    <div>
+                    </div>
                     
                     <div class="ln_solid"></div>
                       <p style="color:RGB(205, 92, 92);">( * ) Campos Obligatorios Editables.</p> 
@@ -161,23 +180,75 @@ function ver(id){
                 </div>
                 </div>
             </div>
+             <!-- Modal modificar evaluacion-->
+             <form id="frommod" name="frommod">
+                    <div class="modal fade" id="moded" name="moded" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog ">
+                      <div class="modal-content">
 
-                    <!-- Modal -->
-                    <form id="fromedit" name="fromedit">
+                        <div class="modal-header">
+                          <strong><h4 class="modal-title" id="myModalLabel" style="color: RGB(0, 0, 128);">Editar Registro de Evaluación.</strong></h4>
+                        </div>
+                        
+
+                        <div class="modal-body">
+                        <br/>
+                        
+                        <div class="form-group">
+                        <h4 class="modal-title" id="myModalLabel" style="color: RGB(205, 92, 92);">&nbsp;&nbsp;Datos de Evaluación.</h4>
+                        <br>
+                          <label class="control-label col-md-2 col-sm-2 col-xs-12" for="observacion">Nombre: <span class="required" style="color: #CD5C5C;"> *</span>
+                          </label>
+                          <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" id="nombre" name="nombre" class="form-control col-md-7 col-xs-12" tabindex="1">
+                            <br>
+                            <span class="help-block" id="error"></span>
+                          </div>
+                        </div>
+                        <br><br>
+                        <div class="form-group">
+                        
+                          <label class="control-label col-md-2 col-sm-2 col-xs-12" for="observacion">Criterio: <span class="required" style="color: #CD5C5C;"> *</span>
+                          </label>
+                          <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" id="criterio" name="criterio"  class="form-control col-md-7 col-xs-12" tabindex="1">
+                            <br>
+                            <span class="help-block" id="error"></span>
+                          </div>
+                        </div>
+                        
+                        <br><br>
+                          
+                        </div>
+                        <div class="modal-footer">
+                          <p align="left" style="color:RGB(205, 92, 92);">( * ) Campos Obligatorios.</p>
+                          <button class="btn btn-round btn-primary" type="button"  id="modalguardar" name="modalguardar"><i class="fa fa-save">  Guardar</i></button>
+                          <button type="button" class="btn btn-round btn-default" data-dismiss="modal"><i class="fa fa-ban">  Cancelar</i></button>
+                        </div>
+
+                       
+                      </div>
+                    </div>
+                  </div>
+                  </form>
+                  <!-- Fin Modal -->
+
+                    <!-- Modal Editar Aspecto-->
+                    <form id="fromeditaspecto" name="fromeditaspecto">
                     <div class="modal fade" id="editaspecto" name="editaspecto" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog ">
                       <div class="modal-content">
 
                         <div class="modal-header">
-                          <h4 class="modal-title" id="myModalLabel" style="color: RGB(0, 0, 128);">Editar Aspecto</h4>
+                        <strong><h4 class="modal-title" id="myModalLabel" style="color: RGB(0, 0, 128);">Editar Aspecto de Evaluación.</strong></h4>
                         </div>
                         
 
-                        <div class="modal-body1">
+                        <div class="modal-body">
                         <br/>
                         
                         <div class="form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="aspecto">Aspecto: <span class="required" style="color: #CD5C5C;"> *</span>
+                          <label class="control-label col-md-2 col-sm-2 col-xs-12" for="aspecto">Aspecto: <span class="required" style="color: #CD5C5C;"> *</span>
                           </label>
                           <div class="col-md-9 col-sm-9 col-xs-12">
                             <input type="text" id="aspecto" name="aspecto" placeholder="Digite Nombre del Aspecto" class="form-control col-md-7 col-xs-12" tabindex="1">
@@ -190,7 +261,47 @@ function ver(id){
                         </div>
                         <div class="modal-footer">
                           <p align="left" style="color:RGB(205, 92, 92);">( * ) Campos Obligatorios.</p>
-                          <button class="btn btn-round btn-primary" type="button"  id="modalguardar" name="modalguardar"><i class="fa fa-refresh">  Actualizar</i></button>
+                          <button class="btn btn-round btn-primary" type="button"  id="btnEAspecto" name="btnEAspecto"><i class="fa fa-refresh">  Actualizar</i></button>
+                          <button type="button" class="btn btn-round btn-default" data-dismiss="modal"><i class="fa fa-ban">  Cancelar</i></button>
+                        </div>
+
+                       
+                      </div>
+                    </div>
+                  </div>
+                  </form>
+                  <!-- Fin Modal -->
+
+
+                  <!-- Modal Editar Item-->
+                  <form id="fromedititem" name="fromedititem">
+                    <div class="modal fade" id="edititem" name="edititem" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog ">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                        <strong><h4 class="modal-title" id="myModalLabel" style="color: RGB(0, 0, 128);">Editar Item de Aspecto de Evaluación.</strong></h4>
+                        </div>
+                        
+
+                        <div class="modal-body">
+                        <br/>
+                        
+                        <div class="form-group">
+                          <label class="control-label col-md-2 col-sm-2 col-xs-12" for="item">Item: <span class="required" style="color: #CD5C5C;"> *</span>
+                          </label>
+                          <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" id="item" name="item" placeholder="Digite Nombre del Item" class="form-control col-md-7 col-xs-12" tabindex="1">
+                            <br>
+                            <span class="help-block" id="error"></span>
+                          </div>
+                        </div>
+                        <br><br><br><br>
+                          
+                        </div>
+                        <div class="modal-footer">
+                          <p align="left" style="color:RGB(205, 92, 92);">( * ) Campos Obligatorios.</p>
+                          <button class="btn btn-round btn-primary" type="button"  id="btnEItem" name="btnEItem"><i class="fa fa-refresh">  Actualizar</i></button>
                           <button type="button" class="btn btn-round btn-default" data-dismiss="modal"><i class="fa fa-ban">  Cancelar</i></button>
                         </div>
 

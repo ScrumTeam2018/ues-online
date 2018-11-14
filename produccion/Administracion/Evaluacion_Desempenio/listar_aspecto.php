@@ -33,23 +33,43 @@ function salir(){
 }
 
 function modify(id){
-  document.location.href='editar_aspecto.php?id='+id;
+  document.location.href='editarCarrera.php?id='+id;
 }
 
 function ver(id){
   $.ajax({
         type: 'POST',
-        url: '../../../produccion/Administracion/Representante/mostrarRepresentante.php',
+        url: '../../../produccion/Administracion/carrera/mostrarCarrera.php',
         data: {'id': id}
       })
       .done(function(listas_rep){
         $('.modal-body').html(listas_rep)
-        $('#datosRepresentante').modal({show:true});
+        $('#datosCarrera').modal({show:true});
       })
       .fail(function(){
-        alert('Hubo un errror al cargar los Representantes')
+        alert('Hubo un errror al cargar las Carreras')
       })
 }
+
+function confirmar(id){
+          swal({ 
+            title: "Advertencia",
+            text: "¿Desea Dar Baja a Este Registro?",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: "No",
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Si",
+            closeOnConfirm: false },
+
+            function(){ 
+              //event to perform on click of ok button of sweetalert
+              document.getElementById('bandera').value='darbaja';
+              document.getElementById('baccion').value=id;
+              $("#formcarrera").submit();
+            
+          });
+        }
 
 </script>
 
@@ -87,27 +107,28 @@ function ver(id){
         <!--Magda titulo -->
         <div class="page-title">
               <div class="col-sm-12 col-sm-offset-1 col-md-10 col-md-offset-1 ">
-                <h4 style="color: RGB(0, 0, 128);"><strong>ADMINISTRACI&Oacute;N DE EVALUACIÓN DE DESEMPEÑO.</strong></h4>
+                <h4 style="color: RGB(0, 0, 128);"><strong>CARRERA.</strong></h4>
                 
               </div> 
         </div>
         <div class="clearfix"></div>
+       
         <div class="row" >
-            <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
-              <div class="x_panel" >
-                <div class="x_title">
-                  <h4 style="color:RGB(205, 92, 92);">Registro de Aspectos a Evaluar</h4>
-                  <ul class="nav navbar-right panel_toolbox">
+          <!--    <div class="col-sm-12 col-sm-offset-1 col-md-10 col-md-offset-1 ">-->
                   
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  
-                  <form id="formed" data-parsley-validate class="form-horizontal form-label-left">
-                  <input type="hidden" name="bandera" id="bandera">
-                  <input type="hidden" name="canmax" id="canmax">
-
+                    
+                <div class="col-sm-12 col-sm-offset-1 col-md-10 col-md-offset-1">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h4 style="color:RGB(205, 92, 92);">Lista de Carreras Activas.</h4>
+                    <ul class="nav navbar-right panel_toolbox">
+                    <li><a href="registroCarrera.php">Registrar Carrera</a>
+                    </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    
                   <div class="form-group" id="ed">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Evaluaci&oacute;n: <span class="required" style="color: #CD5C5C;"> *</span></label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
@@ -129,109 +150,20 @@ function ver(id){
                       <span class="help-block" id="error"></span>
                     </div>
 
-                    <div id="info">
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre: <span style="color:	#000080;"> '</span>
-                      </label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" id="nombre_ed" name ="nombre_ed"  class="form-control col-md-7 col-xs-12"  disabled>
-                      </div>
+                    <br><br><br>
+                    <div id="agregar_t">
                     </div>
 
-                   <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Criterio: <span style="color:	#000080;"> '</span>
-                      </label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" id ="criterio_ed" name ="criterio_ed" class="form-control col-md-7 col-xs-12"  disabled>
-                      </div>
-                    </div>
-                    <div id="insertaraspecto">
-                     
-                    </div>
 
-                    </div>
-                    
-
-                    <div class="ln_solid"></div>
-                    <p style="color: RGB(0, 0, 128);">( ' ) Campos no Editables.</p>
-                    <p style="color:RGB(205, 92, 92);">( * ) Campos Obligatorios Editables.</p> 
-                    <div class="form-group" align="right">
-                      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                        <button class="btn btn-round btn-primary" type="button"  id="btnguardar" value="guardar"><i class="fa fa-save">  Guardar</i></button>
-                        <button class="btn btn-round btn-default" type="reset" onclick="cancelar()"><i class="fa fa-ban">  Cancelar</i></button>
-                      </div>
-                    </div>
-                  </form>
-
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-        <div class="row" >
-                    
-                <div class="col-sm-12 col-sm-offset-1 col-md-10 col-md-offset-1">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h4 style="color:RGB(205, 92, 92);">Lista de Criterios de Evaluación Activos.</h4>
-                    <ul class="nav navbar-right panel_toolbox">
-                    <li><a href="registrar_criterio.php">Registrar Criterios de Evaluación</a>
-                    </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                      Lista de todos los Criterios de Evaluación Activos 
-                    </p>
-                    
-                    <input type="hidden" name="bandera" id="bandera">
-                    <input type="hidden" name="baccion" id="baccion">
-
-					
-                    <div class="responsive-table">
-                      <table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">
-                      <thead>
-                        <tr>
-                          <th>No.</th>
-                          <th>Evaluaci&oacute;n</th>
-                          <th></th>
-                          <th>Acciones</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        
-                      <?php
-                     // require '../../../build/config/conexion.php';
-                     // $con=conectarMysql();
-                      $result = $con->query("SELECT ae.ed_idaspectos, c.ed_ncriterio, ae.ed_naspecto FROM ed_aspectos_evaluar as ae, ed_criterio as c WHERE ae.ed_idcriteriofk=c.ed_idcriterio ORDER BY c.ed_ncriterio ASC");
-                      $contador=1;
-                      if ($result) {
-                        while ($fila = $result->fetch_object()) {
-                         
-                          echo "<tr>";
-                          echo "<td>" .$contador. "</td>";
-                          echo "<td>" . $fila->ed_ncriterio . "</td>";
-                          echo "<td>" . $fila->ed_naspecto . "</td>";
-                          echo "<td>  <a class='btn btn-info' onclick='modify(".$fila->ed_idaspectos.")' ><i class='fa fa-edit'></i></a>
-                                      </td>";
-                          echo "</tr>";
-                          $contador++;
-
-                        }
-                       }
-                      ?>
-                      </tbody>
-                    </table>
-                    </div>
                   </div>
                 </div>
                 </div>
             </div>
-
         </div>
+        
+      
+           
+
         <!-- /page content -->
         <?php include '../../global/footer.php' ?>    
       </div>
@@ -240,6 +172,10 @@ function ver(id){
     <script type="text/javascript">
       $(document).ready(function(){
         $('#datatables-example').DataTable();
+
+       
+
+      
       });
     </script>
   </body>

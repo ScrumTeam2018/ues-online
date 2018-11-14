@@ -116,7 +116,7 @@ $(document).ready(function(){
               },
                 function(){
                   //event to perform on click of ok button of sweetalert
-                  location.href='../../../produccion/Administracion/Evaluacion_Desempenio/registro_evaluaciond.php';
+                  location.href='../../../produccion/Administracion/Evaluacion_Desempenio/registrar_aspectos_a_evaluar.php';
                 })
               }
                 if(listas_rep === "Error"){
@@ -133,7 +133,7 @@ $(document).ready(function(){
 
 
     $("#nombre").blur(function(){
-      alert("entro");
+      //alert("entro");
 
     });
 

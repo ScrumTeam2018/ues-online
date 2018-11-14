@@ -13,7 +13,9 @@
                       
         }//fin while
       }
-      echo "exito";
+  //    echo "exito";
+
+    
     }
 ?>
 
@@ -109,7 +111,7 @@
             <div class="col-sm-12 col-sm-offset-2 col-md-8 col-md-offset-2 ">
               <div class="x_panel" >
                 <div class="x_title">
-                  <h4 style="color:RGB(205, 92, 92);">Registro de Aspectos a Evaluar</h4>
+                  <h4 style="color:RGB(205, 92, 92);">Registro de Aspectos a Evaluar <span style="color: #0B615E;"> "</span></h4>
                   <ul class="nav navbar-right panel_toolbox">
                   
                   </ul>
@@ -149,6 +151,7 @@
                     <div class="ln_solid"></div>
                     <p style="color: RGB(0, 0, 128);">( ' ) Campos no Editables.</p>
                     <p style="color:RGB(205, 92, 92);">( * ) Campos Obligatorios Editables.</p> 
+                    <p style="color: #0B615E;">( " ) M&iacute;nimo 3 y M&aacute;ximo 7.</p>
                     <div class="form-group" align="right">
                       <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                         <button class="btn btn-round btn-primary" type="button"  id="btnguardar" value="guardar"><i class="fa fa-save">  Guardar</i></button>

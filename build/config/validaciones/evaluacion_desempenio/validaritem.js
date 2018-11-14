@@ -49,23 +49,24 @@ $(document).ready(function(){
     });
 
     var cant = $("#canmax").val();
-      for(i=cant; i<8; i++){
-        var cadena="<div class='form-group'><label class='control-label col-md-3 col-sm-3 col-xs-12' for='nombre'>Aspecto "+i+": <span class='required' style='color: #CD5C5C;'> *</span></label><div class='col-md-6 col-sm-6 col-xs-12'><input type='text' id='aspecto[]' name='aspecto[]' required='required' placeholder='Digite Nombre del Aspecto' class='form-control col-md-7 col-xs-12' tabindex='1'></div><span class='help-block' id='error'></span></div>";
-        $('#insertaraspecto').append(cadena);
+      for(i=cant; i<9; i++){
+        var cadena="<div class='form-group'><label class='control-label col-md-3 col-sm-3 col-xs-12' for='nombre'>Item "+i+": <span class='required' style='color: #CD5C5C;'> *</span></label><div class='col-md-6 col-sm-6 col-xs-12'><input type='text' id='item[]' name='item[]' required='required' placeholder='Digite Nombre del Item' class='form-control col-md-7 col-xs-12' tabindex='1'></div><span class='help-block' id='error'></span></div>";
+        $('#insertaritem').append(cadena);
       }
     
 });
 
 
   $("#btnguardar").click(function(){
-    if($("#formed").valid()){
-     $('#bandera').val("aspecto");
+   // if($("#formed").valid()){
+     $('#bandera').val("item");
       $.ajax({
         type: 'POST',
         url: '../../../build/config/sql/evaluacion_desempenio/crud_evaluaciond.php',
         data: $("#formed").serialize()
       })
         .done(function(listas_rep){
+          //  alert(listas_rep);
           if(listas_rep === "Exito"){
             swal({ 
               title:'Éxito',
@@ -85,7 +86,7 @@ $(document).ready(function(){
           .fail(function(){
             alert('Hubo un error al cargar la Pagina')
           })
-    }
+   // }
     
   });
 

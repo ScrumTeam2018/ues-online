@@ -97,7 +97,7 @@ $("#evaluacion").blur(function(){
             },
               function(){
                 //event to perform on click of ok button of sweetalert
-                location.href='../../../produccion/Administracion/Evaluacion_Desempenio/registrar_aspectos_a_evaluar.php';
+                location.href='../../../produccion/Administracion/Evaluacion_Desempenio/listar_evaluaciond.php';
               })
             }
               if(listas_rep === "Error"){

@@ -50,7 +50,7 @@
           },
             function(){
               //event to perform on click of ok button of sweetalert
-              location.href='registrar_criterio.php';
+              location.href='registro_evaluaciond.php';
             });
           });
         }
@@ -118,22 +118,14 @@
                       <span class="help-block" id="error"></span>
                     </div>
 
-                    <h5> <strong><p style="color:RGB(0, 0, 128);"> Datos Aspectos:</strong></p></h5>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="aspectos">Aspectos: <span class="required" style="color: #CD5C5C;"> *</span><span class="required" style="color: #0B615E;"> " </span>
-                      </label>
-                      <div class="col-md-3 col-sm-3 col-xs-12">
-                        <input type="number" id="aspectos" name="aspectos" required="required" min="3" max="7" value="3" placeholder="Digite Cantidad" class="form-control col-md-7 col-xs-12" tabindex="3">
-                        
-                      </div>
-                      <span class="help-block" id="error"></span>
-                    </div>
+              
+                    <input type="hidden" id="aspectos" name="aspectos" required="required" min="3" max="7" value="3" placeholder="Digite Cantidad" class="form-control col-md-7 col-xs-12" tabindex="3">
+                     
                     
                     
                     <div class="ln_solid"></div>
                     <p style="color:RGB(205, 92, 92);">( * ) Campos Obligatorios.</p>
-                    <p style="color: #0B615E;">( " ) M&iacute;nimo 3 y M&aacute;ximo 7.</p>
+                    
                     <div class="form-group" align="right">
                       <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                         <button class="btn btn-round btn-primary" type="button"  id="btnguardar" value="guardar"><i class="fa fa-save">  Guardar</i></button>
